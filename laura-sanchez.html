@@ -8,6 +8,12 @@
     name="description"
     content="Case study: Laura Sanchez branding and logo system — wordmark, tulip logomark, typography, and color palette."
   />
+
+  <!-- Google Font (Secondary Typeface) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -144,7 +150,8 @@
             creating a recognizable symbol that can stand alone.
           </p>
 
-          <div class="case-showcase">
+          <!-- Cleaned showcase -->
+          <div class="case-showcase liquid-glass deck-edge">
             <div class="case-showcase__media">
               <img
                 class="case-img"
@@ -165,8 +172,9 @@
             </div>
           </div>
 
-          <div class="case-tiles">
-            <article class="case-tile case-tile--feature">
+          <!-- Cleaner orientation: feature + stacked column -->
+          <div class="logo-tiles">
+            <article class="case-tile liquid-glass deck-edge case-tile--feature">
               <div class="case-tile__media">
                 <img class="case-img" src="images/laura-sanchez/logo-logomark.png" alt="Tulip U logomark" />
               </div>
@@ -179,32 +187,34 @@
               </div>
             </article>
 
-            <article class="case-tile">
-              <div class="case-tile__media">
-                <img class="case-img" src="images/laura-sanchez/logo-stacked.png" alt="Laura Sanchez stacked logo" />
-              </div>
-              <div class="case-tile__body">
-                <h4 class="case-tile__title"><em>Stacked</em> Lockup</h4>
-                <p class="case-tile__text">
-                  A compact option for square and vertical spaces — useful for avatars, stamps, and smaller placements.
-                </p>
-              </div>
-            </article>
+            <div class="logo-tiles__stack">
+              <article class="case-tile liquid-glass deck-edge">
+                <div class="case-tile__media">
+                  <img class="case-img" src="images/laura-sanchez/logo-stacked.png" alt="Laura Sanchez stacked logo" />
+                </div>
+                <div class="case-tile__body">
+                  <h4 class="case-tile__title"><em>Stacked</em> Lockup</h4>
+                  <p class="case-tile__text">
+                    A compact option for square and vertical spaces — useful for avatars, stamps, and smaller placements.
+                  </p>
+                </div>
+              </article>
 
-            <article class="case-tile">
-              <div class="case-tile__media">
-                <img class="case-img" src="images/laura-sanchez/logo-onecolor.png" alt="One-color logo version" />
-              </div>
-              <div class="case-tile__body">
-                <h4 class="case-tile__title"><em>One-Color</em> Version</h4>
-                <p class="case-tile__text">
-                  A production-safe version built for versatile usage across print, stamps, and limited-color applications.
-                </p>
-              </div>
-            </article>
+              <article class="case-tile liquid-glass deck-edge">
+                <div class="case-tile__media">
+                  <img class="case-img" src="images/laura-sanchez/logo-onecolor.png" alt="One-color logo version" />
+                </div>
+                <div class="case-tile__body">
+                  <h4 class="case-tile__title"><em>One-Color</em> Version</h4>
+                  <p class="case-tile__text">
+                    A production-safe version built for versatile usage across print, stamps, and limited-color applications.
+                  </p>
+                </div>
+              </article>
+            </div>
           </div>
 
-          <div class="case-rule">
+          <div class="case-rule liquid-glass deck-edge">
             <h3 class="case-panel__title"><em>Logo</em> Usage Notes</h3>
             <ul class="case-list">
               <li><strong>Clear space:</strong> Maintain comfortable breathing room around the mark for a premium feel.</li>
@@ -239,7 +249,7 @@
                 Expressive, humanist curves and a handcrafted warmth make Alverata Informal ideal for the wordmark and
                 key brand moments.
               </p>
-              <div class="type-sample">
+              <div class="type-sample type-sample--primary">
                 <div class="type-sample__big">Laura Sanchez</div>
                 <div class="type-sample__small">Aa Bb Cc — 0123456789</div>
               </div>
@@ -251,11 +261,11 @@
                 Lato supports body copy and informational text with modern simplicity and excellent legibility, keeping
                 the system clear and functional.
               </p>
-              <div class="type-sample">
+              <div class="type-sample type-sample--secondary">
                 <div class="type-sample__big type-sample__big--body">
                   Clear, confident, and readable across web and print.
                 </div>
-                <div class="type-sample__small">Weights: Regular / Medium / Semibold</div>
+                <div class="type-sample__small">Aa Bb Cc — 0123456789</div>
               </div>
             </article>
 
@@ -287,47 +297,103 @@
             and airy + floral accents for personality.
           </p>
 
-          <div class="palette">
+          <div class="palette liquid-glass deck-edge">
+            <!-- Soft Black -->
             <div class="swatch">
               <div class="swatch__chip" style="background:#000000;"></div>
               <div class="swatch__meta">
                 <div class="swatch__name">Soft Black</div>
-                <div class="swatch__code">#000000</div>
+                <div class="swatch__specs">
+                  <div class="spec">
+                    <div class="spec__label">HEX</div>
+                    <div class="spec__value">#000000</div>
+                  </div>
+                  <div class="spec">
+                    <div class="spec__label">RGB</div>
+                    <div class="spec__value">0, 0, 0</div>
+                  </div>
+                  <div class="spec">
+                    <div class="spec__label">CMYK</div>
+                    <div class="spec__value">0, 0, 0, 100</div>
+                  </div>
+                </div>
               </div>
             </div>
 
+            <!-- Highlight Gold -->
             <div class="swatch">
-              <div class="swatch__chip" style="background:#f0c53e;"></div>
+              <div class="swatch__chip" style="background:#F0C53E;"></div>
               <div class="swatch__meta">
                 <div class="swatch__name">Highlight Gold</div>
-                <div class="swatch__code">#f0c53e</div>
+                <div class="swatch__specs">
+                  <div class="spec">
+                    <div class="spec__label">HEX</div>
+                    <div class="spec__value">#F0C53E</div>
+                  </div>
+                  <div class="spec">
+                    <div class="spec__label">RGB</div>
+                    <div class="spec__value">240, 197, 62</div>
+                  </div>
+                  <div class="spec">
+                    <div class="spec__label">CMYK</div>
+                    <div class="spec__value">0, 18, 74, 6</div>
+                  </div>
+                </div>
               </div>
             </div>
 
+            <!-- Airy Blue -->
             <div class="swatch">
               <div class="swatch__chip" style="background:#A1CFEA;"></div>
               <div class="swatch__meta">
                 <div class="swatch__name">Airy Blue</div>
-                <div class="swatch__code">#A1CFEA</div>
+                <div class="swatch__specs">
+                  <div class="spec">
+                    <div class="spec__label">HEX</div>
+                    <div class="spec__value">#A1CFEA</div>
+                  </div>
+                  <div class="spec">
+                    <div class="spec__label">RGB</div>
+                    <div class="spec__value">161, 207, 234</div>
+                  </div>
+                  <div class="spec">
+                    <div class="spec__label">CMYK</div>
+                    <div class="spec__value">31, 12, 0, 8</div>
+                  </div>
+                </div>
               </div>
             </div>
 
+            <!-- Floral Pink -->
             <div class="swatch">
-              <div class="swatch__chip" style="background:#fc8eac;"></div>
+              <div class="swatch__chip" style="background:#FC8EAC;"></div>
               <div class="swatch__meta">
                 <div class="swatch__name">Floral Pink</div>
-                <div class="swatch__code">#fc8eac</div>
+                <div class="swatch__specs">
+                  <div class="spec">
+                    <div class="spec__label">HEX</div>
+                    <div class="spec__value">#FC8EAC</div>
+                  </div>
+                  <div class="spec">
+                    <div class="spec__label">RGB</div>
+                    <div class="spec__value">252, 142, 172</div>
+                  </div>
+                  <div class="spec">
+                    <div class="spec__label">CMYK</div>
+                    <div class="spec__value">0, 44, 32, 1</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="case-rule">
+          <div class="case-rule liquid-glass deck-edge">
             <h3 class="case-panel__title"><em>Color</em> Usage</h3>
             <ul class="case-list">
-              <li><strong>Soft Black (#000000):</strong> Primary text, logo, and structural clarity.</li>
-              <li><strong>Highlight Gold (#f0c53e):</strong> Select highlights, emphasis, and warm energy.</li>
-              <li><strong>Airy Blue (#A1CFEA):</strong> Calm accents, backgrounds, and light moments.</li>
-              <li><strong>Floral Pink (#fc8eac):</strong> Secondary accent to add warmth and personality.</li>
+              <li><strong>Soft Black:</strong> Primary text, logo, and structural clarity.</li>
+              <li><strong>Highlight Gold:</strong> Select highlights, emphasis, and warm energy.</li>
+              <li><strong>Airy Blue:</strong> Calm accents, backgrounds, and light moments.</li>
+              <li><strong>Floral Pink:</strong> Secondary accent to add warmth and personality.</li>
             </ul>
           </div>
         </div>
@@ -349,7 +415,7 @@
           </p>
 
           <div class="case-apps">
-            <article class="case-app">
+            <article class="case-app liquid-glass deck-edge">
               <div class="case-app__media">
                 <img class="case-img" src="images/laura-sanchez/app-stationery.jpg" alt="Stationery mockup" />
               </div>
@@ -359,7 +425,7 @@
               </div>
             </article>
 
-            <article class="case-app">
+            <article class="case-app liquid-glass deck-edge">
               <div class="case-app__media">
                 <img class="case-img" src="images/laura-sanchez/app-social.jpg" alt="Social template mockup" />
               </div>
@@ -369,7 +435,7 @@
               </div>
             </article>
 
-            <article class="case-app">
+            <article class="case-app liquid-glass deck-edge">
               <div class="case-app__media">
                 <img class="case-img" src="images/laura-sanchez/app-packaging.jpg" alt="Packaging or label mockup" />
               </div>
@@ -380,7 +446,7 @@
             </article>
           </div>
 
-          <div class="case-rule">
+          <div class="case-rule liquid-glass deck-edge">
             <h3 class="case-panel__title"><em>Application</em> Guidance</h3>
             <ul class="case-list">
               <li><strong>Primary moments:</strong> Use the full wordmark for signature placements.</li>
@@ -393,8 +459,8 @@
     </section>
 
     <!-- Slide 7: Closing -->
-    <section id="closing" class="section section--contact" data-section>
-      <div class="section__inner section__inner--contact">
+    <section id="closing" class="section" data-section>
+      <div class="section__inner">
         <div class="case-slide liquid-glass deck-edge">
           <p class="deck-kicker">
             <span class="deck-kicker__dot"></span>
@@ -407,7 +473,7 @@
             recognizable presence across touchpoints.
           </p>
 
-          <div class="case-next">
+          <div class="case-next liquid-glass deck-edge">
             <div class="case-next__left">
               <h3 class="case-panel__title"><em>Need</em> a brand system like this?</h3>
               <p class="case-panel__text">

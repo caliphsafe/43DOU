@@ -708,3 +708,24 @@ a:hover {
     max-height: 240px;
   }
 }
+/* =========================================
+   Hero Image — Prevent Pixelation
+========================================= */
+
+.case-hero__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+/* The actual hero image */
+.case-hero__img {
+  width: 100%;
+  max-width: 520px;       /* KEY: prevents upscaling */
+  max-height: 520px;      /* keeps it from dominating */
+  height: auto;
+  object-fit: contain;    /* prevents crop + stretch */
+  image-rendering: auto;  /* default, avoids pixel snapping */
+  border-radius: var(--radius-md);
+}

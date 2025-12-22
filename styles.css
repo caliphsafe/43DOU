@@ -735,3 +735,257 @@ a:hover {
     padding-bottom: 2px;
   }
 }
+
+/* =========================================
+   Case Study Page (Branding Campaign)
+========================================= */
+
+.case-hero__inner {
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+}
+
+.case-hero__media {
+  padding: 14px;
+  border-radius: var(--radius-lg);
+}
+
+.case-hero__img {
+  width: 100%;
+  height: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  display: block;
+}
+
+.case-meta {
+  margin: 18px 0 18px;
+  padding: 14px 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.case-meta__label {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted2);
+}
+
+.case-meta__value {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.case-panel {
+  padding: 18px;
+}
+
+.case-panel__title {
+  margin: 0 0 8px;
+  color: var(--deep);
+  font-size: 1.05rem;
+}
+
+.case-panel__text {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.case-list {
+  margin: 0;
+  padding-left: 16px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.case-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 18px;
+  padding: 18px;
+  margin-top: 14px;
+}
+
+.case-showcase__media {
+  border-radius: var(--radius-md);
+  background: rgba(205, 230, 246, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.case-img {
+  max-width: 100%;
+  max-height: 360px;
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+.case-showcase__title {
+  margin: 0 0 8px;
+  color: var(--deep);
+}
+
+.case-showcase__text,
+.case-showcase__note {
+  margin: 0 0 10px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.case-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.case-tile {
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.case-tile__media {
+  border-radius: var(--radius-md);
+  background: rgba(205, 230, 246, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+}
+
+.case-tile__title {
+  margin: 0 0 6px;
+  color: var(--deep);
+  font-size: 1rem;
+}
+
+.case-tile__text {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.case-rule {
+  margin-top: 14px;
+  padding: 18px;
+}
+
+.type-sample {
+  margin-top: 10px;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  background: rgba(205, 230, 246, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.type-sample__big {
+  font-size: 1.6rem;
+  color: var(--deep);
+  margin-bottom: 6px;
+}
+
+.type-sample__big--body {
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+.type-sample__small {
+  font-size: 0.85rem;
+  color: var(--muted2);
+}
+
+.palette {
+  padding: 18px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.swatch {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.swatch__chip {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.swatch__name {
+  color: var(--deep);
+  font-weight: 650;
+  font-size: 0.92rem;
+}
+
+.swatch__code {
+  color: var(--muted2);
+  font-size: 0.85rem;
+}
+
+.case-apps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.case-app {
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.case-app__media {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(205, 230, 246, 0.18);
+  min-height: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.case-next {
+  margin-top: 14px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+@media (max-width: 900px) {
+  .case-hero__inner,
+  .case-showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .case-grid,
+  .case-tiles,
+  .palette,
+  .case-apps {
+    grid-template-columns: 1fr;
+  }
+}
+

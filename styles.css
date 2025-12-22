@@ -1000,9 +1000,9 @@ a:hover {
   --muted: rgba(0, 0, 0, 0.65);
   --muted2: rgba(0, 0, 0, 0.45);
 
-  --accent: #A1CFEA;   /* Dusty rose / soft accent */
+  --accent: #A1CFEA;   /* Soft blue accent */
   --soft: #F4E2BE;     /* Light background */
-  --punch: #F0C53E;    /* Highlight (used sparingly) */
+  --punch: #F0C53E;    /* Yellow highlight */
 
   /* Glass tuning for warmer palette */
   --glass-bg: rgba(255, 255, 255, 0.60);
@@ -1050,8 +1050,9 @@ a:hover {
   color: #A1CFEA;
 }
 
+/* ⬇️ CHANGE HERE: hover color now yellow */
 .theme-laura-sanchez a:hover {
-  color: #fc8eac; /* secondary neutral */
+  color: #F0C53E;
 }
 
 .theme-laura-sanchez .button--primary {
@@ -1060,8 +1061,9 @@ a:hover {
   box-shadow: 0 18px 40px rgba(161, 207, 234, 0.35);
 }
 
+/* ⬇️ CHANGE HERE: button hover now yellow */
 .theme-laura-sanchez .button--primary:hover {
-  background: #fc8eac;
+  background: #F0C53E;
 }
 
 /* =========================================
@@ -1084,7 +1086,7 @@ a:hover {
       120deg,
       rgba(244, 226, 190, 0.95),
       rgba(161, 207, 234, 0.85),
-      rgba(252, 142, 172, 0.85)
+      rgba(240, 197, 62, 0.75)
     );
   background-size: 300% 300%;
 }
@@ -1121,5 +1123,3 @@ a:hover {
   margin-left: 10px;
   vertical-align: middle;
 }
-
-

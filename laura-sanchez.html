@@ -357,54 +357,113 @@
       </div>
     </section>
 
-    <!-- Slide 6: Applications -->
-    <section id="applications" class="section" data-section>
-      <div class="section__inner">
-        <div class="case-slide liquid-glass deck-edge">
-          <p class="deck-kicker">
-            <span class="deck-kicker__dot"></span>
-            05 — Applications
-          </p>
+   <!-- Slide 6: Applications -->
+<section id="applications" class="section" data-section>
+  <div class="section__inner">
+    <div class="case-slide liquid-glass deck-edge">
+      <p class="deck-kicker">
+        <span class="deck-kicker__dot"></span>
+        05 — Applications
+      </p>
 
-          <h2 class="section-title">Brand in the Real World</h2>
-          <p class="section-subtitle">
-            A few high-impact applications demonstrating how the wordmark and tulip logomark hold up across touchpoints.
-          </p>
+      <h2 class="section-title">Brand in the Real World</h2>
+      <p class="section-subtitle">
+        A curated selection of real-world touchpoints showing how the system scales across product, events, and digital.
+      </p>
 
-          <div class="case-apps">
-            <article class="case-app">
-              <div class="case-app__media">
-                <img class="case-img case-img--app" src="images/laura-sanchez/app-stationery.jpg" alt="Stationery mockup" />
-              </div>
-              <div class="case-app__body">
-                <h4 class="case-tile__title"><em>Stationery</em></h4>
-                <p class="case-tile__text">A refined document system where typography and spacing do the work.</p>
-              </div>
-            </article>
-
-            <article class="case-app">
-              <div class="case-app__media">
-                <img class="case-img case-img--app" src="images/laura-sanchez/app-social.jpg" alt="Social template mockup" />
-              </div>
-              <div class="case-app__body">
-                <h4 class="case-tile__title"><em>Social</em> Templates</h4>
-                <p class="case-tile__text">Consistent tone across posts with clear type hierarchy and accent color usage.</p>
-              </div>
-            </article>
-
-            <article class="case-app">
-              <div class="case-app__media">
-                <img class="case-img case-img--app" src="images/laura-sanchez/app-packaging.jpg" alt="Packaging or label mockup" />
-              </div>
-              <div class="case-app__body">
-                <h4 class="case-tile__title"><em>Packaging</em> / Labels</h4>
-                <p class="case-tile__text">Tulip mark works as a recognizable stamp while the wordmark leads the system.</p>
-              </div>
-            </article>
+      <!-- Featured (only what’s necessary) -->
+      <div class="apps-featured">
+       <!-- Featured 1: Book Cover -->
+<article class="app-card" data-lightbox>
+  <div class="app-card__media">
+    <img class="app-img"
+         src="images/laura-sanchez/app-book-cover.jpg"
+         alt="Book cover design" />
+  </div>
+  <div class="app-card__body">
+    <h4 class="app-card__title"><em>Book</em> Cover</h4>
+    <p class="app-card__text">Full identity system applied to a real product with strong hierarchy and brand presence.</p>
+  </div>
+</article>
+        <!-- Featured 2: Step & Repeat (or Banner) -->
+        <article class="app-card" data-lightbox>
+          <div class="app-card__media">
+            <img class="app-img"
+                 src="images/laura-sanchez/app-step-repeat.png"
+                 alt="Step and repeat branding" />
           </div>
+          <div class="app-card__body">
+            <h4 class="app-card__title"><em>Step & Repeat</em></h4>
+            <p class="app-card__text">Event-ready branding that stays consistent at scale and from a distance.</p>
+          </div>
+        </article>
+
+        <!-- Featured 3: Social System -->
+        <article class="app-card" data-lightbox>
+          <div class="app-card__media">
+            <img class="app-img"
+                 src="images/laura-sanchez/app-social-grid.png"
+                 alt="Social media templates" />
+          </div>
+          <div class="app-card__body">
+            <h4 class="app-card__title"><em>Social</em> System</h4>
+            <p class="app-card__text">Reusable templates with clear hierarchy, tone, and brand recognition.</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Additional applications (kept tight) -->
+      <div class="apps-more">
+        <div class="apps-more__head">
+          <h3 class="apps-more__title">Additional Touchpoints</h3>
+          <p class="apps-more__note">Only the essentials — click to enlarge.</p>
+        </div>
+
+        <div class="apps-grid">
+          <button class="app-thumb" type="button" data-lightbox>
+            <img class="app-thumb__img" src="images/laura-sanchez/app-banner.png" alt="Retractable banner" />
+            <span class="app-thumb__label">Retractable Banner</span>
+          </button>
+
+          <button class="app-thumb" type="button" data-lightbox>
+            <img class="app-thumb__img" src="images/laura-sanchez/app-speaker-flyer.png" alt="Speaker highlight flyer" />
+            <span class="app-thumb__label">Speaker Highlight Flyer</span>
+          </button>
+
+          <button class="app-thumb" type="button" data-lightbox>
+            <img class="app-thumb__img" src="images/laura-sanchez/app-tote.png" alt="Tote bag" />
+            <span class="app-thumb__label">Tote Bag</span>
+          </button>
+
+          <button class="app-thumb" type="button" data-lightbox>
+            <img class="app-thumb__img" src="images/laura-sanchez/app-book-release.png" alt="Book release cover" />
+            <span class="app-thumb__label">Book Release Cover</span>
+          </button>
+
+          <button class="app-thumb" type="button" data-lightbox>
+            <img class="app-thumb__img" src="images/laura-sanchez/app-social-01.png" alt="Social post example" />
+            <span class="app-thumb__label">Social Post</span>
+          </button>
+
+          <button class="app-thumb" type="button" data-lightbox>
+            <img class="app-thumb__img" src="images/laura-sanchez/app-social-02.png" alt="Social post example" />
+            <span class="app-thumb__label">Social Post</span>
+          </button>
         </div>
       </div>
-    </section>
+
+      <!-- Lightbox modal -->
+      <div class="lightbox" id="lightbox" aria-hidden="true">
+        <button class="lightbox__close" type="button" aria-label="Close">×</button>
+        <div class="lightbox__inner">
+          <img class="lightbox__img" alt="" />
+          <div class="lightbox__caption"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
     <!-- Slide 7: Closing -->
     <section id="closing" class="section section--contact" data-section>

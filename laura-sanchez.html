@@ -379,65 +379,87 @@
 
       <div class="apps-grid">
 
-        <!-- Book (Front + Back) -->
+        <!-- Book (Front only) -->
         <article class="app-tile" data-lightbox>
-          <div class="app-tile__media app-tile__media--pair">
-            <img class="app-img" src="images/laura-sanchez/app-book-front.jpg" alt="Book cover — front" loading="lazy" />
-            <img class="app-img" src="images/laura-sanchez/app-book-back.jpg" alt="Book cover — back" loading="lazy" />
+          <div class="app-tile__media app-tile__media--portrait">
+            <img class="app-img"
+                 src="images/laura-sanchez/app-book-cover.png"
+                 alt="Book cover — front"
+                 loading="lazy" />
           </div>
-          <h4 class="app-tile__title"><em>Book</em> Cover System</h4>
-          <p class="app-tile__text">Front and back cover working as a unified publishing identity.</p>
-        </article>
-
-        <!-- Event / Print -->
-        <article class="app-tile" data-lightbox>
-          <div class="app-tile__media">
-            <img class="app-img" src="images/laura-sanchez/app-banner.jpg" alt="Retractable banner" loading="lazy" />
-          </div>
-          <h4 class="app-tile__title"><em>Event</em> Banner</h4>
-          <p class="app-tile__text">Large-format clarity with strong hierarchy and brand presence.</p>
-        </article>
-
-        <article class="app-tile" data-lightbox>
-          <div class="app-tile__media">
-            <img class="app-img" src="images/laura-sanchez/app-flyer.jpg" alt="Speaker highlight flyer" loading="lazy" />
-          </div>
-          <h4 class="app-tile__title"><em>Speaker</em> Highlight Flyer</h4>
-          <p class="app-tile__text">A flexible promo layout designed for both print and digital.</p>
-        </article>
-
-        <!-- Social (6-post grid) -->
-        <article class="app-tile app-tile--wide" data-lightbox>
-          <div class="app-tile__media app-tile__media--social">
-            <img class="app-img" src="images/laura-sanchez/social-01.jpg" alt="Social post 01" loading="lazy" />
-            <img class="app-img" src="images/laura-sanchez/social-02.jpg" alt="Social post 02" loading="lazy" />
-            <img class="app-img" src="images/laura-sanchez/social-03.jpg" alt="Social post 03" loading="lazy" />
-            <img class="app-img" src="images/laura-sanchez/social-04.jpg" alt="Social post 04" loading="lazy" />
-            <img class="app-img" src="images/laura-sanchez/social-05.jpg" alt="Social post 05" loading="lazy" />
-            <img class="app-img" src="images/laura-sanchez/social-06.jpg" alt="Social post 06" loading="lazy" />
-          </div>
-          <h4 class="app-tile__title"><em>Social</em> System</h4>
-          <p class="app-tile__text">A consistent post family built for recognition, rhythm, and reuse.</p>
-        </article>
-
-        <!-- Merch -->
-        <article class="app-tile" data-lightbox>
-          <div class="app-tile__media">
-            <img class="app-img" src="images/laura-sanchez/app-tote.jpg" alt="Tote bag mockup" loading="lazy" />
-          </div>
-          <h4 class="app-tile__title"><em>Merch</em> Tote Bag</h4>
-          <p class="app-tile__text">The tulip mark scales cleanly for a simple, wearable brand moment.</p>
+          <h4 class="app-title"><em>Book</em> Cover</h4>
+          <p class="app-text">A focused front cover built to feel timeless, poetic, and unmistakably Laura.</p>
         </article>
 
         <!-- Step & Repeat -->
         <article class="app-tile" data-lightbox>
           <div class="app-tile__media app-tile__media--landscape">
-            <img class="app-img" src="images/laura-sanchez/app-step-repeat.jpg" alt="Step and repeat" loading="lazy" />
+            <img class="app-img"
+                 src="images/laura-sanchez/app-step-repeat.png"
+                 alt="Step and repeat"
+                 loading="lazy" />
           </div>
-          <h4 class="app-tile__title"><em>Step</em> & Repeat</h4>
-          <p class="app-tile__text">Pattern consistency and spacing that stays premium on-camera.</p>
+          <h4 class="app-title"><em>Step</em> & Repeat</h4>
+          <p class="app-text">Pattern consistency and spacing that stays premium on-camera and in photos.</p>
         </article>
 
+        <!-- Social (6-post grid) — keep your structure exactly -->
+        <article class="app-card app-card--social app-tile--wide" data-lightbox>
+          <div class="app-card__media app-card__media--grid">
+            <div class="social-grid">
+              <img src="images/laura-sanchez/social-01.jpg" alt="Laura Sanchez social post 1" loading="lazy" />
+              <img src="images/laura-sanchez/social-02.jpg" alt="Laura Sanchez social post 2" loading="lazy" />
+              <img src="images/laura-sanchez/social-03.jpg" alt="Laura Sanchez social post 3" loading="lazy" />
+              <img src="images/laura-sanchez/social-04.jpg" alt="Laura Sanchez social post 4" loading="lazy" />
+              <img src="images/laura-sanchez/social-05.jpg" alt="Laura Sanchez social post 5" loading="lazy" />
+              <img src="images/laura-sanchez/social-06.jpg" alt="Laura Sanchez social post 6" loading="lazy" />
+            </div>
+          </div>
+
+          <div class="app-card__body">
+            <h4 class="app-title"><em>Social</em> System</h4>
+            <p class="app-text">
+              A repeatable social presence built around poetic language, bilingual storytelling,
+              and visual restraint — allowing the message to lead while the brand remains unmistakable.
+            </p>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- More applications (still NOT nested cards) -->
+      <div class="apps-more">
+        <h3 class="apps-more__title">More Brand Applications</h3>
+
+        <div class="apps-more__grid">
+          <article class="app-mini" data-lightbox>
+            <div class="app-mini__media">
+              <img class="app-mini__img" src="images/laura-sanchez/app-banner.png" alt="Retractable banner" loading="lazy" />
+            </div>
+            <h4 class="app-title"><em>Event</em> Banner</h4>
+          </article>
+
+          <article class="app-mini" data-lightbox>
+            <div class="app-mini__media">
+              <img class="app-mini__img" src="images/laura-sanchez/app-book-release.png" alt="Book release cover" loading="lazy" />
+            </div>
+            <h4 class="app-title"><em>Book</em> Release Cover</h4>
+          </article>
+
+          <article class="app-mini" data-lightbox>
+            <div class="app-mini__media">
+              <img class="app-mini__img" src="images/laura-sanchez/app-speaker-flyer.png" alt="Speaker highlight flyer" loading="lazy" />
+            </div>
+            <h4 class="app-title"><em>Speaker</em> Flyer</h4>
+          </article>
+
+          <article class="app-mini" data-lightbox>
+            <div class="app-mini__media">
+              <img class="app-mini__img" src="images/laura-sanchez/app-tote.png" alt="Tote bag" loading="lazy" />
+            </div>
+            <h4 class="app-title"><em>Merch</em> Tote</h4>
+          </article>
+        </div>
       </div>
 
       <div class="case-rule">

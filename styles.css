@@ -25,9 +25,30 @@
 
   --header-h: 64px;
 
-  /* NEW: Deck spacing + rhythm */
+  /* Deck rhythm */
   --deck-gap: 18px;
   --deck-slide-min: calc(100vh - var(--header-h));
+
+  /* Font tokens */
+  --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-primary: "Alverata Informal", ui-serif, Georgia, serif;
+  --font-secondary: "Lato", var(--font-body);
+}
+
+/* =========================================
+   Font Faces (Add your Alverata files)
+   Put files here:
+   /fonts/alverata-informal.woff2
+   /fonts/alverata-informal.woff
+========================================= */
+@font-face {
+  font-family: "Alverata Informal";
+  src:
+    url("fonts/alverata-informal.woff2") format("woff2"),
+    url("fonts/alverata-informal.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 /* =========================================
@@ -45,7 +66,7 @@ html {
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-body);
   background: var(--bg);
   color: var(--text);
 }
@@ -66,40 +87,38 @@ a:hover {
   margin-top: var(--header-h);
 }
 
-/* NEW: pitch-deck feel — each section becomes a “slide” */
+/* Deck slide feel */
 .section {
-  padding: 56px 22px;
+  position: relative;
+  padding: 46px 20px;
   min-height: var(--deck-slide-min);
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
-/* NEW: “slide rail” background (subtle) */
+/* Subtle slide rails */
 .section::before {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
+  opacity: 0.7;
 }
 
-/* keep content centered within slide */
+/* keep content centered */
 .section__inner {
   max-width: 1100px;
   margin: 0 auto;
   width: 100%;
-}
-
-/* Soft section bands (keep content readable) */
-.section:nth-of-type(even) {
-  background: rgba(205, 230, 246, 0.16);
+  position: relative;
+  z-index: 2;
 }
 
 /* =========================================
    Hero
 ========================================= */
 .section--hero {
-  position: relative;
-  overflow: hidden;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -122,19 +141,12 @@ a:hover {
   animation: heroGradient 120s ease-in-out infinite;
 }
 
-/* Soft overlay for readability (critical) */
 .section--hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(247, 247, 247, 0.45);
+  background: rgba(247, 247, 247, 0.42);
   z-index: 0;
-}
-
-/* Ensure hero content sits above overlay */
-.section--hero > * {
-  position: relative;
-  z-index: 1;
 }
 
 @keyframes heroGradient {
@@ -143,42 +155,15 @@ a:hover {
   100% { background-position: 0% 50%, 100% 40%; }
 }
 
-/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .section--hero {
-    animation: none;
-  }
+  .section--hero { animation: none; }
 }
 
-/* Containers */
 .section__inner--hero {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.95fr);
-  gap: 34px;
+  gap: 28px;
   align-items: center;
-}
-
-.section__inner--about {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
-  gap: 40px;
-  align-items: center;
-}
-
-.section__inner--contact {
-  max-width: 800px;
-}
-
-/* =========================================
-   Glass Utility
-========================================= */
-.glass {
-  background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--glass-shadow);
 }
 
 /* =========================================
@@ -204,7 +189,6 @@ a:hover {
   -webkit-backdrop-filter: blur(18px) saturate(130%);
 }
 
-/* moving highlight */
 .liquid-glass::before {
   content: "";
   position: absolute;
@@ -218,7 +202,6 @@ a:hover {
   animation: liquidFloat 18s ease-in-out infinite;
 }
 
-/* subtle specular streak */
 .liquid-glass::after {
   content: "";
   position: absolute;
@@ -246,18 +229,27 @@ a:hover {
   100% { transform: translateX(-18%) rotate(0deg); }
 }
 
-/* keep inner content above the liquid layers */
 .liquid-glass > * {
   position: relative;
   z-index: 1;
 }
 
-/* reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .liquid-glass::before,
-  .liquid-glass::after {
-    animation: none;
-  }
+  .liquid-glass::after { animation: none; }
+}
+
+/* Slide edge polish */
+.deck-edge {
+  position: relative;
+}
+.deck-edge::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border-radius: calc(var(--radius-lg) + 6px);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+  pointer-events: none;
 }
 
 /* =========================================
@@ -299,7 +291,7 @@ a:hover {
 }
 
 .site-nav__link {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--muted);
@@ -320,312 +312,8 @@ a:hover {
 }
 
 /* =========================================
-   Typography
+   Deck Typography System (More Variation)
 ========================================= */
-.section-kicker {
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  font-size: 0.72rem;
-  color: var(--muted2);
-  margin: 0 0 10px;
-}
-
-.section-title {
-  font-size: 2.45rem;
-  margin: 0 0 8px;
-  color: var(--deep);
-}
-
-.section-title::after {
-  content: "";
-  display: block;
-  width: 52px;
-  height: 3px;
-  margin-top: 12px;
-  background: var(--accent);
-  border-radius: 999px;
-}
-
-.section-subtitle {
-  max-width: 640px;
-  font-size: 1.02rem;
-  color: var(--muted);
-  margin: 0 0 26px;
-}
-
-.hero-title {
-  font-size: 3.1rem;
-  line-height: 1.05;
-  margin: 0 0 12px;
-  color: var(--deep);
-  letter-spacing: -0.02em;
-}
-
-.hero-subtitle {
-  max-width: 520px;
-  font-size: 1.02rem;
-  color: var(--muted);
-  margin: 0 0 18px;
-}
-
-.hero-cta-note {
-  font-size: 0.9rem;
-  color: var(--muted2);
-  margin: 0;
-}
-
-/* =========================================
-   Work Overview – Glass Cards
-========================================= */
-.work-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 18px;
-}
-
-.work-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--glass-shadow);
-  padding: 22px;
-  color: inherit;
-  transition: transform 0.15s ease, border-color 0.15s ease;
-}
-
-.work-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(255, 90, 19, 0.25);
-  text-decoration: none;
-}
-
-.work-card__title {
-  margin: 0 0 8px;
-  font-size: 1.1rem;
-  color: var(--deep);
-}
-
-.work-card__text {
-  margin: 0;
-  font-size: 0.92rem;
-  color: var(--muted);
-}
-
-/* =========================================
-   Case Cards – Glass
-========================================= */
-.cards-list {
-  display: grid;
-  gap: 28px;
-}
-
-.cards-list--horizontal {
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-}
-
-.case-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--glass-shadow);
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 24px;
-  padding: 22px;
-  transition: transform 0.15s ease, border-color 0.15s ease;
-}
-
-.case-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(255, 90, 19, 0.25);
-}
-
-.case-card__media {
-  border-radius: var(--radius-md);
-  background: rgba(205, 230, 246, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  min-height: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.case-card__media--tall {
-  min-height: 260px;
-}
-
-.case-card__media-placeholder {
-  font-size: 0.85rem;
-  color: var(--muted);
-  padding: 8px;
-}
-
-.case-card__title {
-  margin: 0 0 6px;
-  color: var(--deep);
-}
-
-.case-card__description {
-  margin: 0 0 12px;
-  color: var(--muted);
-}
-
-.case-card__tags {
-  margin: 0;
-  font-size: 0.75rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted2);
-}
-
-/* Micro accent chip (Safety Green) – optional */
-.chip {
-  display: inline-flex;
-  align-items: center;
-  border-radius: 999px;
-  padding: 6px 10px;
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  background: rgba(182, 254, 3, 0.18);
-  border: 1px solid rgba(182, 254, 3, 0.40);
-  color: var(--deep);
-}
-
-/* =========================================
-   Contact – Glass Form
-========================================= */
-.section--contact {
-  padding-bottom: 110px;
-}
-
-.contact-form {
-  margin-top: 28px;
-  margin-bottom: 24px;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-  margin-bottom: 16px;
-}
-
-.form-field {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.form-field label {
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--muted2);
-}
-
-.form-field input,
-.form-field textarea,
-.form-field select {
-  background: rgba(255, 255, 255, 0.60);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  padding: 10px 12px;
-  font-size: 0.95rem;
-  font-family: inherit;
-  resize: vertical;
-  color: var(--deep);
-}
-
-.form-field input:focus,
-.form-field textarea:focus,
-.form-field select:focus {
-  outline: none;
-  border-color: rgba(255, 90, 19, 0.55);
-  box-shadow: 0 0 0 4px rgba(255, 90, 19, 0.18);
-}
-
-/* Buttons */
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  border: none;
-  font-size: 0.9rem;
-  padding: 12px 24px;
-  cursor: pointer;
-  font-weight: 750;
-  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
-}
-
-.button--primary {
-  background: var(--accent);
-  color: #fff;
-  box-shadow: 0 18px 40px rgba(255, 90, 19, 0.25);
-}
-
-.button--primary:hover {
-  background: #e94f0f;
-  transform: translateY(-1px);
-}
-
-.button--primary:active {
-  transform: translateY(0);
-}
-
-.contact-meta {
-  font-size: 0.9rem;
-  color: var(--muted);
-}
-
-/* =========================================
-   Responsive
-========================================= */
-@media (max-width: 900px) {
-  .section {
-    padding: 52px 16px;
-  }
-
-  .section__inner--hero {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-title {
-    font-size: 2.4rem;
-  }
-
-  .site-header__inner {
-    padding: 0 16px;
-  }
-
-  .site-nav {
-    overflow-x: auto;
-    max-width: 72vw;
-    padding-bottom: 2px;
-  }
-}
-
-/* =========================================
-   Case Study Page (Branding Campaign)
-========================================= */
-
-.case-hero__inner {
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-}
-
-/* NEW: pitch-deck slide container (wrap content) */
-.case-slide {
-  padding: 18px;
-}
-
-/* NEW: deck header (slide number pill) */
 .deck-kicker {
   display: inline-flex;
   align-items: center;
@@ -651,20 +339,61 @@ a:hover {
   box-shadow: 0 0 0 4px rgba(255, 90, 19, 0.18);
 }
 
-/* NEW: “slide edge” effect */
-.deck-edge {
-  position: relative;
-}
-.deck-edge::after {
-  content: "";
-  position: absolute;
-  inset: 10px;
-  border-radius: calc(var(--radius-lg) + 6px);
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
-  pointer-events: none;
+.section-title {
+  font-size: 2.5rem;
+  margin: 0 0 10px;
+  color: var(--deep);
+  letter-spacing: -0.02em;
 }
 
-/* Premium image treatment */
+.section-title::after {
+  content: "";
+  display: block;
+  width: 58px;
+  height: 3px;
+  margin-top: 12px;
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+.section-subtitle {
+  max-width: 720px;
+  font-size: 1.05rem;
+  color: var(--muted);
+  margin: 0 0 20px;
+  line-height: 1.55;
+}
+
+.hero-title {
+  font-size: 3.2rem;
+  line-height: 1.03;
+  margin: 0 0 10px;
+  color: var(--deep);
+  letter-spacing: -0.03em;
+}
+
+.hero-subtitle {
+  max-width: 540px;
+  font-size: 1.05rem;
+  color: var(--muted);
+  margin: 0 0 16px;
+  line-height: 1.55;
+}
+
+.hero-cta-note {
+  font-size: 0.9rem;
+  color: var(--muted2);
+  margin: 12px 0 0;
+}
+
+/* =========================================
+   Case Study Layout
+========================================= */
+.case-slide {
+  padding: 18px;
+}
+
+/* Hero media */
 .case-hero__media {
   padding: 14px;
   border-radius: var(--radius-lg);
@@ -677,28 +406,62 @@ a:hover {
   object-fit: cover;
   border-radius: calc(var(--radius-lg) - 8px);
   display: block;
-  filter: contrast(1.02) saturate(1.06);
+  filter: contrast(1.02) saturate(1.08);
 }
 
+/* =========================================
+   Meta block (Make it punchy)
+========================================= */
 .case-meta {
-  margin: 16px 0 0;
-  padding: 14px 16px;
+  margin: 14px 0 0;
+  padding: 16px;
   display: grid;
-  gap: 10px;
+  gap: 12px;
+}
+
+.case-meta__item {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 12px;
+  align-items: baseline;
 }
 
 .case-meta__label {
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
+  font-size: 0.70rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted2);
+  position: relative;
+}
+
+.case-meta__label::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(0,0,0,0.06);
+  vertical-align: middle;
 }
 
 .case-meta__value {
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  font-weight: 650;
 }
 
+/* Make the first line feel like the “headline detail” */
+.case-meta__item:first-child .case-meta__value {
+  font-size: 1.18rem;
+  letter-spacing: -0.01em;
+}
+
+/* =========================================
+   Grids
+========================================= */
 .case-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -706,44 +469,62 @@ a:hover {
 }
 
 .case-panel {
-  padding: 18px;
+  padding: 16px;
 }
 
 .case-panel__title {
   margin: 0 0 8px;
   color: var(--deep);
   font-size: 1.05rem;
+  letter-spacing: -0.01em;
 }
 
 .case-panel__text {
   margin: 0;
   color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.55;
+  font-size: 0.98rem;
+  line-height: 1.58;
 }
 
 .case-list {
   margin: 0;
   padding-left: 16px;
   color: var(--muted);
-  line-height: 1.55;
+  line-height: 1.58;
 }
 
+.case-panel__title em,
+.case-showcase__title em,
+.case-tile__title em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+/* Highlight strong as “deck marker” */
+.case-showcase__text strong,
+.case-panel__text strong,
+.case-list strong {
+  font-weight: 850;
+}
+
+/* =========================================
+   Wordmark & Logomark – Cleaner Orientation
+========================================= */
 .case-showcase {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 18px;
-  padding: 18px;
-  margin-top: 14px;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 14px;
+  padding: 16px;
+  margin-top: 12px;
 }
 
 .case-showcase__media {
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-lg);
-  background: rgba(205, 230, 246, 0.25);
+  background: rgba(205, 230, 246, 0.20);
   border: 1px solid rgba(255, 255, 255, 0.45);
-  padding: 16px;
+  padding: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -757,19 +538,30 @@ a:hover {
   display: block;
 }
 
-/* NEW: brand-highlighted strong text */
-.case-showcase__text strong,
-.case-panel__text strong,
-.case-list strong {
-  font-weight: 800;
+.case-showcase__title {
+  margin: 0 0 8px;
+  color: var(--deep);
 }
 
-/* NEW: feature + collage layout for logo tiles */
-.case-tiles {
+.case-showcase__text,
+.case-showcase__note {
+  margin: 0 0 10px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* NEW: logo tile layout (feature + stacked column) */
+.logo-tiles {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   gap: 14px;
   margin-top: 14px;
+  align-items: stretch;
+}
+
+.logo-tiles__stack {
+  display: grid;
+  gap: 14px;
 }
 
 .case-tile {
@@ -778,32 +570,27 @@ a:hover {
   gap: 12px;
 }
 
-.case-tile--feature {
-  grid-row: span 2;
-  padding: 18px;
-}
-
-.case-tile--feature .case-tile__media {
-  min-height: 320px;
-}
-
 .case-tile__media {
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-lg);
-  background: rgba(205, 230, 246, 0.25);
+  background: rgba(205, 230, 246, 0.20);
   border: 1px solid rgba(255, 255, 255, 0.45);
   padding: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 180px;
+  min-height: 200px;
+}
+
+.case-tile--feature .case-tile__media {
+  min-height: 360px;
 }
 
 .case-tile__title {
   margin: 0 0 6px;
   color: var(--deep);
-  font-size: 1rem;
+  font-size: 1.02rem;
 }
 
 .case-tile__text {
@@ -814,65 +601,147 @@ a:hover {
 
 .case-rule {
   margin-top: 14px;
-  padding: 18px;
+  padding: 16px;
 }
 
+/* Inner border polish */
+.case-showcase__media::after,
+.case-tile__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
+  pointer-events: none;
+}
+
+/* =========================================
+   Typography Samples (Actual Fonts)
+========================================= */
 .type-sample {
   margin-top: 10px;
   padding: 12px 14px;
   border-radius: var(--radius-md);
-  background: rgba(205, 230, 246, 0.18);
+  background: rgba(205, 230, 246, 0.16);
   border: 1px solid rgba(255, 255, 255, 0.45);
 }
 
+.type-sample--primary .type-sample__big,
+.type-sample--primary .type-sample__small {
+  font-family: var(--font-primary);
+}
+
+.type-sample--secondary .type-sample__big,
+.type-sample--secondary .type-sample__small {
+  font-family: var(--font-secondary);
+}
+
 .type-sample__big {
-  font-size: 1.6rem;
+  font-size: 1.75rem;
   color: var(--deep);
   margin-bottom: 6px;
+  letter-spacing: -0.01em;
 }
 
 .type-sample__big--body {
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   color: var(--muted);
+  letter-spacing: 0;
 }
 
 .type-sample__small {
-  font-size: 0.85rem;
+  font-size: 0.92rem;
   color: var(--muted2);
+  opacity: 0.95;
 }
 
+/* =========================================
+   Color Palette (More Interesting + Specs)
+========================================= */
 .palette {
-  padding: 18px;
+  padding: 16px;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
   margin-top: 14px;
 }
 
 .swatch {
-  display: flex;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 14px;
   align-items: center;
+  padding: 14px;
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,0.50);
+  border: 1px solid rgba(0,0,0,0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.swatch::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background:
+    radial-gradient(closest-side at 30% 40%, rgba(161, 207, 234, 0.30), transparent 60%),
+    radial-gradient(closest-side at 70% 60%, rgba(240, 197, 62, 0.26), transparent 62%);
+  filter: blur(16px);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.swatch > * {
+  position: relative;
+  z-index: 1;
 }
 
 .swatch__chip {
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
 }
 
 .swatch__name {
   color: var(--deep);
-  font-weight: 650;
-  font-size: 0.92rem;
+  font-weight: 850;
+  font-size: 1.02rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
 }
 
-.swatch__code {
+.swatch__specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 12px;
+  margin-top: 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.spec {
+  display: grid;
+  gap: 2px;
+}
+
+.spec__label {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   color: var(--muted2);
-  font-size: 0.85rem;
 }
 
+.spec__value {
+  color: #000;
+  opacity: 0.85;
+}
+
+/* =========================================
+   Applications + Closing
+========================================= */
 .case-apps {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -891,25 +760,13 @@ a:hover {
   overflow: hidden;
   border-radius: var(--radius-lg);
   border: 1px solid rgba(255, 255, 255, 0.45);
-  background: rgba(205, 230, 246, 0.18);
+  background: rgba(205, 230, 246, 0.16);
   min-height: 210px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.case-next {
-  margin-top: 14px;
-  padding: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-}
-
-/* inner border polish on media containers */
-.case-showcase__media::after,
-.case-tile__media::after,
 .case-app__media::after {
   content: "";
   position: absolute;
@@ -919,33 +776,63 @@ a:hover {
   pointer-events: none;
 }
 
-@media (max-width: 900px) {
-  .case-hero__inner,
-  .case-showcase {
-    grid-template-columns: 1fr;
-  }
+.case-next {
+  margin-top: 14px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
 
-  .case-grid,
-  .palette,
-  .case-apps {
-    grid-template-columns: 1fr;
-  }
+/* Buttons */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.92rem;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-weight: 800;
+  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
 
-  /* collapse collage layout */
-  .case-tiles {
-    grid-template-columns: 1fr;
-  }
+.button--primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 18px 40px rgba(255, 90, 19, 0.25);
+}
 
-  .case-tile--feature {
-    grid-row: auto;
-  }
+.button--primary:hover {
+  transform: translateY(-1px);
+}
+
+.button--primary:active {
+  transform: translateY(0);
 }
 
 /* =========================================
-   Laura Sanchez — Brand Theme Override
+   Responsive
+========================================= */
+@media (max-width: 900px) {
+  .section { padding: 42px 16px; }
+  .section__inner--hero { grid-template-columns: 1fr; }
+  .hero-title { font-size: 2.45rem; }
+  .case-grid { grid-template-columns: 1fr; }
+  .case-showcase { grid-template-columns: 1fr; }
+  .logo-tiles { grid-template-columns: 1fr; }
+  .palette { grid-template-columns: 1fr; }
+  .case-apps { grid-template-columns: 1fr; }
+  .site-header__inner { padding: 0 16px; }
+  .site-nav { overflow-x: auto; max-width: 72vw; padding-bottom: 2px; }
+}
+
+/* =========================================
+   Laura Sanchez — Brand Theme Override + Slide BGs
 ========================================= */
 .theme-laura-sanchez {
-  /* Brand palette */
   --deep: #000000;
   --text: #000000;
   --muted: rgba(0, 0, 0, 0.68);
@@ -956,73 +843,33 @@ a:hover {
   --punch: #F0C53E;    /* yellow highlight */
   --pink: #fc8eac;
 
-  /* Glass tuning */
   --glass-bg: rgba(255, 255, 255, 0.62);
   --glass-border: rgba(0, 0, 0, 0.10);
   --glass-shadow: 0 22px 48px rgba(0, 0, 0, 0.12);
 
-  background: radial-gradient(1200px 700px at 20% 10%, rgba(161, 207, 234, 0.55), transparent 55%),
-              radial-gradient(900px 600px at 80% 15%, rgba(240, 197, 62, 0.55), transparent 60%),
-              radial-gradient(1100px 700px at 50% 90%, rgba(252, 142, 172, 0.28), transparent 55%),
-              linear-gradient(180deg, #F4E2BE 0%, rgba(244, 226, 190, 0.70) 100%);
-}
-
-/* tighter spacing (more deck-like) */
-.theme-laura-sanchez .section {
-  padding: 52px 22px;
-}
-
-/* HERO palette */
-.theme-laura-sanchez .section--hero {
   background:
-    radial-gradient(900px 540px at 15% 25%, rgba(161, 207, 234, 0.90), transparent 60%),
-    radial-gradient(900px 560px at 70% 35%, rgba(240, 197, 62, 0.88), transparent 62%),
-    linear-gradient(120deg, rgba(244, 226, 190, 0.95), rgba(255, 255, 255, 0.60));
-  background-size: 100% 100%;
+    radial-gradient(1200px 700px at 20% 10%, rgba(161, 207, 234, 0.55), transparent 55%),
+    radial-gradient(900px 600px at 80% 15%, rgba(240, 197, 62, 0.55), transparent 60%),
+    radial-gradient(1100px 700px at 50% 90%, rgba(252, 142, 172, 0.28), transparent 55%),
+    linear-gradient(180deg, #F4E2BE 0%, rgba(244, 226, 190, 0.70) 100%);
 }
 
-/* hero overlay */
-.theme-laura-sanchez .section--hero::before {
-  background: rgba(244, 226, 190, 0.40);
-}
-
-/* more yellow + blue in text */
-.theme-laura-sanchez .hero-title {
-  color: #000000;
-}
-.theme-laura-sanchez .hero-title .accent {
-  color: var(--punch);
-}
-.theme-laura-sanchez .section-title {
-  color: #000000;
-}
+/* More yellow + blue in titles */
 .theme-laura-sanchez .section-title::after {
   background: linear-gradient(90deg, var(--punch), var(--accent));
 }
 
-/* kicker becomes “deck label” vibe */
-.theme-laura-sanchez .section-kicker {
-  color: rgba(0, 0, 0, 0.55);
-}
-.theme-laura-sanchez .section-kicker::after {
-  content: "";
-  display: inline-block;
-  width: 26px;
-  height: 2px;
+.theme-laura-sanchez .deck-kicker__dot {
   background: var(--punch);
-  margin-left: 10px;
-  vertical-align: middle;
+  box-shadow: 0 0 0 4px rgba(240, 197, 62, 0.22);
 }
 
-/* links */
-.theme-laura-sanchez a {
-  color: var(--accent);
-}
-.theme-laura-sanchez a:hover {
+/* Hero title accent */
+.theme-laura-sanchez .hero-title .accent {
   color: var(--punch);
 }
 
-/* buttons */
+/* Buttons */
 .theme-laura-sanchez .button--primary {
   background: var(--punch);
   color: #000000;
@@ -1032,17 +879,13 @@ a:hover {
   background: var(--accent);
 }
 
-/* nav active uses yellow (more deck) */
+/* Nav active uses yellow */
 .theme-laura-sanchez .site-nav__link--active {
   color: #000000;
   background: rgba(240, 197, 62, 0.22);
 }
 
-/* liquid glass uses brand colors on Laura page */
-.theme-laura-sanchez .liquid-glass {
-  border: 1px solid rgba(0,0,0,0.10);
-  background: linear-gradient(135deg, rgba(255,255,255,0.78), rgba(255,255,255,0.46));
-}
+/* Laura liquid-glass highlights use brand colors */
 .theme-laura-sanchez .liquid-glass::before {
   background:
     radial-gradient(closest-side at 28% 30%, rgba(161, 207, 234, 0.40), transparent 58%),
@@ -1050,61 +893,32 @@ a:hover {
     radial-gradient(closest-side at 55% 85%, rgba(252, 142, 172, 0.18), transparent 62%);
 }
 
-/* NEW: “slide card” wrapper for deck feel */
-.theme-laura-sanchez .case-slide {
-  padding: 18px;
-}
-
-/* NEW: deck-kicker dot becomes yellow */
-.theme-laura-sanchez .deck-kicker__dot {
-  background: var(--punch);
-  box-shadow: 0 0 0 4px rgba(240, 197, 62, 0.22);
-}
-
-/* subtle blue accents on panel titles */
-.theme-laura-sanchez .case-panel__title,
-.theme-laura-sanchez .case-showcase__title,
-.theme-laura-sanchez .case-tile__title {
-  color: #000000;
-}
-.theme-laura-sanchez .case-panel__title em,
-.theme-laura-sanchez .case-showcase__title em,
-.theme-laura-sanchez .case-tile__title em {
-  font-style: normal;
-  color: var(--accent);
-}
-
-/* strengthen “strong” highlights to yellow */
-.theme-laura-sanchez .case-showcase__text strong,
-.theme-laura-sanchez .case-panel__text strong,
-.theme-laura-sanchez .case-list strong {
-  color: #000000;
-  background: linear-gradient(180deg, transparent 55%, rgba(240, 197, 62, 0.55) 55%);
-  padding: 0 2px;
-  border-radius: 4px;
-}
-
-/* palette swatch chips get a tiny glow */
-.theme-laura-sanchez .swatch__chip {
-  box-shadow: 0 10px 26px rgba(0,0,0,0.10);
-}
-
 /* =========================================
-   Laura — Pitch Deck Slide Treatment (NEW)
-   Each section can wrap its content in .case-slide.liquid-glass.deck-edge
+   NEW: ls_bg.png on every other slide (odd sections)
+   Starting with slide 1 (hero), then 3,5,7...
 ========================================= */
-.theme-laura-sanchez .case-slide.deck-edge {
-  border-radius: calc(var(--radius-lg) + 10px);
+.theme-laura-sanchez .page > .section:nth-of-type(odd)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("images/laura-sanchez/ls_bg.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.16;
+  filter: saturate(1.05) contrast(1.02);
+  pointer-events: none;
+  z-index: 1;
 }
 
-/* Responsive for Laura */
-@media (max-width: 900px) {
-  .theme-laura-sanchez .section {
-    padding: 44px 16px;
-  }
-  .case-grid,
-  .palette,
-  .case-apps {
-    grid-template-columns: 1fr;
-  }
+/* Keep hero still feeling “hero” */
+.theme-laura-sanchez .page > .section.section--hero:nth-of-type(odd)::after {
+  opacity: 0.20;
+}
+
+/* Make sure slide wrappers sit above bg */
+.theme-laura-sanchez .case-slide,
+.theme-laura-sanchez .case-meta,
+.theme-laura-sanchez .case-hero__media {
+  position: relative;
+  z-index: 2;
 }

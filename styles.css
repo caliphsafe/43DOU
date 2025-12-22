@@ -989,3 +989,137 @@ a:hover {
   }
 }
 
+/* =========================================
+   Laura Sanchez — Brand Theme Override
+========================================= */
+
+.theme-laura-sanchez {
+  /* Brand palette */
+  --deep: #000000;     /* Primary text – soft black */
+  --text: #000000;
+  --muted: rgba(0, 0, 0, 0.65);
+  --muted2: rgba(0, 0, 0, 0.45);
+
+  --accent: #A1CFEA;   /* Dusty rose / soft accent */
+  --soft: #F4E2BE;     /* Light background */
+  --punch: #F0C53E;    /* Highlight (used sparingly) */
+
+  /* Glass tuning for warmer palette */
+  --glass-bg: rgba(255, 255, 255, 0.60);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-shadow: 0 22px 48px rgba(0, 0, 0, 0.12);
+
+  background: linear-gradient(
+    180deg,
+    #F4E2BE 0%,
+    rgba(244, 226, 190, 0.65) 100%
+  );
+}
+
+/* =========================================
+   Typography refinements (brand tone)
+========================================= */
+
+.theme-laura-sanchez .section-title,
+.theme-laura-sanchez .hero-title,
+.theme-laura-sanchez .case-panel__title,
+.theme-laura-sanchez .case-showcase__title,
+.theme-laura-sanchez .case-tile__title {
+  color: #000000;
+}
+
+.theme-laura-sanchez .section-title::after {
+  background: #A1CFEA;
+}
+
+/* =========================================
+   Glass components (warmer feel)
+========================================= */
+
+.theme-laura-sanchez .glass {
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.14);
+}
+
+/* =========================================
+   Accent behaviors
+========================================= */
+
+.theme-laura-sanchez a {
+  color: #A1CFEA;
+}
+
+.theme-laura-sanchez a:hover {
+  color: #fc8eac; /* secondary neutral */
+}
+
+.theme-laura-sanchez .button--primary {
+  background: #A1CFEA;
+  color: #000000;
+  box-shadow: 0 18px 40px rgba(161, 207, 234, 0.35);
+}
+
+.theme-laura-sanchez .button--primary:hover {
+  background: #fc8eac;
+}
+
+/* =========================================
+   Highlight accents (VERY sparing)
+========================================= */
+
+.theme-laura-sanchez .chip {
+  background: rgba(240, 197, 62, 0.25);
+  border-color: rgba(240, 197, 62, 0.45);
+  color: #000000;
+}
+
+/* =========================================
+   Hero gradient override (subtle + warm)
+========================================= */
+
+.theme-laura-sanchez .section--hero {
+  background:
+    linear-gradient(
+      120deg,
+      rgba(244, 226, 190, 0.95),
+      rgba(161, 207, 234, 0.85),
+      rgba(252, 142, 172, 0.85)
+    );
+  background-size: 300% 300%;
+}
+
+.theme-laura-sanchez .section--hero::before {
+  background: rgba(244, 226, 190, 0.55);
+}
+
+/* =========================================
+   Logo system sections (clean + editorial)
+========================================= */
+
+.theme-laura-sanchez .case-showcase__media,
+.theme-laura-sanchez .case-tile__media,
+.theme-laura-sanchez .case-app__media {
+  background: rgba(255, 255, 255, 0.55);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+/* =========================================
+   Optional: subtle gold highlight rule
+========================================= */
+
+.theme-laura-sanchez .section-kicker {
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.theme-laura-sanchez .section-kicker::after {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background: #F0C53E;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+

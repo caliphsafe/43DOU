@@ -50,3 +50,48 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// Simple Lightbox for Laura Sanchez Applications
+(function () {
+  const lb = document.getElementById("lightbox");
+  if (!lb) return;
+
+  const lbImg = lb.querySelector(".lightbox__img");
+  const lbCap = lb.querySelector(".lightbox__caption");
+  const lbClose = lb.querySelector(".lightbox__close");
+
+  function openLightbox(imgEl) {
+    const src = imgEl.getAttribute("src");
+    const alt = imgEl.getAttribute("alt") || "";
+    lbImg.setAttribute("src", src);
+    lbImg.setAttribute("alt", alt);
+    lbCap.textContent = alt;
+    lb.classList.add("is-open");
+    lb.setAttribute("aria-hidden", "false");
+  }
+
+  function closeLightbox() {
+    lb.classList.remove("is-open");
+    lb.setAttribute("aria-hidden", "true");
+    lbImg.removeAttribute("src");
+  }
+
+  document.addEventListener("click", (e) => {
+    const trigger = e.target.closest("[data-lightbox]");
+    if (!trigger) return;
+
+    const img = trigger.querySelector("img");
+    if (img) openLightbox(img);
+  });
+
+  lbClose?.addEventListener("click", closeLightbox);
+
+  lb.addEventListener("click", (e) => {
+    if (e.target === lb) closeLightbox();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeLightbox();
+  });
+})();
+

@@ -404,8 +404,10 @@
 
       <div class="apps-grid">
 
-        <!-- Book (Front only) -->
-        <article class="app-tile" data-lightbox>
+        <!-- 1) Book (Front only) -->
+        <article class="app-tile" data-lightbox role="button" tabindex="0"
+                 data-title="<em>Book</em> Cover"
+                 data-description="A focused front cover built to feel timeless, poetic, and unmistakably Laura.">
           <div class="app-tile__media app-tile__media--portrait">
             <img class="app-img"
                  src="images/laura-sanchez/app-book-cover.png"
@@ -416,8 +418,10 @@
           <p class="app-text">A focused front cover built to feel timeless, poetic, and unmistakably Laura.</p>
         </article>
 
-        <!-- Step & Repeat -->
-        <article class="app-tile" data-lightbox>
+        <!-- 2) Step & Repeat -->
+        <article class="app-tile" data-lightbox role="button" tabindex="0"
+                 data-title="<em>Step</em> &amp; Repeat"
+                 data-description="Pattern consistency and spacing that stays premium on-camera and in photos.">
           <div class="app-tile__media app-tile__media--landscape">
             <img class="app-img"
                  src="images/laura-sanchez/app-step-repeat.png"
@@ -428,8 +432,10 @@
           <p class="app-text">Pattern consistency and spacing that stays premium on-camera and in photos.</p>
         </article>
 
-        <!-- Social (6-post grid) — stays as the 3rd item on row 1 -->
-        <article class="app-card app-card--social" data-lightbox>
+        <!-- 3) Social (6-post grid) — stays as 3rd item on row 1 -->
+        <article class="app-card app-card--social" data-lightbox role="button" tabindex="0"
+                 data-title="<em>Social</em> System"
+                 data-description="A repeatable social presence built around poetic language, bilingual storytelling, and visual restraint — allowing the message to lead while the brand remains unmistakable.">
           <div class="app-card__media app-card__media--grid">
             <div class="social-grid">
               <img class="app-img" src="images/laura-sanchez/social-01.jpg" alt="Laura Sanchez social post 1" loading="lazy" />
@@ -450,16 +456,10 @@
           </div>
         </article>
 
-        <!-- Extra brand applications (same section, same grid) -->
-        <article class="app-tile" data-lightbox>
-          <div class="app-tile__media">
-            <img class="app-img" src="images/laura-sanchez/app-banner.png" alt="Retractable banner" loading="lazy" />
-          </div>
-          <h4 class="app-title"><em>Event</em> Banner</h4>
-          <p class="app-text">Large-format clarity with strong hierarchy and brand presence.</p>
-        </article>
-
-        <article class="app-tile" data-lightbox>
+        <!-- 4) Book Release Cover -->
+        <article class="app-tile" data-lightbox role="button" tabindex="0"
+                 data-title="<em>Book</em> Release Cover"
+                 data-description="A release moment designed to feel editorial, premium, and shareable.">
           <div class="app-tile__media">
             <img class="app-img" src="images/laura-sanchez/app-book-release.png" alt="Book release cover" loading="lazy" />
           </div>
@@ -467,7 +467,10 @@
           <p class="app-text">A release moment designed to feel editorial, premium, and shareable.</p>
         </article>
 
-        <article class="app-tile" data-lightbox>
+        <!-- 5) Speaker Flyer -->
+        <article class="app-tile" data-lightbox role="button" tabindex="0"
+                 data-title="<em>Speaker</em> Flyer"
+                 data-description="A flexible promo layout designed for both print and digital.">
           <div class="app-tile__media">
             <img class="app-img" src="images/laura-sanchez/app-speaker-flyer.png" alt="Speaker highlight flyer" loading="lazy" />
           </div>
@@ -475,7 +478,10 @@
           <p class="app-text">A flexible promo layout designed for both print and digital.</p>
         </article>
 
-        <article class="app-tile" data-lightbox>
+        <!-- 6) Tote -->
+        <article class="app-tile" data-lightbox role="button" tabindex="0"
+                 data-title="<em>Merch</em> Tote"
+                 data-description="The tulip mark scales cleanly for a simple, wearable brand moment.">
           <div class="app-tile__media">
             <img class="app-img" src="images/laura-sanchez/app-tote.png" alt="Tote bag" loading="lazy" />
           </div>
@@ -497,6 +503,120 @@
     </div>
   </div>
 </section>
+
+<!-- Lightbox Overlay (ADD THIS ONCE near the end of the page, before </body>) -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox__close" type="button" aria-label="Close">×</button>
+
+  <div class="lightbox__inner liquid-glass deck-edge" role="dialog" aria-modal="true">
+    <div class="lightbox__media">
+      <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="Previous image">‹</button>
+      <img class="lightbox__img" alt="" />
+      <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Next image">›</button>
+    </div>
+
+    <div class="lightbox__meta">
+      <h4 class="app-title lightbox__title"></h4>
+      <p class="app-text lightbox__text"></p>
+      <div class="lightbox__count"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox Script (ADD THIS ONCE, or move into script.js) -->
+<script>
+  (function () {
+    const lb = document.getElementById("lightbox");
+    if (!lb) return;
+
+    const imgEl = lb.querySelector(".lightbox__img");
+    const titleEl = lb.querySelector(".lightbox__title");
+    const textEl = lb.querySelector(".lightbox__text");
+    const countEl = lb.querySelector(".lightbox__count");
+    const closeBtn = lb.querySelector(".lightbox__close");
+    const prevBtn = lb.querySelector(".lightbox__nav--prev");
+    const nextBtn = lb.querySelector(".lightbox__nav--next");
+
+    let gallery = [];
+    let index = 0;
+
+    function setIndex(i) {
+      if (!gallery.length) return;
+      index = (i + gallery.length) % gallery.length;
+      imgEl.src = gallery[index].src;
+      imgEl.alt = gallery[index].alt || "";
+      if (gallery.length > 1) {
+        countEl.textContent = (index + 1) + " / " + gallery.length;
+        prevBtn.style.display = "";
+        nextBtn.style.display = "";
+      } else {
+        countEl.textContent = "";
+        prevBtn.style.display = "none";
+        nextBtn.style.display = "none";
+      }
+    }
+
+    function openLightbox(fromTile) {
+      const imgs = Array.from(fromTile.querySelectorAll("img"));
+      if (!imgs.length) return;
+
+      gallery = imgs.map(i => ({ src: i.getAttribute("src"), alt: i.getAttribute("alt") || "" }));
+      index = 0;
+
+      // Title/description match the section below (same typography classes)
+      titleEl.innerHTML = fromTile.getAttribute("data-title") || (fromTile.querySelector(".app-title")?.innerHTML || "");
+      textEl.textContent = fromTile.getAttribute("data-description") || (fromTile.querySelector(".app-text")?.textContent || "");
+
+      setIndex(0);
+
+      lb.classList.add("is-open");
+      lb.setAttribute("aria-hidden", "false");
+      document.documentElement.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      lb.classList.remove("is-open");
+      lb.setAttribute("aria-hidden", "true");
+      document.documentElement.style.overflow = "";
+      imgEl.src = "";
+      gallery = [];
+      index = 0;
+    }
+
+    // Open handlers
+    document.querySelectorAll("[data-lightbox]").forEach(tile => {
+      tile.addEventListener("click", (e) => {
+        // don't open if user clicked inside the grid and is selecting/dragging
+        openLightbox(tile);
+      });
+      tile.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openLightbox(tile);
+        }
+      });
+    });
+
+    // Close handlers
+    closeBtn.addEventListener("click", closeLightbox);
+    lb.addEventListener("click", (e) => {
+      if (e.target === lb) closeLightbox();
+    });
+
+    // Nav handlers
+    prevBtn.addEventListener("click", () => setIndex(index - 1));
+    nextBtn.addEventListener("click", () => setIndex(index + 1));
+
+    // Keyboard
+    window.addEventListener("keydown", (e) => {
+      if (!lb.classList.contains("is-open")) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") setIndex(index - 1);
+      if (e.key === "ArrowRight") setIndex(index + 1);
+    });
+  })();
+</script>
+
 
     <!-- Slide 7: Closing -->
     <section id="closing" class="section section--contact" data-section>

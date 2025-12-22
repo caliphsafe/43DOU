@@ -162,6 +162,85 @@ a:hover {
 }
 
 /* =========================================
+   Liquid Glass Utility (NEW)
+========================================= */
+.liquid-glass {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.72),
+    rgba(255, 255, 255, 0.44)
+  );
+
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+
+  backdrop-filter: blur(18px) saturate(130%);
+  -webkit-backdrop-filter: blur(18px) saturate(130%);
+}
+
+/* moving highlight */
+.liquid-glass::before {
+  content: "";
+  position: absolute;
+  inset: -60%;
+  background:
+    radial-gradient(closest-side at 30% 30%, rgba(255, 90, 19, 0.22), transparent 55%),
+    radial-gradient(closest-side at 70% 60%, rgba(182, 254, 3, 0.14), transparent 60%);
+  transform: rotate(12deg);
+  opacity: 0.9;
+  filter: blur(18px);
+  animation: liquidFloat 18s ease-in-out infinite;
+}
+
+/* subtle specular streak */
+.liquid-glass::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: linear-gradient(
+    120deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 65%
+  );
+  opacity: 0.35;
+  transform: translateX(-20%);
+  animation: liquidSheen 10s ease-in-out infinite;
+}
+
+@keyframes liquidFloat {
+  0% { transform: translate3d(-2%, -1%, 0) rotate(10deg); }
+  50% { transform: translate3d(2%, 1%, 0) rotate(14deg); }
+  100% { transform: translate3d(-2%, -1%, 0) rotate(10deg); }
+}
+
+@keyframes liquidSheen {
+  0% { transform: translateX(-18%) rotate(0deg); }
+  50% { transform: translateX(18%) rotate(0deg); }
+  100% { transform: translateX(-18%) rotate(0deg); }
+}
+
+/* keep inner content above the liquid layers */
+.liquid-glass > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .liquid-glass::before,
+  .liquid-glass::after {
+    animation: none;
+  }
+}
+
+/* =========================================
    Header – Glass Nav
 ========================================= */
 .site-header {
@@ -744,6 +823,7 @@ a:hover {
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
 }
 
+/* NEW: more premium image treatment */
 .case-hero__media {
   padding: 14px;
   border-radius: var(--radius-lg);
@@ -754,8 +834,9 @@ a:hover {
   height: 100%;
   max-height: 520px;
   object-fit: cover;
-  border-radius: var(--radius-md);
+  border-radius: calc(var(--radius-lg) - 8px);
   display: block;
+  filter: contrast(1.02) saturate(1.06);
 }
 
 .case-meta {
@@ -816,7 +897,9 @@ a:hover {
 }
 
 .case-showcase__media {
-  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
   background: rgba(205, 230, 246, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.45);
   padding: 16px;
@@ -845,9 +928,10 @@ a:hover {
   line-height: 1.55;
 }
 
+/* NEW: feature + collage layout for logo tiles */
 .case-tiles {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1.1fr 0.9fr;
   gap: 14px;
   margin-top: 14px;
 }
@@ -858,8 +942,19 @@ a:hover {
   gap: 12px;
 }
 
+.case-tile--feature {
+  grid-row: span 2;
+  padding: 18px;
+}
+
+.case-tile--feature .case-tile__media {
+  min-height: 320px;
+}
+
 .case-tile__media {
-  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
   background: rgba(205, 230, 246, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.45);
   padding: 14px;
@@ -956,8 +1051,9 @@ a:hover {
 }
 
 .case-app__media {
-  border-radius: var(--radius-md);
+  position: relative;
   overflow: hidden;
+  border-radius: var(--radius-lg);
   border: 1px solid rgba(255, 255, 255, 0.45);
   background: rgba(205, 230, 246, 0.18);
   min-height: 210px;
@@ -975,6 +1071,18 @@ a:hover {
   gap: 14px;
 }
 
+/* NEW: inner border polish on media containers */
+.case-showcase__media::after,
+.case-tile__media::after,
+.case-app__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
+  pointer-events: none;
+}
+
 @media (max-width: 900px) {
   .case-hero__inner,
   .case-showcase {
@@ -982,10 +1090,18 @@ a:hover {
   }
 
   .case-grid,
-  .case-tiles,
   .palette,
   .case-apps {
     grid-template-columns: 1fr;
+  }
+
+  /* collapse collage layout */
+  .case-tiles {
+    grid-template-columns: 1fr;
+  }
+
+  .case-tile--feature {
+    grid-row: auto;
   }
 }
 
@@ -1014,6 +1130,15 @@ a:hover {
     #F4E2BE 0%,
     rgba(244, 226, 190, 0.65) 100%
   );
+}
+
+/* NEW: tighter spacing on Laura page (less spread out) */
+.theme-laura-sanchez .section {
+  padding: 64px 24px;
+}
+
+.theme-laura-sanchez .section--hero {
+  padding: 80px 24px;
 }
 
 /* =========================================
@@ -1050,7 +1175,7 @@ a:hover {
   color: #A1CFEA;
 }
 
-/* ⬇️ CHANGE HERE: hover color now yellow */
+/* hover color now yellow */
 .theme-laura-sanchez a:hover {
   color: #F0C53E;
 }
@@ -1061,7 +1186,6 @@ a:hover {
   box-shadow: 0 18px 40px rgba(161, 207, 234, 0.35);
 }
 
-/* ⬇️ CHANGE HERE: button hover now yellow */
 .theme-laura-sanchez .button--primary:hover {
   background: #F0C53E;
 }
@@ -1122,4 +1246,10 @@ a:hover {
   background: #F0C53E;
   margin-left: 10px;
   vertical-align: middle;
+}
+
+@media (max-width: 900px) {
+  .theme-laura-sanchez .section {
+    padding: 52px 16px;
+  }
 }

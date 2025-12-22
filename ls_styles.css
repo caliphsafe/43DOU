@@ -594,7 +594,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* =========================================
-   Applications (Clean — No Nested Cards Look)
+   Applications (Clean — No Nested Cards)
 ========================================= */
 
 .apps-grid {
@@ -604,21 +604,18 @@ img { max-width: 100%; height: auto; display: block; }
   margin-top: 14px;
 }
 
-/* Wide item spans full width (Social) */
-.app-tile--wide {
-  grid-column: span 3;
-}
-
-/* “Tile” is layout only — NOT a second card */
-.app-tile {
+/* Layout-only tile (no extra “card” look) */
+.app-tile,
+.app-card.app-card--social {
   padding: 10px 0 0;
   display: grid;
   gap: 10px;
   cursor: zoom-in;
 }
 
-/* Media wrapper keeps everything consistent + prevents giant scroll */
-.app-tile__media {
+/* Media wrapper (consistent height + prevents giant scroll) */
+.app-tile__media,
+.app-card__media--grid {
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-lg);
@@ -634,62 +631,43 @@ img { max-width: 100%; height: auto; display: block; }
 .app-tile__media--portrait { min-height: 260px; }
 .app-tile__media--landscape { min-height: 220px; }
 
-/* Universal image rules */
+/* Universal image rules (used by lightbox script too) */
 .app-img {
   width: 100%;
   height: 100%;
   max-height: 320px;
-  object-fit: contain; /* contain keeps comps from being cropped */
+  object-fit: contain;
   border-radius: 14px;
   background: rgba(255,255,255,0.35);
   display: block;
 }
 
-/* =========================================
-   Social (keep structure; remove extra “card feel”)
-========================================= */
-
-/* This is the ONLY container “card” — it sits inside the section card */
-.app-card.app-card--social {
-  padding: 10px 0 0;
-  display: grid;
-  gap: 10px;
-  cursor: zoom-in;
-}
-
-/* Media wrapper matches other media blocks */
-.app-card__media--grid {
-  border-radius: var(--radius-lg);
-  background: rgba(240, 197, 62, 0.10);
-  padding: 12px;
-}
-
-/* Keep your social grid exactly as you specified */
+/* Social grid stays small and contained inside the 3rd tile */
 .social-grid {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: 10px;
 }
 
-.social-grid img {
+/* Make the 6 posts feel smaller (no stretching) */
+.social-grid .app-img {
   width: 100%;
   height: auto;
-  border-radius: 10px;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
+  border-radius: 10px;
+  max-height: none;
 }
 
-/* Body spacing stays clean */
+/* Text spacing */
 .app-card__body {
   display: grid;
   gap: 6px;
 }
 
-/* =========================================
-   Shared Title + Text (match style for ALL examples)
-========================================= */
-
-.app-title,
-.app-card__title {
+/* Titles match for ALL examples */
+.app-title {
   margin: 0;
   color: var(--deep);
   font-size: 1rem;
@@ -697,84 +675,25 @@ img { max-width: 100%; height: auto; display: block; }
   line-height: 1.2;
 }
 
-.app-title em,
-.app-card__title em {
+.app-title em {
   font-style: normal;
   color: var(--punch);
 }
 
-.app-text,
-.app-card__text {
+.app-text {
   margin: 0;
   color: var(--muted);
   line-height: 1.5;
 }
 
-/* =========================================
-   More Brand Applications (simple — no mini-cards)
-========================================= */
-
-.apps-more {
-  margin-top: 22px;
-  padding-top: 18px;
-  border-top: 1px dashed rgba(0,0,0,0.10);
-}
-
-.apps-more__title {
-  margin: 0 0 12px;
-  font-size: 1.05rem;
-  color: var(--deep);
-}
-
-.apps-more__grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.app-mini {
-  display: grid;
-  gap: 10px;
-  cursor: zoom-in;
-}
-
-.app-mini__media {
-  border-radius: var(--radius-lg);
-  background: rgba(161, 207, 234, 0.18);
-  padding: 10px;
-  overflow: hidden;
-}
-
-.app-mini__img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 14px;
-  display: block;
-  background: rgba(255,255,255,0.35);
-}
-
-/* =========================================
-   Responsive
-========================================= */
-
+/* Responsive */
 @media (max-width: 900px) {
-  .apps-grid {
-    grid-template-columns: 1fr;
-  }
-  .app-tile--wide {
-    grid-column: auto;
-  }
-  .apps-more__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  .apps-grid { grid-template-columns: 1fr; }
+  .social-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* Your requested breakpoint (keep it) */
 @media (max-width: 768px) {
-  .social-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .social-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 

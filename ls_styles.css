@@ -594,45 +594,18 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* =========================================
-   Applications
+   Applications (Clean Tiles — No Nested Cards)
 ========================================= */
-.case-apps {
+
+.apps-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
   margin-top: 14px;
 }
 
-.case-app {
-  padding: 16px;
-  display: grid;
-  gap: 12px;
-}
-
-.case-app__media {
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  background: rgba(240, 197, 62, 0.14);
-  min-height: 210px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* =========================================
-   Applications — Featured + More (Organized)
-========================================= */
-
-.apps-featured {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-  margin-top: 14px;
-}
-
-.app-card {
+/* Single tile container (this is the only “card”) */
+.app-tile {
   padding: 16px;
   display: grid;
   gap: 12px;
@@ -642,11 +615,16 @@ img { max-width: 100%; height: auto; display: block; }
   cursor: zoom-in;
 }
 
-.app-card__media {
+/* Social grid tile spans full width */
+.app-tile--wide {
+  grid-column: span 3;
+}
+
+/* Media wrapper (controls height + prevents giant images) */
+.app-tile__media {
   position: relative;
   overflow: hidden;
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: calc(var(--radius-lg) - 4px);
   background: rgba(240, 197, 62, 0.12);
   min-height: 220px;
   display: flex;
@@ -655,115 +633,70 @@ img { max-width: 100%; height: auto; display: block; }
   padding: 12px;
 }
 
-.app-card__media--split {
+/* Book front/back (2-up) */
+.app-tile__media--pair {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
-  padding: 10px;
   align-items: stretch;
 }
 
-.app-figure {
-  margin: 0;
+/* Social 6-grid inside one tile */
+.app-tile__media--social {
   display: grid;
-  gap: 8px;
-  align-content: start;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  align-items: stretch;
 }
 
-.app-cap {
-  font-size: 0.78rem;
-  color: var(--muted2);
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-}
-
+/* Universal image rules (no stretching / no mega scroll) */
 .app-img {
   width: 100%;
   height: 100%;
-  max-height: 260px;
-  object-fit: contain;
+  max-height: 320px;
+  object-fit: cover;
   border-radius: 14px;
   background: rgba(255,255,255,0.35);
+  display: block;
 }
 
-.app-card__title {
-  margin: 0 0 6px;
+/* Social posts should always be square */
+.app-tile__media--social .app-img {
+  aspect-ratio: 1 / 1;
+  max-height: none;
+  object-fit: cover;
+}
+
+/* Book front/back should feel like a book */
+.app-tile__media--pair .app-img {
+  aspect-ratio: 2 / 3;
+  max-height: 320px;
+  object-fit: cover;
+}
+
+/* Title — consistent across ALL examples */
+.app-tile__title {
+  margin: 0;
   color: var(--deep);
   font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.2;
 }
 
-.app-card__title em {
+.app-tile__title em {
   font-style: normal;
   color: var(--punch);
 }
 
-.app-card__text {
+.app-tile__text {
   margin: 0;
   color: var(--muted);
   line-height: 1.5;
 }
 
-/* More touchpoints (tight + clean) */
-.apps-more {
-  margin-top: 18px;
-  padding-top: 16px;
-  border-top: 1px dashed rgba(0,0,0,0.10);
-}
-
-.apps-more__head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-
-.apps-more__title {
-  margin: 0;
-  font-size: 1.05rem;
-  color: var(--deep);
-}
-
-.apps-more__note {
-  margin: 0;
-  font-size: 0.9rem;
-  color: var(--muted2);
-}
-
-.apps-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.app-thumb {
-  border: none;
-  padding: 10px;
-  text-align: left;
-  border-radius: 16px;
-  background: rgba(255,255,255,0.44);
-  box-shadow: 0 16px 38px rgba(0,0,0,0.10);
-  cursor: zoom-in;
-}
-
-.app-thumb__img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 14px;
-  display: block;
-}
-
-.app-thumb__label {
-  display: block;
-  margin-top: 10px;
-  font-size: 0.80rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--muted2);
-}
-
-/* Lightbox */
+/* =========================================
+   Lightbox (keep as-is)
+========================================= */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -816,10 +749,10 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Responsive */
 @media (max-width: 900px) {
-  .apps-featured { grid-template-columns: 1fr; }
   .apps-grid { grid-template-columns: 1fr; }
-  .apps-more__head { flex-direction: column; align-items: flex-start; }
-  .app-thumb__img { height: 220px; }
+  .app-tile--wide { grid-column: auto; }
+  .app-tile__media--social { grid-template-columns: repeat(2, 1fr); }
+  .app-img { max-height: 360px; }
 }
 
 

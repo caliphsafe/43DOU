@@ -926,11 +926,13 @@ img { max-width: 100%; height: auto; display: block; }
   justify-content: center;
 }
 
-/* Dark background option so white logos read well */
+/* Dark background option so white logos read well
+   — using DLAB primary blue */
 .logo-row__media--dark {
-  background: rgba(0,0,0,0.55);
-  border: 1px solid rgba(255,255,255,0.20);
+  background: #0C69AC;
+  border: 1px solid rgba(255, 255, 255, 0.28);
 }
+
 
 /* Wide logo image behavior (key fix) */
 .case-img--wide {

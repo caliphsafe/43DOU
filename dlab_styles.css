@@ -879,3 +879,93 @@ img { max-width: 100%; height: auto; display: block; }
   .liquid-glass::before,
   .liquid-glass::after { animation: none; }
 }
+
+/* =========================================
+   DLAB — Logo System (Icon + Wide Variants)
+========================================= */
+
+.case-showcase__media--icon {
+  padding: 18px;
+  min-height: 260px;
+}
+
+.case-img--icon {
+  max-height: 240px;
+  width: auto;
+  height: auto;
+}
+
+/* Rows that are designed for WIDE horizontal logos */
+.logo-rows {
+  margin-top: 14px;
+  display: grid;
+  gap: 14px;
+}
+
+/* Each row is clickable + balanced */
+.logo-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 16px;
+  padding: 16px;
+  border-radius: var(--radius-lg);
+  cursor: zoom-in;
+}
+
+/* Media area for wide logos */
+.logo-row__media {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: rgba(12, 105, 172, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  padding: 14px;
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dark background option so white logos read well */
+.logo-row__media--dark {
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,255,255,0.20);
+}
+
+/* Wide logo image behavior (key fix) */
+.case-img--wide {
+  width: 100%;
+  height: auto;
+  max-height: 120px;     /* keeps rows proportional */
+  object-fit: contain;   /* prevents cropping */
+}
+
+/* Title/text in the row uses same styling language */
+.logo-row__title {
+  margin: 0 0 6px;
+  color: var(--deep);
+  font-size: 1rem;
+}
+
+.logo-row__title em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.logo-row__text {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .logo-row {
+    grid-template-columns: 1fr;
+  }
+
+  .case-img--wide {
+    max-height: 140px;
+  }
+}
+

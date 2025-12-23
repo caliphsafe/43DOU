@@ -78,7 +78,6 @@ a:hover {
   display: flex;
   align-items: center;
 
-  /* Optional: Make It Even More Organic (Advanced) */
   background:
     linear-gradient(
       120deg,
@@ -120,9 +119,7 @@ a:hover {
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .section--hero {
-    animation: none;
-  }
+  .section--hero { animation: none; }
 }
 
 /* Containers */
@@ -300,6 +297,39 @@ a:hover {
 .hero-grid__item:hover {
   transform: translateY(-3px);
   border-color: rgba(255, 90, 19, 0.25);
+}
+
+/* === NEW: 3 items in ONE ROW + clickable === */
+.hero-grid--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.hero-grid__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 140px;
+  border-radius: var(--radius-md);
+  color: inherit;
+  text-decoration: none;
+}
+
+.hero-grid__link:hover {
+  text-decoration: none;
+}
+
+/* kill old wide behavior if present */
+.hero-grid__item--wide {
+  grid-column: auto;
+}
+
+/* optional label styling if you want */
+.hero-grid__label {
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: var(--deep);
 }
 
 /* =========================================
@@ -699,6 +729,11 @@ a:hover {
     padding-bottom: 2px;
   }
 
+  /* Hero 3 cards stack on mobile */
+  .hero-grid--three {
+    grid-template-columns: 1fr;
+  }
+
   /* Case card collapses to one column */
   .case-card__link {
     grid-template-columns: 1fr;
@@ -708,10 +743,10 @@ a:hover {
     max-height: 240px;
   }
 }
+
 /* =========================================
    Hero Image — Prevent Pixelation
 ========================================= */
-
 .case-hero__media {
   display: flex;
   align-items: center;

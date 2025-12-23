@@ -673,6 +673,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* Media wrapper (LOCK HEIGHT so all app tiles match) */
+/* Application media — single locked height for ALL tiles */
 .app-tile__media,
 .app-card__media--grid {
   position: relative;
@@ -681,17 +682,11 @@ img { max-width: 100%; height: auto; display: block; }
   background: rgba(12, 105, 172, 0.10);
   padding: 12px;
 
-  height: 240px;          /* ✅ was min-height */
+  height: 280px;          /* ← choose the tallest needed */
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
 }
-
-/* Portrait / Landscape tuning (keep, but also lock) */
-.app-tile__media--portrait { height: 280px; }  /* ✅ was min-height */
-.app-tile__media--landscape { height: 240px; } /* ✅ was min-height */
-
 
 .app-img {
   width: 100%;

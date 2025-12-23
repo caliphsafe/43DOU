@@ -970,16 +970,17 @@ img { max-width: 100%; height: auto; display: block; }
   padding: 0;                 /* remove padding so image can fill */
   min-height: 420px;          /* gives it a consistent “hero” area */
   display: block;
+  border-radius: var(--radius-lg); /* ✅ bring back rounded corners */
 }
 
-/* Force the wallpaper to fill edge-to-edge (no letterboxing) */
 .case-tiles--pattern .case-tile--feature .logo-row__media--dark .case-img {
   width: 100%;
   height: 100%;
   max-height: none;           /* override global max-height constraint */
-  object-fit: cover;          /* KEY: fill the full area */
-  border-radius: 0;           /* make it feel like a wallpaper */
+  object-fit: cover;          /* fill the full area */
+  border-radius: var(--radius-lg); /* ✅ match the wrapper corners */
 }
+
 
 /* Responsive */
 @media (max-width: 900px) {

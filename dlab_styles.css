@@ -524,6 +524,26 @@ img { max-width: 100%; height: auto; display: block; }
 .case-rule { margin-top: 14px; padding: 18px; }
 
 /* =========================================
+   Pattern — Media behavior tweaks
+========================================= */
+
+/* Ensures consistent rounded corners + keeps media wrappers clean */
+.pattern-media {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+/* Make the primary wallpaper fill the media area */
+.case-img--fill {
+  width: 100%;
+  height: 100%;
+  max-height: none;     /* overrides global max-height constraints */
+  object-fit: cover;    /* fills the slot */
+  border-radius: 14px;  /* keeps the same inner rounding as other media */
+}
+
+
+/* =========================================
    Iconography Grid (NEW)
 ========================================= */
 .icon-grid {

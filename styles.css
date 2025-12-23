@@ -372,7 +372,7 @@ a:hover {
 }
 
 /* =========================================
-   Case Cards – Glass
+   Case Cards – Glass (UNIFIED)
 ========================================= */
 .cards-list {
   display: grid;
@@ -381,9 +381,10 @@ a:hover {
 
 .cards-list--horizontal {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  align-items: stretch; /* ensures equal-height rows */
 }
 
-/* Glass shell ONLY (layout is on the link wrapper now) */
+/* Make each card able to stretch equally */
 .case-card {
   background: var(--glass-bg);
   backdrop-filter: blur(16px);
@@ -392,6 +393,9 @@ a:hover {
   border-radius: var(--radius-lg);
   box-shadow: var(--glass-shadow);
   transition: transform 0.15s ease, border-color 0.15s ease;
+  overflow: hidden;
+
+  display: flex; /* key: lets inner link fill height */
 }
 
 .case-card:hover {
@@ -399,7 +403,7 @@ a:hover {
   border-color: rgba(255, 90, 19, 0.25);
 }
 
-/* Entire card clickable */
+/* Entire card clickable + consistent layout for ALL */
 .case-card__link {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
@@ -408,52 +412,54 @@ a:hover {
   border-radius: var(--radius-lg);
   color: inherit;
   text-decoration: none;
+
+  width: 100%;
+  height: 100%;          /* key: removes dead-space mismatch */
+  align-content: start;  /* keeps content tight like Laura */
 }
 
-.case-card__link:hover {
-  text-decoration: none;
-}
+.case-card__link:hover { text-decoration: none; }
 
-/* Media area */
+/* Media area controls height, not the img */
 .case-card__media {
   border-radius: var(--radius-md);
   background: rgba(205, 230, 246, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.45);
-  min-height: 180px;
+  overflow: hidden;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+
+  aspect-ratio: 16 / 9; /* consistent media height across cards */
 }
 
 .case-card__media--tall {
-  min-height: 260px;
+  aspect-ratio: 3 / 4;
 }
 
-.case-card__media-placeholder {
-  font-size: 0.85rem;
-  color: var(--muted);
-  padding: 8px;
-}
-
-/* Image for media (prevents huge scroll / stretching) */
+/* Image fills media perfectly */
 .case-card__img {
   width: 100%;
   height: 100%;
-  min-height: 180px;
-  max-height: 260px;
   object-fit: cover;
-  border-radius: var(--radius-md);
   display: block;
 }
 
+/* Body */
+.case-card__body {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
 .case-card__title {
-  margin: 0 0 6px;
+  margin: 0;
   color: var(--deep);
 }
 
 .case-card__description {
-  margin: 0 0 12px;
+  margin: 0;
   color: var(--muted);
 }
 
@@ -464,6 +470,7 @@ a:hover {
   text-transform: uppercase;
   color: var(--muted2);
 }
+
 
 /* Micro accent chip (Safety Green) – optional */
 .chip {

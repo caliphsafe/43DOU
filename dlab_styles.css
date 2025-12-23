@@ -960,6 +960,27 @@ img { max-width: 100%; height: auto; display: block; }
   line-height: 1.55;
 }
 
+/* =========================================
+   Pattern — Full Bleed Primary Wallpaper Fix
+========================================= */
+
+/* Make the blue wrapper act like a true media container */
+.case-tiles--pattern .case-tile--feature .logo-row__media--dark {
+  overflow: hidden;
+  padding: 0;                 /* remove padding so image can fill */
+  min-height: 420px;          /* gives it a consistent “hero” area */
+  display: block;
+}
+
+/* Force the wallpaper to fill edge-to-edge (no letterboxing) */
+.case-tiles--pattern .case-tile--feature .logo-row__media--dark .case-img {
+  width: 100%;
+  height: 100%;
+  max-height: none;           /* override global max-height constraint */
+  object-fit: cover;          /* KEY: fill the full area */
+  border-radius: 0;           /* make it feel like a wallpaper */
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .logo-row {
@@ -969,5 +990,8 @@ img { max-width: 100%; height: auto; display: block; }
   .case-img--wide {
     max-height: 140px;
   }
-}
 
+  .case-tiles--pattern .case-tile--feature .logo-row__media--dark {
+    min-height: 320px;
+  }
+}

@@ -15,7 +15,6 @@
   <header class="site-header">
     <div class="site-header__inner">
       <div class="site-logo">
-        <!-- Replace with your logo or name -->
         <a href="#overview">[Your Name]</a>
       </div>
       <nav class="site-nav">
@@ -30,13 +29,12 @@
     </div>
   </header>
 
-  <!-- Main content (the pitch deck scroll) -->
   <main class="page">
 
    <!-- Slide 1: Overview / Hero -->
 <section id="overview" class="section section--hero" data-section>
   <div class="section__inner section__inner--hero">
-    
+
     <!-- Left: Hero Text -->
     <div class="hero-text">
       <p class="section-kicker">01 — Overview</p>
@@ -54,22 +52,28 @@
       <p class="hero-cta-note">Scroll to explore ↓</p>
     </div>
 
-    <!-- Right: 3-Item Hero Grid -->
+    <!-- Right: 3 Hyperlinked Hero Grid (ONE ROW) -->
     <div class="hero-grid hero-grid--three">
-      
+
       <!-- Branding -->
       <div class="hero-grid__item">
-        <span class="hero-grid__label">Branding</span>
+        <a class="hero-grid__link" href="#branding" aria-label="Jump to Branding section">
+          <span class="hero-grid__label">Branding</span>
+        </a>
       </div>
 
       <!-- Apparel -->
       <div class="hero-grid__item">
-        <span class="hero-grid__label">Apparel</span>
+        <a class="hero-grid__link" href="#apparel" aria-label="Jump to Apparel section">
+          <span class="hero-grid__label">Apparel</span>
+        </a>
       </div>
 
       <!-- Campaigns -->
-      <div class="hero-grid__item hero-grid__item--wide">
-        <span class="hero-grid__label">Campaigns</span>
+      <div class="hero-grid__item">
+        <a class="hero-grid__link" href="#campaigns" aria-label="Jump to Campaigns section">
+          <span class="hero-grid__label">Campaigns</span>
+        </a>
       </div>
 
     </div>
@@ -119,30 +123,30 @@
           Presenting brands as full systems: logos, color, type, and real-world applications.
         </p>
 
-        <div class="cards-list">
-         <!-- Branding Campaign Card 1 — Laura Sanchez -->
-<article class="case-card">
-  <a class="case-card__link" href="laura-sanchez.html" aria-label="View Laura Sanchez case study">
-    <div class="case-card__media">
-      <img
-        class="case-card__img"
-        src="images/laura-sanchez/ls_hero.png"
-        alt="Laura Sanchez — Brand Identity case study hero"
-        loading="lazy"
-      />
-    </div>
+        <!-- UPDATED: side-by-side layout -->
+        <div class="cards-list cards-list--horizontal">
+          <!-- Branding Campaign Card 1 — Laura Sanchez -->
+          <article class="case-card">
+            <a class="case-card__link" href="laura-sanchez.html" aria-label="View Laura Sanchez case study">
+              <div class="case-card__media">
+                <img
+                  class="case-card__img"
+                  src="images/laura-sanchez/ls_hero.png"
+                  alt="Laura Sanchez — Brand Identity case study hero"
+                  loading="lazy"
+                />
+              </div>
 
-    <div class="case-card__body">
-      <h3 class="case-card__title">Laura Sanchez</h3>
-      <p class="case-card__description">
-        Artist-first identity system centered on expressive typography and a tulip mark—built to communicate growth and
-        authenticity across print, events, and social. I led the full brand direction and identity design.
-      </p>
-      <p class="case-card__tags">Logo • Visual Identity • Brand System</p>
-    </div>
-  </a>
-</article>
-
+              <div class="case-card__body">
+                <h3 class="case-card__title">Laura Sanchez</h3>
+                <p class="case-card__description">
+                  Artist-first identity system centered on expressive typography and a tulip mark—built to communicate growth and
+                  authenticity across print, events, and social. I led the full brand direction and identity design.
+                </p>
+                <p class="case-card__tags">Logo • Visual Identity • Brand System</p>
+              </div>
+            </a>
+          </article>
 
           <!-- Branding Campaign Card 2 -->
           <article class="case-card">
@@ -157,8 +161,6 @@
               <p class="case-card__tags">Logo • Packaging • Social Templates</p>
             </div>
           </article>
-
-          <!-- Add more branding campaigns as needed -->
         </div>
       </div>
     </section>
@@ -173,7 +175,6 @@
         </p>
 
         <div class="cards-list cards-list--horizontal">
-          <!-- Apparel Collection 1 -->
           <article class="case-card">
             <div class="case-card__media case-card__media--tall">
               <div class="case-card__media-placeholder">Collection 01 Hero</div>
@@ -187,7 +188,6 @@
             </div>
           </article>
 
-          <!-- Apparel Collection 2 -->
           <article class="case-card">
             <div class="case-card__media case-card__media--tall">
               <div class="case-card__media-placeholder">Collection 02 Hero</div>
@@ -214,7 +214,6 @@
         </p>
 
         <div class="grid-masonry">
-          <!-- Campaign Tile 1 -->
           <article class="tile-card">
             <div class="tile-card__media">
               <div class="tile-card__media-placeholder">Campaign 01</div>
@@ -227,7 +226,6 @@
             </div>
           </article>
 
-          <!-- Campaign Tile 2 -->
           <article class="tile-card">
             <div class="tile-card__media">
               <div class="tile-card__media-placeholder">Campaign 02</div>
@@ -239,8 +237,6 @@
               </p>
             </div>
           </article>
-
-          <!-- Add more campaign tiles as needed -->
         </div>
       </div>
     </section>
@@ -249,7 +245,6 @@
     <section id="about" class="section section--about" data-section>
       <div class="section__inner section__inner--about">
         <div class="about-media">
-          <!-- Replace with your portrait or graphic -->
           <div class="about-media__placeholder">Your Portrait / Graphic</div>
         </div>
         <div class="about-content">
@@ -285,7 +280,6 @@
         </p>
 
         <form class="contact-form">
-          <!-- Note: For a real form, connect to a backend or service like Formspree / Getform -->
           <div class="form-row">
             <div class="form-field">
               <label for="name">Name</label>

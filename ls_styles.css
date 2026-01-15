@@ -882,3 +882,32 @@ img { max-width: 100%; height: auto; display: block; }
   }
 }
 
+/* =========================================
+   iOS Safari crash fix: disable heavy blur on scroll
+   (prevents "A problem repeatedly occurred" reloads)
+========================================= */
+@supports (-webkit-touch-callout: none) {
+  /* Turn off real-time blur (GPU heavy on iOS Safari) */
+  .liquid-glass,
+  .site-header {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /* Keep the "glass" look with a safe frosted fallback */
+  .liquid-glass {
+    background: rgba(255, 255, 255, 0.90) !important;
+    border: 1px solid rgba(255, 255, 255, 0.55) !important;
+  }
+
+  .site-header {
+    background: rgba(255, 255, 255, 0.92) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.55) !important;
+  }
+
+  /* Optional: slightly reduce expensive shadows while scrolling */
+  .deck-edge {
+    box-shadow: 0 14px 34px rgba(0,0,0,0.10) !important;
+  }
+}
+

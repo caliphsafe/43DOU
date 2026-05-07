@@ -74,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (previewOpenLink) {
       previewOpenLink.href = url;
+      previewOpenLink.textContent = "Open Full Website";
       previewOpenLink.setAttribute("aria-label", `Open ${title} full website`);
     }
 
@@ -88,17 +89,41 @@ document.addEventListener("DOMContentLoaded", () => {
       mobilePreview.src = url;
       mobilePreview.title = `${title} mobile website preview`;
     }
+
+    scaleDesktopPreview();
   }
 
   function updatePreviewMode(mode) {
     if (!previewStage) return;
 
-    previewStage.classList.remove("is-desktop", "is-mobile", "is-split");
+    previewStage.classList.remove("is-desktop", "is-mobile");
     previewStage.classList.add(`is-${mode}`);
 
     previewToggles.forEach((toggle) => {
       toggle.classList.toggle("is-active", toggle.dataset.view === mode);
     });
+
+    scaleDesktopPreview();
+  }
+
+  function scaleDesktopPreview() {
+    const browserFrame = document.querySelector(".browser-frame");
+    const desktopScale = document.querySelector(".desktop-preview-scale");
+
+    if (!browserFrame || !desktopScale) return;
+
+    const availableWidth = browserFrame.clientWidth;
+    const availableHeight = browserFrame.clientHeight - 40;
+
+    const virtualWidth = 1440;
+    const virtualHeight = 900;
+
+    const scaleX = availableWidth / virtualWidth;
+    const scaleY = availableHeight / virtualHeight;
+
+    const scale = Math.min(scaleX, scaleY);
+
+    desktopScale.style.setProperty("--desktop-scale", scale);
   }
 
   projectCards.forEach((card) => {
@@ -116,23 +141,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const firstActiveProject =
     document.querySelector(".web-project-card.is-active") || projectCards[0];
-  // Scale desktop preview so the embedded site keeps a full desktop viewport
-  function scaleDesktopPreview() {
-    const desktopFrame = document.querySelector(".preview-frame--desktop");
-    if (!desktopFrame) return;
 
-    const frameWidth = desktopFrame.clientWidth;
-    const desktopViewportWidth = 1440;
-    const scale = frameWidth / desktopViewportWidth;
-
-    desktopFrame.style.setProperty("--desktop-preview-scale", scale);
-  }
-
-  scaleDesktopPreview();
-
-  window.addEventListener("resize", scaleDesktopPreview);
   updatePreview(firstActiveProject);
   updatePreviewMode("desktop");
+
+  window.addEventListener("resize", scaleDesktopPreview);
 });
 
 // Simple Lightbox for Case Study Applications

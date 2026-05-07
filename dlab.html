@@ -598,6 +598,44 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+            // Preload all important DLAB images so navigation feels instant
+      function preloadImages() {
+        const imageUrls = [
+          "images/dlab/dlab_hero.png",
+          "images/dlab/app-book-cover.png",
+          "images/dlab/logo-icon.png",
+          "images/dlab/logo-lockup-blue.png",
+          "images/dlab/logo-lockup-white.png",
+          "images/dlab/logo-text-blue.png",
+          "images/dlab/logo-text-white.png",
+          "images/dlab/icons/01-heart-on-couch.png",
+          "images/dlab/icons/02-first-date-meeting.png",
+          "images/dlab/icons/03-second-date.png",
+          "images/dlab/icons/04-hearts-in-cart.png",
+          "images/dlab/icons/05-hearts-with-luggage.png",
+          "images/dlab/icons/06-hearts-buying-house.png",
+          "images/dlab/icons/07-hearts-wedding.png",
+          "images/dlab/icons/08-hearts-rocking-chair.png",
+          "images/dlab/pattern/pattern-wallpaper-primary.png",
+          "images/dlab/pattern/pattern-usage-facebook-banner.png",
+          "images/dlab/pattern/pattern-usage-tablecloth-mockup.png",
+          "images/dlab/app-billboard.png",
+          "images/dlab/app-step-repeat.png",
+          "images/dlab/app-stickers.png",
+          "images/dlab/app-poster.png",
+          "images/dlab/app-tote-front.png",
+          "images/dlab/app-tote-back.png",
+          "images/dlab/app-bookmark-front.png",
+          "images/dlab/app-bookmark-back.png"
+        ];
+
+        imageUrls.forEach((url) => {
+          const img = new Image();
+          img.src = url;
+        });
+      }
+
+      preloadImages();
       const sections = document.querySelectorAll("[data-section]");
       const navLinks = document.querySelectorAll(".site-nav__link");
 

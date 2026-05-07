@@ -6,10 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Case study: Laura Sanchez branding and logo system — wordmark, tulip logomark, typography, and color palette."
+    content="Case study: Laura Sanchez branding and logo system — wordmark, tulip logomark, typography, color palette, and applications."
   />
 
-  <!-- Secondary Typeface (Body/UI) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -17,122 +16,101 @@
     rel="stylesheet"
   />
 
-  <!-- Laura only (standalone to avoid conflicts) -->
   <link rel="stylesheet" href="ls_styles.css" />
 </head>
 
 <body class="theme-laura-sanchez">
-  <!-- Header / Sticky Navigation -->
   <header class="site-header">
-    <div class="site-header__inner">
-      <div class="site-logo">
-        <!--<a href="index.html#branding">← Back to Branding</a> -->
-      </div>
+    <a class="site-logo" href="index.html#branding" aria-label="Back to 43DOU branding">
+      <span>LS</span>
+      <strong>CASE</strong>
+    </a>
 
-      <nav class="site-nav">
-        <a href="#overview" class="site-nav__link" data-nav-target="overview">Overview</a>
-        <a href="#snapshot" class="site-nav__link" data-nav-target="snapshot">Snapshot</a>
-        <a href="#mark" class="site-nav__link" data-nav-target="mark">Logo</a>
-        <a href="#type" class="site-nav__link" data-nav-target="type">Type</a>
-        <a href="#color" class="site-nav__link" data-nav-target="color">Color</a>
-        <a href="#applications" class="site-nav__link" data-nav-target="applications">Applications</a>
-        <a href="#closing" class="site-nav__link" data-nav-target="closing">Close</a>
-      </nav>
-    </div>
+    <nav class="site-nav" aria-label="Case study navigation">
+      <a href="#overview" class="site-nav__link" data-nav-target="overview"><span>01</span>Overview</a>
+      <a href="#snapshot" class="site-nav__link" data-nav-target="snapshot"><span>02</span>Snapshot</a>
+      <a href="#mark" class="site-nav__link" data-nav-target="mark"><span>03</span>Logo</a>
+      <a href="#type" class="site-nav__link" data-nav-target="type"><span>04</span>Type</a>
+      <a href="#color" class="site-nav__link" data-nav-target="color"><span>05</span>Color</a>
+      <a href="#applications" class="site-nav__link" data-nav-target="applications"><span>06</span>Apps</a>
+      <a href="#closing" class="site-nav__link" data-nav-target="closing"><span>07</span>Close</a>
+    </nav>
   </header>
 
   <main class="page">
-
-    <!-- Slide 1: Hero / Overview -->
-    <section id="overview" class="section section--hero case-hero" data-section>
-      <div class="section__inner section__inner--hero case-hero__inner">
-
-        <div class="hero-text">
-          <p class="deck-kicker">
-            <span class="deck-kicker__dot"></span>
-            Brand Identity — Case Study
-          </p>
+    <section id="overview" class="section section--hero" data-section>
+      <div class="case-hero">
+        <div class="case-hero__content">
+          <p class="deck-kicker">Brand Identity Case Study</p>
 
           <h1 class="hero-title">
-            Laura <span class="accent">Sanchez</span>
+            Laura <span>Sanchez</span>
           </h1>
 
           <p class="hero-subtitle">
-            A personal identity system built around expressive typography and a tulip mark that symbolizes
-            beauty, growth, and renewal.
+            A personal identity system built around expressive typography and a tulip mark symbolizing beauty, growth, renewal, and artist-first storytelling.
           </p>
 
-          <div class="case-meta liquid-glass deck-edge">
-            <div class="case-meta__item">
-              <div class="case-meta__label">Role</div>
-              <div class="case-meta__value">Brand Identity • Logo Design</div>
-            </div>
-            <div class="case-meta__item">
-              <div class="case-meta__label">Core Elements</div>
-              <div class="case-meta__value">Wordmark • Tulip Logomark • Type System • Color Palette</div>
-            </div>
-            <div class="case-meta__item">
-              <div class="case-meta__label">Concept</div>
-              <div class="case-meta__value">Artist-first identity bridging personal expression, artistry, and nature</div>
-            </div>
+          <div class="hero-actions">
+            <a href="#snapshot" class="button button--primary">View the System</a>
+            <a href="index.html#branding" class="button button--ghost">Back to Portfolio</a>
           </div>
-
-          <br><br>
-          <p class="hero-cta-note">Scroll for the full system ↓</p>
         </div>
 
-        <div class="case-hero__media liquid-glass deck-edge">
-          <img
-            class="case-hero__img"
-            src="images/laura-sanchez/ls_hero.png"
-            alt="Laura Sanchez branding hero"
-          />
+        <div class="case-hero__preview">
+          <img src="images/laura-sanchez/ls_hero.png" alt="Laura Sanchez branding hero" loading="eager" />
         </div>
 
+        <div class="case-hero__meta">
+          <article>
+            <span>Role</span>
+            <strong>Brand Identity, Logo Design, Visual System Direction</strong>
+          </article>
+
+          <article>
+            <span>Core Elements</span>
+            <strong>Wordmark, Tulip Logomark, Type System, Color Palette</strong>
+          </article>
+
+          <article>
+            <span>Concept</span>
+            <strong>An artist-first identity bridging personal expression, artistry, and nature</strong>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- Slide 2: Project Snapshot -->
     <section id="snapshot" class="section" data-section>
       <div class="section__inner">
-        <div class="case-slide liquid-glass deck-edge">
-          <p class="deck-kicker">
-            <span class="deck-kicker__dot"></span>
-            01 — Snapshot
-          </p>
-
+        <div class="deck-slide">
+          <p class="deck-kicker">02 / Snapshot</p>
           <h2 class="section-title">Project Overview</h2>
           <p class="section-subtitle">
-            The Laura Sanchez identity places the artist at the center — a mark that functions as both
-            signature and symbol, rooted in nature and personal expression.
+            The Laura Sanchez identity places the artist at the center. The mark functions as both signature and symbol, rooted in nature, personal expression, and visual warmth.
           </p>
 
           <div class="case-grid">
             <article class="case-panel">
-              <h3 class="case-panel__title"><em>Overall</em> Concept</h3>
-              <p class="case-panel__text">
-                The identity integrates a tulip symbol directly into the artist’s name. Paired with expressive
-                typography, the system bridges personal artistry and the organic qualities of growth, renewal,
-                and beauty.
+              <h3><em>Overall</em> Concept</h3>
+              <p>
+                The identity integrates a tulip symbol directly into the artist’s name. Paired with expressive typography, the system bridges personal artistry and the organic qualities of growth, renewal, and beauty.
               </p>
             </article>
 
             <article class="case-panel">
-              <h3 class="case-panel__title"><em>Artist</em> Representation</h3>
-              <p class="case-panel__text">
-                Using “Laura Sanchez” as the primary mark keeps the artist at the heart of the brand. Her name
-                becomes more than a signature — it represents her vision and ensures every piece reflects an
-                authentic voice.
+              <h3><em>Artist</em> Representation</h3>
+              <p>
+                Using “Laura Sanchez” as the primary mark keeps the artist at the heart of the brand. Her name becomes more than a signature — it represents her voice, vision, and creative presence.
               </p>
             </article>
 
             <article class="case-panel">
-              <h3 class="case-panel__title"><em>Key</em> Components</h3>
+              <h3><em>Key</em> Components</h3>
               <ul class="case-list">
                 <li><strong>Wordmark:</strong> Alverata Informal</li>
                 <li><strong>Logomark:</strong> Tulip “U” symbol</li>
-                <li><strong>Secondary type:</strong> Lato for clarity and versatility</li>
-                <li><strong>Palette:</strong> Soft black + warm highlight + airy accents</li>
+                <li><strong>Secondary type:</strong> Lato for clarity</li>
+                <li><strong>Palette:</strong> Soft black, gold, airy blue, floral pink</li>
               </ul>
             </article>
           </div>
@@ -140,134 +118,123 @@
       </div>
     </section>
 
-    <!-- Slide 3: Logo System -->
     <section id="mark" class="section" data-section>
       <div class="section__inner">
-        <div class="case-slide liquid-glass deck-edge">
-          <p class="deck-kicker">
-            <span class="deck-kicker__dot"></span>
-            02 — Logo System
-          </p>
-
+        <div class="deck-slide">
+          <p class="deck-kicker">03 / Logo System</p>
           <h2 class="section-title">Wordmark & Logomark</h2>
           <p class="section-subtitle">
-            The primary logo is built to work <strong>first in one color</strong> for maximum versatility.
-            Full-color executions are used as <strong>alternate moments</strong> when production and background conditions
-            support it.
+            The primary logo is built to work first in one color for maximum versatility. Color executions become alternate moments for controlled backgrounds and expressive brand applications.
           </p>
 
-          <div class="case-showcase">
-            <div class="case-showcase__media">
+          <div class="feature-grid">
+            <div class="feature-media">
               <img class="case-img" src="images/laura-sanchez/logo-onecolor.png" alt="Laura Sanchez one-color wordmark logo" loading="lazy" />
             </div>
-            <div class="case-showcase__body">
-              <h3 class="case-showcase__title"><em>Primary</em> One-Color Wordmark</h3>
-              <p class="case-showcase__text">
-                The wordmark uses <strong>Alverata Informal</strong> for an expressive, handcrafted voice.
-                The one-color execution is the <strong>default</strong> for reliable reproduction across print,
-                stamps, embroidery, and small-scale use.
+
+            <div class="feature-copy">
+              <h3><em>Primary</em> One-Color Wordmark</h3>
+              <p>
+                The wordmark uses Alverata Informal for an expressive, handcrafted voice. The one-color execution is the default for reliable reproduction across print, stamps, embroidery, and small-scale use.
               </p>
-              <p class="case-showcase__note"><strong>Brand role:</strong> Primary signature across digital and print.</p>
             </div>
           </div>
 
           <div class="case-tiles">
-            <article class="case-tile case-tile--feature">
+            <article class="case-tile case-tile--feature" data-lightbox role="button" tabindex="0"
+              data-title="Tulip U Logomark"
+              data-description="The U is stylized into a tulip, symbolizing beauty, growth, and renewal.">
               <div class="case-tile__media">
                 <img class="case-img" src="images/laura-sanchez/logo-logomark.png" alt="Tulip U logomark" loading="lazy" />
               </div>
               <div class="case-tile__body">
-                <h4 class="case-tile__title"><em>Tulip “U”</em> Logomark</h4>
-                <p class="case-tile__text">
-                  The “U” is stylized into a tulip — a symbol of beauty, growth, and renewal — designed to work as a
-                  standalone mark across icons, stamps, and repeatable brand patterns.
+                <h4><em>Tulip “U”</em> Logomark</h4>
+                <p>
+                  A standalone mark for icons, stamps, patterns, and smaller brand moments.
                 </p>
               </div>
             </article>
 
-            <article class="case-tile">
+            <article class="case-tile" data-lightbox role="button" tabindex="0"
+              data-title="Full-Color Wordmark"
+              data-description="A color-forward version for digital highlights and controlled backgrounds.">
               <div class="case-tile__media">
-                <img class="case-img" src="images/laura-sanchez/logo-wordmark.png" alt="Laura Sanchez full-color wordmark logo (alternative)" loading="lazy" />
+                <img class="case-img" src="images/laura-sanchez/logo-wordmark.png" alt="Laura Sanchez full-color wordmark" loading="lazy" />
               </div>
               <div class="case-tile__body">
-                <h4 class="case-tile__title"><em>Full-Color</em> Wordmark</h4>
-                <p class="case-tile__text">
-                  A color-forward version for feature moments — ideal for digital highlights and controlled backgrounds.
+                <h4><em>Full-Color</em> Wordmark</h4>
+                <p>
+                  A color-forward version for feature moments, digital highlights, and controlled backgrounds.
                 </p>
               </div>
             </article>
 
-            <article class="case-tile">
+            <article class="case-tile" data-lightbox role="button" tabindex="0"
+              data-title="Stacked Lockup"
+              data-description="A compact option for square and vertical spaces.">
               <div class="case-tile__media">
                 <img class="case-img" src="images/laura-sanchez/logo-stacked.png" alt="Laura Sanchez stacked lockup" loading="lazy" />
               </div>
               <div class="case-tile__body">
-                <h4 class="case-tile__title"><em>Stacked</em> Lockup</h4>
-                <p class="case-tile__text">
-                  A compact option for square and vertical spaces — useful for avatars, stamps, and smaller placements.
+                <h4><em>Stacked</em> Lockup</h4>
+                <p>
+                  A compact option for avatars, stamps, vertical layouts, and small placements.
                 </p>
               </div>
             </article>
           </div>
 
           <div class="case-rule">
-            <h3 class="case-panel__title"><em>Logo</em> Usage Notes</h3>
+            <h3><em>Logo</em> Usage Notes</h3>
             <ul class="case-list">
-              <li><strong>Primary:</strong> Default to the <strong>one-color wordmark</strong> for consistent reproduction.</li>
-              <li><strong>Secondary:</strong> Use the <strong>tulip “U”</strong> as an icon, stamp, pattern, or small-space cue.</li>
-              <li><strong>Alternative:</strong> Use the <strong>full-color wordmark</strong> when backgrounds + production support it.</li>
-              <li><strong>Do not:</strong> distort, skew, outline, or add heavy effects.</li>
+              <li><strong>Primary:</strong> Default to the one-color wordmark for consistent reproduction.</li>
+              <li><strong>Secondary:</strong> Use the tulip “U” as an icon, stamp, pattern, or small-space cue.</li>
+              <li><strong>Alternative:</strong> Use the full-color wordmark when background and production support it.</li>
+              <li><strong>Do not:</strong> Distort, skew, outline, or add heavy effects.</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Slide 4: Typography -->
     <section id="type" class="section" data-section>
       <div class="section__inner">
-        <div class="case-slide liquid-glass deck-edge">
-          <p class="deck-kicker">
-            <span class="deck-kicker__dot"></span>
-            03 — Typography
-          </p>
-
+        <div class="deck-slide">
+          <p class="deck-kicker">04 / Typography</p>
           <h2 class="section-title">Typeface System</h2>
           <p class="section-subtitle">
-            Laura Sanchez pairs the expressive elegance of <strong>Alverata Informal</strong> with the clean versatility
-            of <strong>Lato</strong>. This balances character and readability.
+            Laura Sanchez pairs the expressive elegance of Alverata Informal with the clean versatility of Lato, balancing character and readability.
           </p>
 
           <div class="case-grid">
             <article class="case-panel">
-              <h3 class="case-panel__title"><em>Primary</em> Typeface</h3>
-              <p class="case-panel__text">
+              <h3><em>Primary</em> Typeface</h3>
+              <p>
                 Expressive, handcrafted warmth for the wordmark and key brand moments.
               </p>
               <div class="type-sample type-sample--primary">
-                <div class="type-sample__big">Laura Sanchez</div>
-                <div class="type-sample__small">Aa Bb Cc — 0123456789</div>
+                <strong>Laura Sanchez</strong>
+                <span>Aa Bb Cc — 0123456789</span>
               </div>
             </article>
 
             <article class="case-panel">
-              <h3 class="case-panel__title"><em>Secondary</em> Typeface</h3>
-              <p class="case-panel__text">
+              <h3><em>Secondary</em> Typeface</h3>
+              <p>
                 Lato supports body copy and informational text with modern simplicity and excellent legibility.
               </p>
               <div class="type-sample type-sample--secondary">
-                <div class="type-sample__big type-sample__big--body">
-                  Clear, confident, and readable across web and print.
-                </div>
-                <div class="type-sample__small">Aa Bb Cc — 0123456789</div>
+                <strong>Clear, confident, and readable.</strong>
+                <span>Aa Bb Cc — 0123456789</span>
               </div>
             </article>
 
             <article class="case-panel">
-              <h3 class="case-panel__title"><em>Typography</em> Roles</h3>
+              <h3><em>Typography</em> Roles</h3>
               <ul class="case-list">
                 <li><strong>Alverata Informal:</strong> Wordmark, headlines, signature moments</li>
                 <li><strong>Lato:</strong> Body copy, captions, supporting text, digital UI</li>
+                <li><strong>System rule:</strong> Personality first, clarity always</li>
               </ul>
             </article>
           </div>
@@ -275,120 +242,96 @@
       </div>
     </section>
 
-    <!-- Slide 5: Color -->
     <section id="color" class="section" data-section>
       <div class="section__inner">
-        <div class="case-slide liquid-glass deck-edge">
-          <p class="deck-kicker">
-            <span class="deck-kicker__dot"></span>
-            04 — Color
-          </p>
-
+        <div class="deck-slide">
+          <p class="deck-kicker">05 / Color</p>
           <h2 class="section-title">Color Palette</h2>
           <p class="section-subtitle">
-            A warm, expressive palette built around soft black for structure, a golden highlight for energy,
-            and airy + floral accents for personality.
+            A warm, expressive palette built around soft black for structure, golden highlight for energy, and airy + floral accents for personality.
           </p>
 
-          <div class="palette palette--spec">
+          <div class="palette">
             <div class="swatch">
               <div class="swatch__chip" style="background:#000000;"></div>
-              <div class="swatch__meta">
-                <div class="swatch__name">Soft Black</div>
-                <div class="swatch__specs">
-                  <span>HEX <strong>#000000</strong></span>
-                  <span>RGB 0, 0, 0</span>
-                </div>
+              <div>
+                <strong>Soft Black</strong>
+                <span>#000000</span>
               </div>
             </div>
 
             <div class="swatch">
               <div class="swatch__chip" style="background:#F0C53E;"></div>
-              <div class="swatch__meta">
-                <div class="swatch__name">Highlight Gold</div>
-                <div class="swatch__specs">
-                  <span>HEX <strong>#F0C53E</strong></span>
-                  <span>RGB 240, 197, 62</span>
-                </div>
+              <div>
+                <strong>Highlight Gold</strong>
+                <span>#F0C53E</span>
               </div>
             </div>
 
             <div class="swatch">
               <div class="swatch__chip" style="background:#A1CFEA;"></div>
-              <div class="swatch__meta">
-                <div class="swatch__name">Airy Blue</div>
-                <div class="swatch__specs">
-                  <span>HEX <strong>#A1CFEA</strong></span>
-                  <span>RGB 161, 207, 234</span>
-                </div>
+              <div>
+                <strong>Airy Blue</strong>
+                <span>#A1CFEA</span>
               </div>
             </div>
 
             <div class="swatch">
               <div class="swatch__chip" style="background:#FC8EAC;"></div>
-              <div class="swatch__meta">
-                <div class="swatch__name">Floral Pink</div>
-                <div class="swatch__specs">
-                  <span>HEX <strong>#FC8EAC</strong></span>
-                  <span>RGB 252, 142, 172</span>
-                </div>
+              <div>
+                <strong>Floral Pink</strong>
+                <span>#FC8EAC</span>
               </div>
             </div>
           </div>
 
           <div class="case-rule">
-            <h3 class="case-panel__title"><em>Color</em> Usage</h3>
+            <h3><em>Color</em> Usage</h3>
             <ul class="case-list">
               <li><strong>Soft Black:</strong> Primary text, logo, and structure.</li>
               <li><strong>Highlight Gold:</strong> Select highlights and emphasis.</li>
               <li><strong>Airy Blue:</strong> Calm accents and backgrounds.</li>
-              <li><strong>Floral Pink:</strong> Secondary accent for warmth.</li>
+              <li><strong>Floral Pink:</strong> Secondary accent for warmth and softness.</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Slide 6: Applications -->
     <section id="applications" class="section" data-section>
       <div class="section__inner">
-        <div class="case-slide liquid-glass deck-edge">
-          <p class="deck-kicker">
-            <span class="deck-kicker__dot"></span>
-            05 — Applications
-          </p>
-
+        <div class="deck-slide">
+          <p class="deck-kicker">06 / Applications</p>
           <h2 class="section-title">Brand in the Real World</h2>
           <p class="section-subtitle">
-            A curated set of applications showing how the identity system holds up across publishing, event, and social.
+            A curated set of applications showing how the identity system holds up across publishing, event, merch, and social.
           </p>
 
           <div class="apps-grid">
-
             <article class="app-tile" data-lightbox role="button" tabindex="0"
-                     data-title="<em>Book</em> Cover"
-                     data-description="A focused front cover built to feel timeless, poetic, and unmistakably Laura.">
+              data-title="Book Cover"
+              data-description="A focused front cover built to feel timeless, poetic, and unmistakably Laura.">
               <div class="app-tile__media app-tile__media--portrait">
-                <img class="app-img" src="images/laura-sanchez/app-book-cover.png" alt="Book cover — front" loading="lazy" />
+                <img class="app-img" src="images/laura-sanchez/app-book-cover.png" alt="Book cover front" loading="lazy" />
               </div>
-              <h4 class="app-title"><em>Book</em> Cover</h4>
-              <p class="app-text">A focused front cover built to feel timeless, poetic, and unmistakably Laura.</p>
+              <h4>Book Cover</h4>
+              <p>A focused front cover built to feel timeless, poetic, and unmistakably Laura.</p>
             </article>
 
             <article class="app-tile" data-lightbox role="button" tabindex="0"
-                     data-title="<em>Step</em> &amp; Repeat"
-                     data-description="Pattern consistency and spacing that stays premium on-camera and in photos.">
+              data-title="Step & Repeat"
+              data-description="Pattern consistency and spacing that stays premium on-camera and in photos.">
               <div class="app-tile__media app-tile__media--landscape">
                 <img class="app-img" src="images/laura-sanchez/app-step-repeat.png" alt="Step and repeat" loading="lazy" />
               </div>
-              <h4 class="app-title"><em>Step</em> & Repeat</h4>
-              <p class="app-text">Pattern consistency and spacing that stays premium on-camera and in photos.</p>
+              <h4>Step & Repeat</h4>
+              <p>Pattern consistency and spacing that stays premium on-camera and in photos.</p>
             </article>
 
-            <article class="app-card app-card--social" data-lightbox role="button" tabindex="0"
-                     data-title="<em>Social</em> System"
-                     data-description="A repeatable social presence built around poetic language, bilingual storytelling, and visual restraint.">
-              <div class="app-card__media app-card__media--grid">
+            <article class="app-tile app-tile--social" data-lightbox role="button" tabindex="0"
+              data-title="Social System"
+              data-description="A repeatable social presence built around poetic language, bilingual storytelling, and visual restraint.">
+              <div class="app-tile__media app-card__media--grid">
                 <div class="social-grid">
                   <img class="app-img" src="images/laura-sanchez/social-01.jpg" alt="Laura Sanchez social post 1" loading="lazy" />
                   <img class="app-img" src="images/laura-sanchez/social-02.jpg" alt="Laura Sanchez social post 2" loading="lazy" />
@@ -398,117 +341,164 @@
                   <img class="app-img" src="images/laura-sanchez/social-06.jpg" alt="Laura Sanchez social post 6" loading="lazy" />
                 </div>
               </div>
-
-              <div class="app-card__body">
-                <h4 class="app-title"><em>Social</em> System</h4>
-                <p class="app-text">
-                  A repeatable social presence built around poetic language, bilingual storytelling,
-                  and visual restraint — allowing the message to lead while the brand stays unmistakable.
-                </p>
-              </div>
+              <h4>Social System</h4>
+              <p>A repeatable social presence built around poetic language, bilingual storytelling, and visual restraint.</p>
             </article>
 
             <article class="app-tile" data-lightbox role="button" tabindex="0"
-                     data-title="<em>Book</em> Release Cover"
-                     data-description="A release moment designed to feel editorial, premium, and shareable.">
+              data-title="Book Release Cover"
+              data-description="A release moment designed to feel editorial, premium, and shareable.">
               <div class="app-tile__media">
                 <img class="app-img" src="images/laura-sanchez/app-book-release.png" alt="Book release cover" loading="lazy" />
               </div>
-              <h4 class="app-title"><em>Book</em> Release Cover</h4>
-              <p class="app-text">A release moment designed to feel editorial, premium, and shareable.</p>
+              <h4>Book Release Cover</h4>
+              <p>A release moment designed to feel editorial, premium, and shareable.</p>
             </article>
 
             <article class="app-tile" data-lightbox role="button" tabindex="0"
-                     data-title="<em>Speaker</em> Flyer"
-                     data-description="A flexible promo layout designed for both print and digital.">
+              data-title="Speaker Flyer"
+              data-description="A flexible promo layout designed for both print and digital.">
               <div class="app-tile__media">
                 <img class="app-img" src="images/laura-sanchez/app-speaker-flyer.png" alt="Speaker highlight flyer" loading="lazy" />
               </div>
-              <h4 class="app-title"><em>Speaker</em> Flyer</h4>
-              <p class="app-text">A flexible promo layout designed for both print and digital.</p>
+              <h4>Speaker Flyer</h4>
+              <p>A flexible promo layout designed for both print and digital.</p>
             </article>
 
             <article class="app-tile" data-lightbox role="button" tabindex="0"
-                     data-title="<em>Merch</em> Tote"
-                     data-description="The tulip mark scales cleanly for a simple, wearable brand moment.">
+              data-title="Merch Tote"
+              data-description="The tulip mark scales cleanly for a simple, wearable brand moment.">
               <div class="app-tile__media">
                 <img class="app-img" src="images/laura-sanchez/app-tote.png" alt="Tote bag" loading="lazy" />
               </div>
-              <h4 class="app-title"><em>Merch</em> Tote</h4>
-              <p class="app-text">The tulip mark scales cleanly for a simple, wearable brand moment.</p>
+              <h4>Merch Tote</h4>
+              <p>The tulip mark scales cleanly for a simple, wearable brand moment.</p>
             </article>
-
           </div>
 
           <div class="case-rule">
-            <h3 class="case-panel__title"><em>Application</em> Guidance</h3>
+            <h3><em>Application</em> Guidance</h3>
             <ul class="case-list">
               <li><strong>Consistency:</strong> Keep Alverata for display moments and Lato for supporting copy.</li>
               <li><strong>Clarity:</strong> Prioritize readable hierarchy and spacing at every scale.</li>
               <li><strong>Recognition:</strong> Repeat the tulip mark strategically for brand memory.</li>
             </ul>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- Slide 7: Closing -->
-    <section id="closing" class="section section--contact" data-section>
-      <div class="section__inner section__inner--contact">
-        <div class="case-slide liquid-glass deck-edge">
-          <p class="deck-kicker">
-            <span class="deck-kicker__dot"></span>
-            06 — Close
-          </p>
+    <section id="closing" class="section section--closing" data-section>
+      <div class="section__inner">
+        <div class="deck-slide deck-slide--closing">
+          <p class="deck-kicker">07 / Close</p>
 
           <h2 class="section-title">Outcome</h2>
           <p class="section-subtitle">
-            An artist-first identity system where expressive typography and a nature-inspired tulip mark create a cohesive,
-            recognizable presence across touchpoints.
+            An artist-first identity system where expressive typography and a nature-inspired tulip mark create a cohesive, recognizable presence across touchpoints.
           </p>
 
           <div class="case-next">
-            <div class="case-next__left">
-              <h3 class="case-panel__title"><em>Need</em> a brand system like this?</h3>
-              <p class="case-panel__text">
-                I build identity systems that scale across print, product, and digital — with a focus on clarity,
-                personality, and consistency.
+            <div>
+              <h3><em>Need</em> a brand system like this?</h3>
+              <p>
+                I build identity systems that scale across print, product, and digital with a focus on clarity, personality, and consistency.
               </p>
             </div>
-            <div class="case-next__right">
-              <a class="button button--primary" href="index.html#contact">Contact</a>
-            </div>
-          </div>
 
+            <a class="button button--primary" href="index.html#contact">Contact</a>
+          </div>
         </div>
       </div>
     </section>
 
-  </main>
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <button class="lightbox__close" type="button" aria-label="Close">×</button>
 
-  <!-- Lightbox Overlay -->
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lightbox__close" type="button" aria-label="Close">×</button>
+      <div class="lightbox__inner" role="dialog" aria-modal="true">
+        <div class="lightbox__media">
+          <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="Previous image">‹</button>
+          <img class="lightbox__img" alt="" />
+          <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Next image">›</button>
+        </div>
 
-    <div class="lightbox__inner liquid-glass deck-edge" role="dialog" aria-modal="true">
-      <div class="lightbox__media">
-        <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="Previous image">‹</button>
-        <img class="lightbox__img" alt="" />
-        <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Next image">›</button>
-      </div>
-
-      <div class="lightbox__meta">
-        <h4 class="app-title lightbox__title"></h4>
-        <p class="app-text lightbox__text"></p>
-        <div class="lightbox__count"></div>
+        <div class="lightbox__meta">
+          <h4 class="lightbox__title"></h4>
+          <p class="lightbox__text"></p>
+          <div class="lightbox__count"></div>
+        </div>
       </div>
     </div>
-  </div>
+  </main>
 
-  <!-- Lightbox Script -->
   <script>
-    (function () {
+    document.addEventListener("DOMContentLoaded", () => {
+      function preloadImages() {
+        const imageUrls = [
+          "images/laura-sanchez/ls_hero.png",
+          "images/laura-sanchez/ls_bg.png",
+          "images/laura-sanchez/logo-onecolor.png",
+          "images/laura-sanchez/logo-logomark.png",
+          "images/laura-sanchez/logo-wordmark.png",
+          "images/laura-sanchez/logo-stacked.png",
+          "images/laura-sanchez/app-book-cover.png",
+          "images/laura-sanchez/app-step-repeat.png",
+          "images/laura-sanchez/social-01.jpg",
+          "images/laura-sanchez/social-02.jpg",
+          "images/laura-sanchez/social-03.jpg",
+          "images/laura-sanchez/social-04.jpg",
+          "images/laura-sanchez/social-05.jpg",
+          "images/laura-sanchez/social-06.jpg",
+          "images/laura-sanchez/app-book-release.png",
+          "images/laura-sanchez/app-speaker-flyer.png",
+          "images/laura-sanchez/app-tote.png"
+        ];
+
+        imageUrls.forEach((url) => {
+          const img = new Image();
+          img.src = url;
+        });
+      }
+
+      preloadImages();
+
+      const sections = document.querySelectorAll("[data-section]");
+      const navLinks = document.querySelectorAll(".site-nav__link");
+
+      const navMap = {};
+      navLinks.forEach((link) => {
+        const targetId = link.getAttribute("data-nav-target");
+        if (targetId) navMap[targetId] = link;
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const id = entry.target.getAttribute("id");
+
+            if (entry.isIntersecting && navMap[id]) {
+              navLinks.forEach((link) => link.classList.remove("site-nav__link--active"));
+              navMap[id].classList.add("site-nav__link--active");
+            }
+          });
+        },
+        { root: null, threshold: 0.35 }
+      );
+
+      sections.forEach((section) => observer.observe(section));
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          const targetId = link.getAttribute("href")?.replace("#", "");
+          const targetEl = targetId ? document.getElementById(targetId) : null;
+
+          if (!targetEl) return;
+
+          e.preventDefault();
+          targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+
       const lb = document.getElementById("lightbox");
       if (!lb) return;
 
@@ -525,12 +515,13 @@
 
       function setIndex(i) {
         if (!gallery.length) return;
+
         index = (i + gallery.length) % gallery.length;
         imgEl.src = gallery[index].src;
         imgEl.alt = gallery[index].alt || "";
 
         if (gallery.length > 1) {
-          countEl.textContent = (index + 1) + " / " + gallery.length;
+          countEl.textContent = `${index + 1} / ${gallery.length}`;
           prevBtn.style.display = "";
           nextBtn.style.display = "";
         } else {
@@ -540,23 +531,17 @@
         }
       }
 
-      function openLightbox(fromTile) {
-        const imgs = Array.from(fromTile.querySelectorAll("img"));
+      function openLightbox(tile) {
+        const imgs = Array.from(tile.querySelectorAll("img"));
         if (!imgs.length) return;
 
-        gallery = imgs.map(i => ({
-          src: i.getAttribute("src"),
-          alt: i.getAttribute("alt") || ""
+        gallery = imgs.map((img) => ({
+          src: img.getAttribute("src"),
+          alt: img.getAttribute("alt") || "",
         }));
-        index = 0;
 
-        titleEl.innerHTML =
-          fromTile.getAttribute("data-title") ||
-          (fromTile.querySelector(".app-title")?.innerHTML || "");
-
-        textEl.textContent =
-          fromTile.getAttribute("data-description") ||
-          (fromTile.querySelector(".app-text")?.textContent || "");
+        titleEl.innerHTML = tile.getAttribute("data-title") || "";
+        textEl.textContent = tile.getAttribute("data-description") || "";
 
         setIndex(0);
 
@@ -574,8 +559,9 @@
         index = 0;
       }
 
-      document.querySelectorAll("[data-lightbox]").forEach(tile => {
+      document.querySelectorAll("[data-lightbox]").forEach((tile) => {
         tile.addEventListener("click", () => openLightbox(tile));
+
         tile.addEventListener("keydown", (e) => {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
@@ -585,6 +571,7 @@
       });
 
       closeBtn.addEventListener("click", closeLightbox);
+
       lb.addEventListener("click", (e) => {
         if (e.target === lb) closeLightbox();
       });
@@ -594,14 +581,12 @@
 
       window.addEventListener("keydown", (e) => {
         if (!lb.classList.contains("is-open")) return;
+
         if (e.key === "Escape") closeLightbox();
         if (e.key === "ArrowLeft") setIndex(index - 1);
         if (e.key === "ArrowRight") setIndex(index + 1);
       });
-    })();
+    });
   </script>
-
-  <!-- Your global script (deferred to avoid jank during paint) -->
-  <script src="script.js" defer></script>
 </body>
 </html>

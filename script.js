@@ -1,5 +1,5 @@
 // Highlight nav links based on current section in view
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => { 
   const sections = document.querySelectorAll("[data-section]");
   const navLinks = document.querySelectorAll(".site-nav__link");
 

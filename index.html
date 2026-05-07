@@ -13,65 +13,73 @@
 
 <body>
   <header class="site-header">
-    <div class="site-header__inner">
-      <div class="site-logo">
-        <a href="#overview">43DOU</a>
-      </div>
+    <a class="site-logo" href="#overview" aria-label="Go to overview">
+      <span>43</span>
+      <strong>DOU</strong>
+    </a>
 
-      <nav class="site-nav">
-        <a href="#overview" class="site-nav__link" data-nav-target="overview">Overview</a>
-        <a href="#work" class="site-nav__link" data-nav-target="work">Work</a>
-        <a href="#branding" class="site-nav__link" data-nav-target="branding">Branding</a>
-        <a href="#web-development" class="site-nav__link" data-nav-target="web-development">Web Development</a>
-        <a href="#about" class="site-nav__link" data-nav-target="about">About</a>
-        <a href="#contact" class="site-nav__link" data-nav-target="contact">Contact</a>
-      </nav>
-    </div>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="#overview" class="site-nav__link" data-nav-target="overview">
+        <span>01</span>
+        Overview
+      </a>
+      <a href="#branding" class="site-nav__link" data-nav-target="branding">
+        <span>02</span>
+        Branding
+      </a>
+      <a href="#web-development" class="site-nav__link" data-nav-target="web-development">
+        <span>03</span>
+        Web
+      </a>
+      <a href="#about" class="site-nav__link" data-nav-target="about">
+        <span>04</span>
+        About
+      </a>
+      <a href="#contact" class="site-nav__link" data-nav-target="contact">
+        <span>05</span>
+        Contact
+      </a>
+    </nav>
   </header>
 
   <main class="page">
 
-    <!-- Slide 1: Overview / Hero -->
+    <!-- Overview -->
     <section id="overview" class="section section--hero" data-section>
       <div class="hero-shell">
-        <div class="hero-main">
-          <p class="section-kicker">01 / Overview</p>
+        <p class="section-kicker">01 / Portfolio System</p>
 
-          <h1 class="hero-title">
-            Designer &<br />
-            Brand Architect
-          </h1>
+        <h1 class="hero-title">
+          Designer &<br />
+          Brand Architect
+        </h1>
 
+        <div class="hero-lower">
           <p class="hero-subtitle">
-            I design brand identities, apparel systems, and digital experiences
-            built to scale across culture, product, and the web.
+            I design brand identities, digital experiences, and websites built to scale across culture, product, and the web.
           </p>
 
           <div class="hero-actions">
-            <a href="#web-development" class="button button--primary">View Web Work</a>
-            <a href="#branding" class="button button--ghost">View Branding</a>
+            <a href="#branding" class="button button--primary">View Branding</a>
+            <a href="#web-development" class="button button--ghost">View Web Work</a>
           </div>
         </div>
 
-        <div class="hero-lab" aria-label="Creative work preview">
-          <div class="lab-card lab-card--image">
-            <img src="images/laura-sanchez/logo-logomark.png" alt="Laura Sanchez brand identity preview" />
-          </div>
-
-          <div class="lab-card lab-card--type">
+        <div class="hero-index" aria-label="Creative focus areas">
+          <a href="#branding" class="hero-index__item">
             <span>Brand Systems</span>
-            <strong>Identity that moves across print, web, product, and culture.</strong>
-          </div>
+            <strong>Identity, visual language, logo systems, and creative direction.</strong>
+          </a>
 
-          <div class="lab-card lab-card--web">
-            <span>Live Builds</span>
-            <strong>Websites, storefronts, launch pages, and interactive experiences.</strong>
-          </div>
+          <a href="#web-development" class="hero-index__item">
+            <span>Live Websites</span>
+            <strong>Interactive websites, storefronts, previews, and user-focused builds.</strong>
+          </a>
 
-          <div class="lab-card lab-card--signal">
-            <span>Current Focus</span>
-            <strong>Visual systems for brands that need to feel alive.</strong>
-          </div>
+          <a href="#contact" class="hero-index__item">
+            <span>Project Ready</span>
+            <strong>Built for artists, founders, local businesses, and culture-driven brands.</strong>
+          </a>
         </div>
       </div>
 
@@ -80,116 +88,205 @@
           <span>Brand Identity</span>
           <span>Web Development</span>
           <span>Creative Direction</span>
-          <span>Visual Systems</span>
-          <span>Digital Experiences</span>
+          <span>Digital Systems</span>
+          <span>Visual Language</span>
           <span>Brand Identity</span>
           <span>Web Development</span>
           <span>Creative Direction</span>
-          <span>Visual Systems</span>
-          <span>Digital Experiences</span>
+          <span>Digital Systems</span>
+          <span>Visual Language</span>
         </div>
       </div>
     </section>
 
-    <!-- Slide 2: Work Overview -->
-    <section id="work" class="section" data-section>
+    <!-- Branding -->
+    <section id="branding" class="section section--branding" data-section>
       <div class="section__inner">
-        <p class="section-kicker">02 / Selected Work</p>
-        <h2 class="section-title">Portfolio Overview</h2>
+        <p class="section-kicker">02 / Branding</p>
+        <h2 class="section-title">Brand Preview Studio</h2>
         <p class="section-subtitle">
-          A focused selection of identity systems, websites, storefronts, and digital experiences.
+          Open each brand case study inside a live preview frame, then launch the full case study when ready.
         </p>
 
-        <div class="work-grid">
-          <a href="#branding" class="work-card">
-            <span class="work-card__number">01</span>
-            <h3 class="work-card__title">Branding</h3>
-            <p class="work-card__text">
-              Logos, visual identities, and brand systems built for long-term use.
-            </p>
-          </a>
+        <div class="preview-studio preview-studio--branding">
+          <div class="project-selector">
+            <button
+              class="project-card brand-project-card is-active"
+              type="button"
+              data-preview-title="Laura Sanchez"
+              data-preview-url="laura-sanchez.html"
+              data-preview-description="Artist-first identity system centered on expressive typography and a tulip mark, built to communicate growth and authenticity across print, events, and social."
+            >
+              <span class="project-card__eyebrow">Identity System</span>
+              <span class="project-card__title">Laura Sanchez</span>
+            </button>
 
-          <a href="#web-development" class="work-card">
-            <span class="work-card__number">02</span>
-            <h3 class="work-card__title">Web Development</h3>
-            <p class="work-card__text">
-              Live websites, storefronts, and interactive experiences built for real users.
+            <button
+              class="project-card brand-project-card"
+              type="button"
+              data-preview-title="Date Like A Brand"
+              data-preview-url="dlab.html"
+              data-preview-description="A brand system built around dating, identity, confidence, and storytelling with a clean visual language designed to scale across content and community."
+            >
+              <span class="project-card__eyebrow">Brand Platform</span>
+              <span class="project-card__title">Date Like A Brand</span>
+            </button>
+          </div>
+
+          <div class="mobile-selector brand-mobile-selector">
+            <label for="brandProjectSelect">Choose a brand case study</label>
+            <select id="brandProjectSelect" class="project-select">
+              <option value="Laura Sanchez">Laura Sanchez</option>
+              <option value="Date Like A Brand">Date Like A Brand</option>
+            </select>
+          </div>
+
+          <div class="preview-panel">
+            <div class="preview-panel__header">
+              <div>
+                <p class="preview-panel__kicker">Selected Case Study</p>
+                <h3 class="preview-panel__title" id="brandPreviewTitle">Laura Sanchez</h3>
+              </div>
+
+              <a
+                class="preview-panel__open"
+                id="brandPreviewOpenLink"
+                href="laura-sanchez.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open Full Case Study
+              </a>
+            </div>
+
+            <p class="preview-panel__description" id="brandPreviewDescription">
+              Artist-first identity system centered on expressive typography and a tulip mark, built to communicate growth and authenticity across print, events, and social.
             </p>
-          </a>
+
+            <div class="preview-controls" aria-label="Brand preview display controls">
+              <button class="preview-toggle brand-preview-toggle is-active" type="button" data-view="desktop">Desktop</button>
+              <button class="preview-toggle brand-preview-toggle" type="button" data-view="mobile">Mobile</button>
+            </div>
+
+            <div class="preview-stage is-desktop" id="brandPreviewStage">
+              <div class="browser-frame preview-frame preview-frame--desktop">
+                <div class="browser-frame__top">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <p id="brandDesktopUrlText">laura-sanchez.html</p>
+                </div>
+                <div class="desktop-preview-scale">
+                  <iframe id="brandDesktopPreview" src="laura-sanchez.html" title="Brand case study desktop preview" loading="lazy"></iframe>
+                </div>
+              </div>
+
+              <div class="phone-frame preview-frame preview-frame--mobile">
+                <div class="phone-frame__speaker"></div>
+                <iframe id="brandMobilePreview" src="laura-sanchez.html" title="Brand case study mobile preview" loading="lazy"></iframe>
+              </div>
+            </div>
+
+            <p class="preview-note">
+              Case studies open directly inside this preview. Use the full case study button for the complete experience.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Slide 3: Branding -->
-    <section id="branding" class="section" data-section>
-      <div class="section__inner">
-        <p class="section-kicker">03 / Brand Identities</p>
-        <h2 class="section-title">Branding & Logo Systems</h2>
-        <p class="section-subtitle">
-          Presenting brands as full systems: logos, color, type, and real-world applications.
-        </p>
-
-        <div class="cards-list cards-list--horizontal">
-          <article class="case-card">
-            <a class="case-card__link" href="laura-sanchez.html" aria-label="View Laura Sanchez case study">
-              <div class="case-card__media">
-                <img
-                  class="case-card__img"
-                  src="images/laura-sanchez/ls_hero.png"
-                  alt="Laura Sanchez brand identity case study hero"
-                  loading="lazy"
-                />
-              </div>
-
-              <div class="case-card__body">
-                <p class="case-card__eyebrow">Identity System</p>
-                <h3 class="case-card__title">Laura Sanchez</h3>
-                <p class="case-card__description">
-                  Artist-first identity system centered on expressive typography and a tulip mark, built to communicate growth and authenticity across print, events, and social.
-                </p>
-                <p class="case-card__tags">Logo / Visual Identity / Brand System</p>
-              </div>
-            </a>
-          </article>
-
-          <article class="case-card">
-            <a class="case-card__link" href="dlab.html" aria-label="View Date Like A Brand case study">
-              <div class="case-card__media">
-                <img
-                  class="case-card__img"
-                  src="images/dlab/dlab_hero.png"
-                  alt="Date Like A Brand branding case study hero"
-                  loading="lazy"
-                />
-              </div>
-
-              <div class="case-card__body">
-                <p class="case-card__eyebrow">Brand Platform</p>
-                <h3 class="case-card__title">Date Like A Brand</h3>
-                <p class="case-card__description">
-                  A brand system built around dating, identity, confidence, and storytelling with a clean visual language designed to scale across content and community.
-                </p>
-                <p class="case-card__tags">Brand System / Visual Identity / Iconography</p>
-              </div>
-            </a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Slide 4: Web Development -->
+    <!-- Web Development -->
     <section id="web-development" class="section section--web-development" data-section>
       <div class="section__inner">
-        <p class="section-kicker">04 / Web Development</p>
+        <p class="section-kicker">03 / Web Development</p>
         <h2 class="section-title">Live Website Preview Studio</h2>
         <p class="section-subtitle">
           Selected websites, storefronts, and digital experiences built with a focus on design, usability, and brand presence.
         </p>
 
-        <div class="web-dev-studio">
-          <div class="web-mobile-selector">
+        <div class="preview-studio preview-studio--web">
+          <div class="project-selector">
+            <button
+              class="project-card web-project-card is-active"
+              type="button"
+              data-preview-title="Friends + Fam"
+              data-preview-url="https://friendsandfam.net/"
+              data-preview-description="Custom e-commerce website with a polished storefront experience, product browsing, and brand-forward shopping flow."
+            >
+              <span class="project-card__eyebrow">E-Commerce</span>
+              <span class="project-card__title">Friends + Fam</span>
+            </button>
+
+            <button
+              class="project-card web-project-card"
+              type="button"
+              data-preview-title="Caliphornia OS"
+              data-preview-url="https://caliphornia-os.vercel.app/"
+              data-preview-description="Experimental operating-system-inspired web experience built as an interactive hub for apps, music, and digital storytelling."
+            >
+              <span class="project-card__eyebrow">Interactive OS</span>
+              <span class="project-card__title">Caliphornia OS</span>
+            </button>
+
+            <button
+              class="project-card web-project-card"
+              type="button"
+              data-preview-title="Elore"
+              data-preview-url="https://elore-atelier.vercel.app/"
+              data-preview-description="Luxury fashion website with elevated product presentation, editorial brand direction, and a refined shopping experience."
+            >
+              <span class="project-card__eyebrow">Luxury Fashion</span>
+              <span class="project-card__title">Elore</span>
+            </button>
+
+            <button
+              class="project-card web-project-card"
+              type="button"
+              data-preview-title="DR Shine & Detailing"
+              data-preview-url="https://dr-detailing.vercel.app/#top"
+              data-preview-description="Car detailing website with service packages, booking-focused structure, payment-ready flow, and premium automotive styling."
+            >
+              <span class="project-card__eyebrow">Service Website</span>
+              <span class="project-card__title">DR Shine & Detailing</span>
+            </button>
+
+            <button
+              class="project-card web-project-card"
+              type="button"
+              data-preview-title="Longevity Co."
+              data-preview-url="https://longevityco.vercel.app/"
+              data-preview-description="Minimal fashion brand website built around dark visuals, product energy, editorial motion, and brand storytelling."
+            >
+              <span class="project-card__eyebrow">Fashion Brand</span>
+              <span class="project-card__title">Longevity Co.</span>
+            </button>
+
+            <button
+              class="project-card web-project-card"
+              type="button"
+              data-preview-title="Beyond The Lense"
+              data-preview-url="http://beyond-thelens.com/"
+              data-preview-description="Photography portfolio website with immersive imagery, full-screen visual presentation, and artist-focused storytelling."
+            >
+              <span class="project-card__eyebrow">Photography</span>
+              <span class="project-card__title">Beyond The Lense</span>
+            </button>
+
+            <button
+              class="project-card web-project-card"
+              type="button"
+              data-preview-title="Deep Finds"
+              data-preview-url="https://deepfinds.vercel.app/"
+              data-preview-description="Thrift and product discovery website concept with shop structure, special product moments, and an elevated resale experience."
+            >
+              <span class="project-card__eyebrow">Retail Concept</span>
+              <span class="project-card__title">Deep Finds</span>
+            </button>
+          </div>
+
+          <div class="mobile-selector web-mobile-selector">
             <label for="webProjectSelect">Choose a website</label>
-            <select id="webProjectSelect" class="web-project-select">
+            <select id="webProjectSelect" class="project-select">
               <option value="Friends + Fam">Friends + Fam</option>
               <option value="Caliphornia OS">Caliphornia OS</option>
               <option value="Elore">Elore</option>
@@ -200,105 +297,53 @@
             </select>
           </div>
 
-          <div class="web-dev-projects">
-            <button class="web-project-card is-active" type="button"
-              data-site-title="Friends + Fam"
-              data-site-url="https://friendsandfam.net/"
-              data-site-description="Custom e-commerce website with a polished storefront experience, product browsing, and brand-forward shopping flow.">
-              <span class="web-project-card__eyebrow">E-Commerce</span>
-              <span class="web-project-card__title">Friends + Fam</span>
-            </button>
-
-            <button class="web-project-card" type="button"
-              data-site-title="Caliphornia OS"
-              data-site-url="https://caliphornia-os.vercel.app/"
-              data-site-description="Experimental operating-system-inspired web experience built as an interactive hub for apps, music, and digital storytelling.">
-              <span class="web-project-card__eyebrow">Interactive OS</span>
-              <span class="web-project-card__title">Caliphornia OS</span>
-            </button>
-
-            <button class="web-project-card" type="button"
-              data-site-title="Elore"
-              data-site-url="https://elore-atelier.vercel.app/"
-              data-site-description="Luxury fashion website with elevated product presentation, editorial brand direction, and a refined shopping experience.">
-              <span class="web-project-card__eyebrow">Luxury Fashion</span>
-              <span class="web-project-card__title">Elore</span>
-            </button>
-
-            <button class="web-project-card" type="button"
-              data-site-title="DR Shine & Detailing"
-              data-site-url="https://dr-detailing.vercel.app/#top"
-              data-site-description="Car detailing website with service packages, booking-focused structure, payment-ready flow, and premium automotive styling.">
-              <span class="web-project-card__eyebrow">Service Website</span>
-              <span class="web-project-card__title">DR Shine & Detailing</span>
-            </button>
-
-            <button class="web-project-card" type="button"
-              data-site-title="Longevity Co."
-              data-site-url="https://longevityco.vercel.app/"
-              data-site-description="Minimal fashion brand website built around dark visuals, product energy, editorial motion, and brand storytelling.">
-              <span class="web-project-card__eyebrow">Fashion Brand</span>
-              <span class="web-project-card__title">Longevity Co.</span>
-            </button>
-
-            <button class="web-project-card" type="button"
-              data-site-title="Beyond The Lense"
-              data-site-url="http://beyond-thelens.com/"
-              data-site-description="Photography portfolio website with immersive imagery, full-screen visual presentation, and artist-focused storytelling.">
-              <span class="web-project-card__eyebrow">Photography</span>
-              <span class="web-project-card__title">Beyond The Lense</span>
-            </button>
-
-            <button class="web-project-card" type="button"
-              data-site-title="Deep Finds"
-              data-site-url="https://deepfinds.vercel.app/"
-              data-site-description="Thrift and product discovery website concept with shop structure, special product moments, and an elevated resale experience.">
-              <span class="web-project-card__eyebrow">Retail Concept</span>
-              <span class="web-project-card__title">Deep Finds</span>
-            </button>
-          </div>
-
-          <div class="web-preview-panel">
-            <div class="web-preview-header">
+          <div class="preview-panel">
+            <div class="preview-panel__header">
               <div>
-                <p class="web-preview-kicker">Selected Project</p>
-                <h3 class="web-preview-title" id="previewTitle">Friends + Fam</h3>
+                <p class="preview-panel__kicker">Selected Website</p>
+                <h3 class="preview-panel__title" id="webPreviewTitle">Friends + Fam</h3>
               </div>
 
-              <a class="web-preview-open" id="previewOpenLink" href="https://friendsandfam.net/" target="_blank" rel="noopener noreferrer">
+              <a
+                class="preview-panel__open"
+                id="webPreviewOpenLink"
+                href="https://friendsandfam.net/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Open Full Website
               </a>
             </div>
 
-            <p class="web-preview-description" id="previewDescription">
+            <p class="preview-panel__description" id="webPreviewDescription">
               Custom e-commerce website with a polished storefront experience, product browsing, and brand-forward shopping flow.
             </p>
 
-            <div class="web-preview-controls" aria-label="Website preview display controls">
-              <button class="preview-toggle is-active" type="button" data-view="desktop">Desktop</button>
-              <button class="preview-toggle" type="button" data-view="mobile">Mobile</button>
+            <div class="preview-controls" aria-label="Website preview display controls">
+              <button class="preview-toggle web-preview-toggle is-active" type="button" data-view="desktop">Desktop</button>
+              <button class="preview-toggle web-preview-toggle" type="button" data-view="mobile">Mobile</button>
             </div>
 
-            <div class="web-preview-stage is-desktop" id="previewStage">
+            <div class="preview-stage is-desktop" id="webPreviewStage">
               <div class="browser-frame preview-frame preview-frame--desktop">
                 <div class="browser-frame__top">
                   <span></span>
                   <span></span>
                   <span></span>
-                  <p id="desktopUrlText">https://friendsandfam.net/</p>
+                  <p id="webDesktopUrlText">https://friendsandfam.net/</p>
                 </div>
                 <div class="desktop-preview-scale">
-                  <iframe id="desktopPreview" src="https://friendsandfam.net/" title="Desktop website preview" loading="lazy"></iframe>
+                  <iframe id="webDesktopPreview" src="https://friendsandfam.net/" title="Website desktop preview" loading="lazy"></iframe>
                 </div>
               </div>
 
               <div class="phone-frame preview-frame preview-frame--mobile">
                 <div class="phone-frame__speaker"></div>
-                <iframe id="mobilePreview" src="https://friendsandfam.net/" title="Mobile website preview" loading="lazy"></iframe>
+                <iframe id="webMobilePreview" src="https://friendsandfam.net/" title="Website mobile preview" loading="lazy"></iframe>
               </div>
             </div>
 
-            <p class="web-preview-note">
+            <p class="preview-note">
               Some websites may block embedded previews. Use the full website button for the complete live experience.
             </p>
           </div>
@@ -306,22 +351,20 @@
       </div>
     </section>
 
-    <!-- Slide 5: About -->
+    <!-- About -->
     <section id="about" class="section section--about" data-section>
       <div class="section__inner section__inner--about">
-        <div class="about-media">
-          <div class="about-media__orb">
-            <span>43</span>
-            <strong>DOU</strong>
-          </div>
+        <div class="about-mark">
+          <span>43</span>
+          <strong>DOU</strong>
         </div>
 
         <div class="about-content">
-          <p class="section-kicker">05 / About</p>
+          <p class="section-kicker">04 / About</p>
           <h2 class="section-title">Design systems with cultural memory.</h2>
 
           <p class="about-text">
-            I work across branding, web, campaign design, and creative direction for artists, small businesses, brands, and organizations that need more than a template.
+            I work across branding, web development, campaign design, and creative direction for artists, small businesses, brands, and organizations that need more than a template.
           </p>
 
           <p class="about-text">
@@ -338,10 +381,10 @@
       </div>
     </section>
 
-    <!-- Slide 6: Contact -->
+    <!-- Contact -->
     <section id="contact" class="section section--contact" data-section>
       <div class="section__inner section__inner--contact">
-        <p class="section-kicker">06 / Contact</p>
+        <p class="section-kicker">05 / Contact</p>
         <h2 class="section-title">Let’s build your next system.</h2>
         <p class="section-subtitle">
           Available for branding, web development, digital experiences, and creative direction.

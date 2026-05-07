@@ -116,7 +116,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const firstActiveProject =
     document.querySelector(".web-project-card.is-active") || projectCards[0];
+  // Scale desktop preview so the embedded site keeps a full desktop viewport
+  function scaleDesktopPreview() {
+    const desktopFrame = document.querySelector(".preview-frame--desktop");
+    if (!desktopFrame) return;
 
+    const frameWidth = desktopFrame.clientWidth;
+    const desktopViewportWidth = 1440;
+    const scale = frameWidth / desktopViewportWidth;
+
+    desktopFrame.style.setProperty("--desktop-preview-scale", scale);
+  }
+
+  scaleDesktopPreview();
+
+  window.addEventListener("resize", scaleDesktopPreview);
   updatePreview(firstActiveProject);
   updatePreviewMode("desktop");
 });

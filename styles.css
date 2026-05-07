@@ -186,19 +186,22 @@ a {
 .site-nav__link {
   position: relative;
   display: grid;
-  gap: 4px;
-  place-items: center;
-  min-height: 62px;
-  padding: 9px 7px;
-  border-radius: 999px;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  align-items: center;
+  justify-items: center;
+  min-height: 76px;
+  padding: 10px 8px;
+  border-radius: 28px;
   color: var(--muted-2);
   border: 1px solid transparent;
   font-size: 0.58rem;
   font-weight: 950;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
+  text-align: center;
+  writing-mode: horizontal-tb;
+  line-height: 1;
   transition:
     color 0.2s ease,
     background 0.2s ease,
@@ -207,7 +210,14 @@ a {
 }
 
 .site-nav__link span {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
   color: var(--acid);
+  background: rgba(182, 254, 3, 0.08);
+  border: 1px solid rgba(182, 254, 3, 0.22);
   font-size: 0.56rem;
   letter-spacing: 0;
 }
@@ -227,6 +237,8 @@ a {
 
 .site-nav__link--active span {
   color: #050505;
+  background: rgba(5, 5, 5, 0.12);
+  border-color: rgba(5, 5, 5, 0.18);
 }
 
 /* Hero */
@@ -838,41 +850,46 @@ a {
   }
 
   .site-header {
-    inset: auto 12px 12px;
-    width: auto;
-    height: auto;
-    padding: 8px;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    flex-direction: row;
-    align-items: center;
-  }
+  inset: auto 10px 10px;
+  width: calc(100% - 20px);
+  height: auto;
+  padding: 7px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  flex-direction: row;
+  align-items: center;
+}
 
   .site-logo {
     display: none;
   }
 
-  .site-nav {
-    display: flex;
-    gap: 5px;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
+ .site-nav {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+  overflow: visible;
+  scrollbar-width: none;
+}
 
   .site-nav::-webkit-scrollbar {
     display: none;
   }
 
-  .site-nav__link {
-    writing-mode: horizontal-tb;
-    min-height: 42px;
-    white-space: nowrap;
-    padding: 9px 12px;
-  }
+ .site-nav__link {
+  writing-mode: horizontal-tb;
+  min-height: 42px;
+  white-space: nowrap;
+  padding: 9px 6px;
+  border-radius: 999px;
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+}
 
-  .site-nav__link span {
-    display: none;
-  }
+ .site-nav__link--active {
+  transform: none;
+}
 
   .hero-lower,
   .preview-studio,

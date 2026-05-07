@@ -138,7 +138,42 @@ document.addEventListener("DOMContentLoaded", () => {
       updatePreviewMode(mode);
     });
   });
+  // Preload all project websites in hidden iframes
+  function preloadProjectSites() {
+    if (!projectCards.length) return;
 
+    const preloadWrap = document.createElement("div");
+    preloadWrap.setAttribute("aria-hidden", "true");
+    preloadWrap.style.position = "absolute";
+    preloadWrap.style.width = "1px";
+    preloadWrap.style.height = "1px";
+    preloadWrap.style.overflow = "hidden";
+    preloadWrap.style.opacity = "0";
+    preloadWrap.style.pointerEvents = "none";
+    preloadWrap.style.left = "-9999px";
+    preloadWrap.style.top = "-9999px";
+
+    const loadedUrls = new Set();
+
+    projectCards.forEach((card) => {
+      const url = card.dataset.siteUrl;
+      if (!url || loadedUrls.has(url)) return;
+
+      loadedUrls.add(url);
+
+      const iframe = document.createElement("iframe");
+      iframe.src = url;
+      iframe.title = `Preloaded preview for ${card.dataset.siteTitle || url}`;
+      iframe.loading = "eager";
+      iframe.tabIndex = -1;
+
+      preloadWrap.appendChild(iframe);
+    });
+
+    document.body.appendChild(preloadWrap);
+  }
+
+  preloadProjectSites();
   const firstActiveProject =
     document.querySelector(".web-project-card.is-active") || projectCards[0];
 

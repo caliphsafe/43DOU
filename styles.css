@@ -985,7 +985,12 @@ a:hover {
     min-width: 210px;
   }
 }
-
+.web-mobile-selector {
+  display: none;
+}
+/* Mobile:
+   No tiny embedded preview.
+   Prioritize project, description, and full website link. */
 /* Mobile:
    No tiny embedded preview.
    Prioritize project, description, and full website link. */
@@ -995,14 +1000,44 @@ a:hover {
     flex-direction: column;
   }
 
-  .web-preview-panel {
+  .web-mobile-selector {
     order: 1;
+    display: grid;
+    gap: 7px;
+    margin-bottom: 14px;
+  }
+
+  .web-mobile-selector label {
+    color: var(--punch);
+    font-size: 0.66rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .web-project-select {
+    width: 100%;
+    appearance: none;
+    border: 1px solid rgba(182, 254, 3, 0.34);
+    border-radius: 18px;
+    padding: 15px 42px 15px 15px;
+    color: #fff;
+    background:
+      linear-gradient(45deg, transparent 50%, var(--punch) 50%) right 18px center / 8px 8px no-repeat,
+      linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.05));
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 850;
+  }
+
+  .web-preview-panel {
+    order: 2;
     padding: 14px;
     overflow: hidden;
   }
 
   .web-dev-projects {
-    order: 2;
+    display: none;
   }
 
   .web-preview-header {
@@ -1041,6 +1076,7 @@ a:hover {
     padding: 14px 9px 10px;
     border-radius: 34px;
     margin: 4px auto 0;
+    transform: none !important;
   }
 
   .phone-frame__speaker {

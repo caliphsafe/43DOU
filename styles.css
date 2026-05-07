@@ -1449,3 +1449,82 @@ a:hover {
     transition-duration: 0.001ms !important;
   }
 }
+
+/* =========================================
+   Web Preview Refinements
+   Desktop preview uses full-size virtual viewport
+========================================= */
+
+.preview-frame--desktop {
+  position: relative;
+}
+
+.preview-frame--desktop iframe {
+  width: 1440px;
+  height: 900px;
+  max-width: none;
+  transform: scale(var(--desktop-preview-scale, 0.64));
+  transform-origin: top left;
+}
+
+.browser-frame {
+  overflow: hidden;
+}
+
+.web-preview-stage.is-split .preview-frame--desktop iframe {
+  width: 1440px;
+  height: 900px;
+  transform: scale(var(--desktop-preview-scale, 0.5));
+}
+
+/* Mobile layout prioritizes preview, description, and open-site link */
+@media (max-width: 760px) {
+  .web-dev-studio {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .web-preview-panel {
+    order: 1;
+  }
+
+  .web-dev-projects {
+    order: 2;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .web-dev-projects::-webkit-scrollbar {
+    display: none;
+  }
+
+  .web-project-card {
+    min-width: 210px;
+    padding: 14px;
+    scroll-snap-align: start;
+  }
+
+  .web-project-card__eyebrow {
+    font-size: 0.58rem;
+  }
+
+  .web-project-card__title {
+    font-size: 0.95rem;
+  }
+
+  .web-project-card__text {
+    font-size: 0.78rem;
+  }
+
+  .web-preview-description {
+    margin-bottom: 14px;
+  }
+
+  .phone-frame {
+    margin-top: 4px;
+  }
+}

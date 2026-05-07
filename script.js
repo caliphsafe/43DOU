@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Web Development Preview Studio
   const projectCards = document.querySelectorAll(".web-project-card");
   const previewToggles = document.querySelectorAll(".preview-toggle");
+  const webProjectSelect = document.getElementById("webProjectSelect");
 
   const previewTitle = document.getElementById("previewTitle");
   const previewDescription = document.getElementById("previewDescription");
@@ -126,11 +127,30 @@ document.addEventListener("DOMContentLoaded", () => {
     desktopScale.style.setProperty("--desktop-scale", scale);
   }
 
-  projectCards.forEach((card) => {
-    card.addEventListener("click", () => {
-      updatePreview(card);
-    });
+  pprojectCards.forEach((card) => {
+  card.addEventListener("click", () => {
+    updatePreview(card);
+
+    if (webProjectSelect) {
+      webProjectSelect.value = card.dataset.siteTitle || "";
+    }
   });
+});
+
+if (webProjectSelect) {
+  webProjectSelect.addEventListener("change", () => {
+    const selectedTitle = webProjectSelect.value;
+
+    const matchingCard = Array.from(projectCards).find((card) => {
+      return card.dataset.siteTitle === selectedTitle;
+    });
+
+    if (matchingCard) {
+      updatePreview(matchingCard);
+      updatePreviewMode("mobile");
+    }
+  });
+}
 
   previewToggles.forEach((toggle) => {
     toggle.addEventListener("click", () => {
@@ -177,8 +197,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const firstActiveProject =
     document.querySelector(".web-project-card.is-active") || projectCards[0];
 
-  updatePreview(firstActiveProject);
-  updatePreviewMode("desktop");
+updatePreview(firstActiveProject);
+
+if (webProjectSelect && firstActiveProject) {
+  webProjectSelect.value = firstActiveProject.dataset.siteTitle || "";
+}
+
+updatePreviewMode("desktop");
 
   window.addEventListener("resize", scaleDesktopPreview);
 });

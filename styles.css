@@ -1632,3 +1632,30 @@ a:hover {
   }
 }
 
+.section__inner--hero-single {
+  display: block;
+}
+
+.hero-text--full-card {
+  min-height: calc(100vh - 180px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 54px;
+  border-radius: 38px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.12),
+      rgba(255,255,255,0.04)
+    );
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 40px 120px rgba(0,0,0,0.45);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.hero-text--full-card .hero-subtitle {
+  max-width: 620px;
+}
+

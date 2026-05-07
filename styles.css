@@ -198,7 +198,72 @@ a:hover {
     transform: translate3d(0, 0, 0) scale(1);
   }
 }
+.hero-intro-panel {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 32px;
+  padding: 42px;
+  position: relative;
+  overflow: hidden;
+}
 
+.hero-intro-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top right,
+    rgba(182, 254, 3, 0.16),
+    transparent 42%);
+  pointer-events: none;
+}
+
+.hero-intro-panel__eyebrow {
+  margin: 0 0 14px;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--punch);
+  font-weight: 800;
+}
+
+.hero-intro-panel__title {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  color: var(--deep);
+  max-width: 12ch;
+}
+
+.hero-intro-panel__text {
+  margin: 22px 0 0;
+  max-width: 42ch;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 0.98rem;
+}
+
+.hero-intro-panel__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.hero-intro-panel__meta span {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(1, 3, 103, 0.06);
+  border: 1px solid rgba(1, 3, 103, 0.08);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--deep);
+}
 /* =========================================
    Glass Utility
 ========================================= */

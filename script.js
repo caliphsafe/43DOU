@@ -127,30 +127,30 @@ document.addEventListener("DOMContentLoaded", () => {
     desktopScale.style.setProperty("--desktop-scale", scale);
   }
 
-  pprojectCards.forEach((card) => {
-  card.addEventListener("click", () => {
-    updatePreview(card);
+    projectCards.forEach((card) => {
+    card.addEventListener("click", () => {
+      updatePreview(card);
 
-    if (webProjectSelect) {
-      webProjectSelect.value = card.dataset.siteTitle || "";
-    }
-  });
-});
-
-if (webProjectSelect) {
-  webProjectSelect.addEventListener("change", () => {
-    const selectedTitle = webProjectSelect.value;
-
-    const matchingCard = Array.from(projectCards).find((card) => {
-      return card.dataset.siteTitle === selectedTitle;
+      if (webProjectSelect) {
+        webProjectSelect.value = card.dataset.siteTitle || "";
+      }
     });
-
-    if (matchingCard) {
-      updatePreview(matchingCard);
-      updatePreviewMode("mobile");
-    }
   });
-}
+
+  if (webProjectSelect) {
+    webProjectSelect.addEventListener("change", () => {
+      const selectedTitle = webProjectSelect.value;
+
+      const matchingCard = Array.from(projectCards).find((card) => {
+        return card.dataset.siteTitle === selectedTitle;
+      });
+
+      if (matchingCard) {
+        updatePreview(matchingCard);
+        updatePreviewMode("mobile");
+      }
+    });
+  }
 
   previewToggles.forEach((toggle) => {
     toggle.addEventListener("click", () => {
@@ -197,13 +197,13 @@ if (webProjectSelect) {
   const firstActiveProject =
     document.querySelector(".web-project-card.is-active") || projectCards[0];
 
-updatePreview(firstActiveProject);
+  updatePreview(firstActiveProject);
 
-if (webProjectSelect && firstActiveProject) {
-  webProjectSelect.value = firstActiveProject.dataset.siteTitle || "";
-}
+  if (webProjectSelect && firstActiveProject) {
+    webProjectSelect.value = firstActiveProject.dataset.siteTitle || "";
+  }
 
-updatePreviewMode("desktop");
+  updatePreviewMode("desktop");
 
   window.addEventListener("resize", scaleDesktopPreview);
 });

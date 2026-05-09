@@ -16,7 +16,12 @@
   <link rel="stylesheet" href="dlab_styles.css" />
 </head>
 
-<body class="theme-dlab">
+<body <body class="theme-dlab">
+<script>
+  if (new URLSearchParams(window.location.search).get("embed") === "true") {
+    document.body.classList.add("is-embedded-case");
+  }
+</script>="theme-dlab">
   <header class="site-header">
     <a class="site-logo" href="index.html#branding" aria-label="Back to 43DOU branding">
       <span>DLAB</span>

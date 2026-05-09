@@ -171,14 +171,32 @@ requestAnimationFrame(() => {
       scaleBrandPreview();
     }
 
-    function setBrand(brandKey) {
-      if (!brandProjects[brandKey]) return;
+    function scrollBrandPanelToTop() {
+  const brandPanel =
+    document.querySelector(".brand-preview-panel") ||
+    document.getElementById("branding");
 
-      currentBrand = brandKey;
-      currentSlide = 0;
+  if (!brandPanel) return;
 
-      updateBrandFrame();
-    }
+  const offset = 24;
+  const top =
+    brandPanel.getBoundingClientRect().top + window.scrollY - offset;
+
+  window.scrollTo({
+    top,
+    behavior: "smooth",
+  });
+}
+
+function setBrand(brandKey) {
+  if (!brandProjects[brandKey]) return;
+
+  currentBrand = brandKey;
+  currentSlide = 0;
+
+  updateBrandFrame();
+  scrollBrandPanelToTop();
+}
 
     brandCards.forEach((card) => {
       card.addEventListener("click", () => {

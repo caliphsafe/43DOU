@@ -1112,3 +1112,29 @@ em {
     transition-duration: 0.001ms !important;
   }
 }
+
+/* Embedded case-study mode for homepage iframe */
+body.is-embedded-case .site-header {
+  display: none;
+}
+
+body.is-embedded-case .page {
+  padding-left: 0;
+  padding-bottom: 0;
+}
+
+body.is-embedded-case .section {
+  min-height: 100vh;
+  padding: 42px 28px;
+  scroll-margin-top: 0;
+}
+
+body.is-embedded-case .section--hero {
+  padding-top: 42px;
+}
+
+@media (max-width: 760px) {
+  body.is-embedded-case .section {
+    padding: 32px 16px;
+  }
+}

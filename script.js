@@ -47,55 +47,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const brandDecks = {
+  const brandProjects = {
     laura: {
       title: "Laura Sanchez",
       description:
         "Artist-first identity system centered on expressive typography and a tulip mark, built to communicate growth and authenticity across print, events, and social.",
-      url: "laura-sanchez.html",
+      base: "laura-sanchez.html",
       slides: [
-        {
-          title: "Identity Overview",
-          image: "images/laura-sanchez/ls_hero.png",
-          text: "A personal identity system built around expressive typography and a tulip mark symbolizing beauty, growth, renewal, and artist-first storytelling.",
-          tags: ["Identity", "Artist Brand", "Visual System"],
-        },
-        {
-          title: "Primary Wordmark",
-          image: "images/laura-sanchez/logo-onecolor.png",
-          text: "A one-color wordmark built for strong reproduction across print, digital, stamps, embroidery, and small-scale use.",
-          tags: ["Wordmark", "Logo", "Reproduction"],
-        },
-        {
-          title: "Tulip Logomark",
-          image: "images/laura-sanchez/logo-logomark.png",
-          text: "The U becomes a tulip, creating a symbolic mark for beauty, growth, and renewal.",
-          tags: ["Symbol", "Tulip", "Brand Memory"],
-        },
-        {
-          title: "Stacked Lockup",
-          image: "images/laura-sanchez/logo-stacked.png",
-          text: "A compact logo structure designed for avatars, stamps, vertical layouts, and small placements.",
-          tags: ["Lockup", "Compact", "System"],
-        },
-        {
-          title: "Color Palette",
-          image: "images/laura-sanchez/logo-wordmark.png",
-          text: "Soft black grounds the identity while gold, airy blue, and floral pink bring warmth and personality.",
-          tags: ["Color", "Warmth", "Expression"],
-        },
-        {
-          title: "Book Cover",
-          image: "images/laura-sanchez/app-book-cover.png",
-          text: "A focused publishing application designed to feel timeless, poetic, and unmistakably Laura.",
-          tags: ["Publishing", "Cover", "Application"],
-        },
-        {
-          title: "Social System",
-          image: "images/laura-sanchez/social-01.jpg",
-          text: "A repeatable social presence built around poetic language, bilingual storytelling, and visual restraint.",
-          tags: ["Social", "Storytelling", "Templates"],
-        },
+        { id: "overview", label: "01 / Overview" },
+        { id: "snapshot", label: "02 / Snapshot" },
+        { id: "mark", label: "03 / Logo System" },
+        { id: "type", label: "04 / Typography" },
+        { id: "color", label: "05 / Color System" },
+        { id: "applications", label: "06 / Applications" },
+        { id: "closing", label: "07 / Closing" },
       ],
     },
 
@@ -103,50 +68,17 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Date Like A Brand",
       description:
         "A brand system built around dating, identity, confidence, and storytelling with a clean visual language designed to scale across content and community.",
-      url: "dlab.html",
+      base: "dlab.html",
       slides: [
-        {
-          title: "Brand Foundation",
-          image: "images/dlab/dlab_hero.png",
-          text: "A book-rooted identity system expanded into a complete visual language for digital, print, and real-world applications.",
-          tags: ["Brand System", "Book", "Identity"],
-        },
-        {
-          title: "Book Cover Blueprint",
-          image: "images/dlab/app-book-cover.png",
-          text: "The book cover became the source of truth for visual tone, hierarchy, icon direction, and brand language.",
-          tags: ["Book Cover", "Foundation", "Direction"],
-        },
-        {
-          title: "Primary Icon",
-          image: "images/dlab/logo-icon.png",
-          text: "The heart-in-cart mark acts as the core identity anchor and drives the supporting visual system.",
-          tags: ["Icon", "Heart-In-Cart", "Logo"],
-        },
-        {
-          title: "Logo Lockup",
-          image: "images/dlab/logo-lockup-blue.png",
-          text: "A clean logo lockup built for digital headers, deck covers, campaign graphics, and consistent recognition.",
-          tags: ["Lockup", "Recognition", "System"],
-        },
-        {
-          title: "Icon Story",
-          image: "images/dlab/icons/04-hearts-in-cart.png",
-          text: "The icon system works as a visual story engine, turning the dating framework into repeatable branded moments.",
-          tags: ["Icons", "Storytelling", "Framework"],
-        },
-        {
-          title: "Pattern System",
-          image: "images/dlab/pattern/pattern-wallpaper-primary.png",
-          text: "The heart wallpaper becomes a connective texture across social, print, event, and branded surfaces.",
-          tags: ["Pattern", "Wallpaper", "Applications"],
-        },
-        {
-          title: "Real-World Applications",
-          image: "images/dlab/app-billboard.png",
-          text: "The identity scales into large-format, print, merch, event, and promotional applications.",
-          tags: ["Billboard", "Print", "Brand World"],
-        },
+        { id: "overview", label: "01 / Overview" },
+        { id: "book", label: "02 / Brand Strategy" },
+        { id: "mark", label: "03 / Logo System" },
+        { id: "icons", label: "04 / Icons" },
+        { id: "type", label: "05 / Typography" },
+        { id: "color", label: "06 / Color System" },
+        { id: "pattern", label: "07 / Pattern System" },
+        { id: "applications", label: "08 / Applications" },
+        { id: "closing", label: "09 / Closing" },
       ],
     },
   };
@@ -154,39 +86,23 @@ document.addEventListener("DOMContentLoaded", () => {
   function setupBrandDeckStudio() {
     const brandCards = document.querySelectorAll(".brand-project-card");
     const brandSelect = document.getElementById("brandProjectSelect");
-    const viewToggles = document.querySelectorAll(".brand-view-toggle");
 
     const titleEl = document.getElementById("brandDeckTitle");
     const descriptionEl = document.getElementById("brandDeckDescription");
     const openLink = document.getElementById("brandCaseOpenLink");
-    const shell = document.getElementById("brandDeckShell");
 
-    const slideImage = document.getElementById("brandSlideImage");
-    const slideTitle = document.getElementById("brandSlideTitle");
-    const slideText = document.getElementById("brandSlideText");
-    const slideCount = document.getElementById("brandSlideCount");
-    const slideTags = document.getElementById("brandSlideTags");
+    const frame = document.getElementById("brandCaseFrame");
+    const urlText = document.getElementById("brandFullUrlText");
+    const slideLabel = document.getElementById("brandDeckSlideLabel");
 
     const prevButton = document.getElementById("brandPrevSlide");
     const nextButton = document.getElementById("brandNextSlide");
 
-    const fullIframe = document.getElementById("brandFullPreview");
-    const fullUrlText = document.getElementById("brandFullUrlText");
-
     let currentBrand = "laura";
     let currentSlide = 0;
 
-    function preloadBrandImages() {
-      Object.values(brandDecks).forEach((brand) => {
-        brand.slides.forEach((slide) => {
-          const img = new Image();
-          img.src = slide.image;
-        });
-      });
-    }
-
-    function scaleBrandFullPreview() {
-      const browserFrame = document.querySelector(".brand-full-frame");
+    function scaleBrandPreview() {
+      const browserFrame = document.querySelector(".brand-case-frame");
       const desktopScale = browserFrame?.querySelector(".desktop-preview-scale");
 
       if (!browserFrame || !desktopScale) return;
@@ -199,74 +115,60 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const scaleX = availableWidth / virtualWidth;
       const scaleY = availableHeight / virtualHeight;
+
       const scale = Math.min(scaleX, scaleY);
 
       desktopScale.style.setProperty("--desktop-scale", scale);
     }
 
-    function renderSlide() {
-      const brand = brandDecks[currentBrand];
-      const slide = brand.slides[currentSlide];
+    function updateBrandFrame() {
+      const project = brandProjects[currentBrand];
+      const slide = project.slides[currentSlide];
 
-      if (!brand || !slide) return;
+      if (!project || !slide) return;
 
-      titleEl.textContent = brand.title;
-      descriptionEl.textContent = brand.description;
-      openLink.href = brand.url;
-      openLink.setAttribute("aria-label", `Open ${brand.title} full case study`);
+      const fullUrl = `${project.base}#${slide.id}`;
 
-      slideImage.src = slide.image;
-      slideImage.alt = `${brand.title} ${slide.title}`;
-      slideTitle.textContent = slide.title;
-      slideText.textContent = slide.text;
-      slideCount.textContent = `${String(currentSlide + 1).padStart(2, "0")} / ${String(brand.slides.length).padStart(2, "0")}`;
+      if (titleEl) titleEl.textContent = project.title;
+      if (descriptionEl) descriptionEl.textContent = project.description;
 
-      slideTags.innerHTML = "";
-      slide.tags.forEach((tag) => {
-        const tagEl = document.createElement("span");
-        tagEl.textContent = tag;
-        slideTags.appendChild(tagEl);
-      });
-
-      if (fullIframe) {
-        fullIframe.src = brand.url;
-        fullIframe.title = `${brand.title} full case study preview`;
+      if (openLink) {
+        openLink.href = project.base;
+        openLink.setAttribute(
+          "aria-label",
+          `Open ${project.title} full case study`
+        );
       }
 
-      if (fullUrlText) {
-        fullUrlText.textContent = brand.url;
+      if (frame) {
+        frame.src = fullUrl;
+        frame.title = `${project.title} case study preview`;
       }
+
+      if (urlText) urlText.textContent = fullUrl;
+      if (slideLabel) slideLabel.textContent = slide.label;
 
       if (brandSelect) {
         brandSelect.value = currentBrand;
       }
 
       brandCards.forEach((card) => {
-        card.classList.toggle("is-active", card.dataset.brand === currentBrand);
+        card.classList.toggle(
+          "is-active",
+          card.dataset.brand === currentBrand
+        );
       });
 
-      scaleBrandFullPreview();
+      scaleBrandPreview();
     }
 
     function setBrand(brandKey) {
-      if (!brandDecks[brandKey]) return;
+      if (!brandProjects[brandKey]) return;
 
       currentBrand = brandKey;
       currentSlide = 0;
-      renderSlide();
-    }
 
-    function setBrandView(view) {
-      if (!shell) return;
-
-      shell.classList.remove("is-deck", "is-full");
-      shell.classList.add(view === "full" ? "is-full" : "is-deck");
-
-      viewToggles.forEach((toggle) => {
-        toggle.classList.toggle("is-active", toggle.dataset.brandView === view);
-      });
-
-      scaleBrandFullPreview();
+      updateBrandFrame();
     }
 
     brandCards.forEach((card) => {
@@ -282,28 +184,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     prevButton?.addEventListener("click", () => {
-      const brand = brandDecks[currentBrand];
-      currentSlide = (currentSlide - 1 + brand.slides.length) % brand.slides.length;
-      renderSlide();
+      const slides = brandProjects[currentBrand].slides;
+
+      currentSlide =
+        (currentSlide - 1 + slides.length) % slides.length;
+
+      updateBrandFrame();
     });
 
     nextButton?.addEventListener("click", () => {
-      const brand = brandDecks[currentBrand];
-      currentSlide = (currentSlide + 1) % brand.slides.length;
-      renderSlide();
+      const slides = brandProjects[currentBrand].slides;
+
+      currentSlide =
+        (currentSlide + 1) % slides.length;
+
+      updateBrandFrame();
     });
 
-    viewToggles.forEach((toggle) => {
-      toggle.addEventListener("click", () => {
-        setBrandView(toggle.dataset.brandView || "deck");
-      });
-    });
+    updateBrandFrame();
 
-    preloadBrandImages();
-    renderSlide();
-    setBrandView("deck");
-
-    window.addEventListener("resize", scaleBrandFullPreview);
+    window.addEventListener("resize", scaleBrandPreview);
   }
 
   function setupPreviewStudio(config) {

@@ -439,7 +439,482 @@
             Social:
             <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
             <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="#" target="_blank" rel="noopener no<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>43DOU - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Portfolio of Abdourahmane Doumbouya - branding, web development, digital experiences, and creative direction."
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="site-logo" href="#overview" aria-label="Go to overview">
+      <span>43</span>
+      <strong>DOU</strong>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="#overview" class="site-nav__link" data-nav-target="overview">
+        <span>01</span>
+        Overview
+      </a>
+      <a href="#branding" class="site-nav__link" data-nav-target="branding">
+        <span>02</span>
+        Branding
+      </a>
+      <a href="#web-development" class="site-nav__link" data-nav-target="web-development">
+        <span>03</span>
+        Web
+      </a>
+      <a href="#about" class="site-nav__link" data-nav-target="about">
+        <span>04</span>
+        About
+      </a>
+      <a href="#contact" class="site-nav__link" data-nav-target="contact">
+        <span>05</span>
+        Contact
+      </a>
+    </nav>
+  </header>
+
+  <main class="page">
+
+    <!-- Overview -->
+    <section id="overview" class="section section--hero" data-section>
+      <div class="hero-shell">
+        <p class="section-kicker">01 / Portfolio System</p>
+
+        <h1 class="hero-title">
+          Designer &<br />
+          Brand Architect
+        </h1>
+
+        <div class="hero-lower">
+          <p class="hero-subtitle">
+            I design brand identities, digital experiences, and websites built to scale across culture, product, and the web.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#branding" class="button button--primary">View Branding</a>
+            <a href="#web-development" class="button button--ghost">View Web Work</a>
+          </div>
+        </div>
+
+        <div class="hero-index" aria-label="Creative focus areas">
+          <a href="#branding" class="hero-index__item">
+            <span>Brand Systems</span>
+            <strong>Identity, visual language, logo systems, and creative direction.</strong>
+          </a>
+
+          <a href="#web-development" class="hero-index__item">
+            <span>Live Websites</span>
+            <strong>Interactive websites, storefronts, previews, and user-focused builds.</strong>
+          </a>
+
+          <a href="#contact" class="hero-index__item">
+            <span>Project Ready</span>
+            <strong>Built for artists, founders, local businesses, and culture-driven brands.</strong>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-marquee" aria-hidden="true">
+        <div class="hero-marquee__track">
+          <span>Brand Identity</span>
+          <span>Web Development</span>
+          <span>Creative Direction</span>
+          <span>Digital Systems</span>
+          <span>Visual Language</span>
+          <span>Brand Identity</span>
+          <span>Web Development</span>
+          <span>Creative Direction</span>
+          <span>Digital Systems</span>
+          <span>Visual Language</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Branding -->
+    <section id="branding" class="section section--branding" data-section>
+      <div class="section__inner">
+        <p class="section-kicker">02 / Branding</p>
+        <h2 class="section-title">Brand Deck Studio</h2>
+        <p class="section-subtitle">
+          Explore each identity system like a pitch deck. Move through the key brand slides, then open the full case study when you want the complete page.
+        </p>
+
+        <div class="preview-studio brand-deck-studio">
+          <div class="project-selector">
+            <button
+              class="project-card brand-project-card is-active"
+              type="button"
+              data-brand="laura"
+            >
+              <span class="project-card__eyebrow">Identity System</span>
+              <span class="project-card__title">Laura Sanchez</span>
+            </button>
+
+            <button
+              class="project-card brand-project-card"
+              type="button"
+              data-brand="dlab"
+            >
+              <span class="project-card__eyebrow">Brand Platform</span>
+              <span class="project-card__title">Date Like A Brand</span>
+            </button>
+          </div>
+
+          <div class="mobile-selector brand-mobile-selector">
+            <label for="brandProjectSelect">Choose a brand case study</label>
+            <select id="brandProjectSelect" class="project-select">
+              <option value="laura">Laura Sanchez</option>
+              <option value="dlab">Date Like A Brand</option>
+            </select>
+          </div>
+
+          <div class="preview-panel brand-preview-panel">
+            <div class="preview-panel__header">
+              <div>
+                <p class="preview-panel__kicker">Selected Brand Deck</p>
+                <h3 class="preview-panel__title" id="brandDeckTitle">Laura Sanchez</h3>
+              </div>
+
+              <a
+                class="preview-panel__open"
+                id="brandCaseOpenLink"
+                href="laura-sanchez.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open Full Case Study
+              </a>
+            </div>
+
+            <p class="preview-panel__description" id="brandDeckDescription">
+              Artist-first identity system centered on expressive typography and a tulip mark, built to communicate growth and authenticity across print, events, and social.
+            </p>
+
+            <div class="brand-view-controls" aria-label="Brand case study view controls">
+              <button class="preview-toggle brand-view-toggle is-active" type="button" data-brand-view="deck">
+                Deck Preview
+              </button>
+              <button class="preview-toggle brand-view-toggle" type="button" data-brand-view="full">
+                Full Page
+              </button>
+            </div>
+
+            <div class="brand-deck-shell is-deck" id="brandDeckShell">
+              <div class="brand-deck-stage" id="brandDeckStage">
+                <article class="brand-slide-card">
+                  <div class="brand-slide-card__media">
+                    <img id="brandSlideImage" src="images/laura-sanchez/ls_hero.png" alt="Laura Sanchez brand identity preview" loading="lazy" />
+                  </div>
+
+                  <div class="brand-slide-card__body">
+                    <p class="brand-slide-card__count" id="brandSlideCount">01 / 07</p>
+                    <h4 class="brand-slide-card__title" id="brandSlideTitle">Identity Overview</h4>
+                    <p class="brand-slide-card__text" id="brandSlideText">
+                      A personal identity system built around expressive typography and a tulip mark symbolizing beauty, growth, renewal, and artist-first storytelling.
+                    </p>
+
+                    <div class="brand-slide-card__tags" id="brandSlideTags">
+                      <span>Identity</span>
+                      <span>Logo System</span>
+                      <span>Artist Brand</span>
+                    </div>
+                  </div>
+                </article>
+
+                <div class="brand-deck-actions">
+                  <button class="deck-arrow" type="button" id="brandPrevSlide">Previous</button>
+                  <button class="deck-arrow deck-arrow--primary" type="button" id="brandNextSlide">Next Slide</button>
+                </div>
+              </div>
+
+              <div class="brand-full-stage" id="brandFullStage">
+                <div class="browser-frame brand-full-frame">
+                  <div class="browser-frame__top">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <p id="brandFullUrlText">laura-sanchez.html</p>
+                  </div>
+                  <div class="desktop-preview-scale">
+                    <iframe id="brandFullPreview" src="laura-sanchez.html" title="Full brand case study preview" loading="lazy"></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="preview-note">
+              Deck Preview gives a quick case-study walkthrough. Full Page lets you view the complete case study without leaving the portfolio.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Web Development -->
+    <section id="web-development" class="section section--web-development" data-section>
+      <div class="section__inner">
+        <p class="section-kicker">03 / Web Development</p>
+        <h2 class="section-title">Live Website Preview Studio</h2>
+        <p class="section-subtitle">
+          Selected websites, storefronts, and digital experiences built with a focus on design, usability, and brand presence.
+        </p>
+
+        <div class="preview-studio preview-studio--web">
+          <div class="project-selector">
+            <button
+              class="project-card web-project-card is-active"
+              type="button"
+              data-preview-title="Friends + Fam"
+              data-preview-url="https://friendsandfam.net/"
+              data-preview-description="Custom e-commerce website with a polished storefront experience, product browsing, and brand-forward shopping flow."
+            >
+              <span class="project-card__eyebrow">E-Commerce</span>
+              <span class="project-card__title">Friends + Fam</span>
+            </button>
+
+            <button
+              class="project-card web-project-card"
+              type="button"
+              data-preview-title="Caliphornia OS"
+              data-preview-url="https://caliphornia-os.vercel.app/"
+              data-preview-description="Experimental operating-system-inspired web experience built as an interactive hub for apps, music, and digital storytelling."
+            >
+              <span class="project-card__eyebrow">Interactive OS</span>
+              <span class="project-card__title">Caliphornia OS</span>
+            </button>
+
+            <button
+              class="project-card web-project-card"
+              type="button"
+              data-preview-title="Elore"
+              data-preview-url="https://elore-atelier.vercel.app/"
+              data-preview-description="Luxury fashion website with elevated product presentation, editorial brand direction, and a refined shopping experience."
+            >
+              <span class="project-card__eyebrow">Luxury Fashion</span>
+              <span class="project-card__title">Elore</span>
+            </button>
+
+            <button
+              class="project-card web-project-card"
+              type="button"
+              data-preview-title="DR Shine & Detailing"
+              data-preview-url="https://dr-detailing.vercel.app/#top"
+              data-preview-description="Car detailing website with service packages, booking-focused structure, payment-ready flow, and premium automotive styling."
+            >
+              <span class="web-project-card__eyebrow">Service Website</span>
+              <span class="project-card__title">DR Shine & Detailing</span>
+            </button>
+
+            <button
+              class="project-card web-project-card"
+              type="button"
+              data-preview-title="Longevity Co."
+              data-preview-url="https://longevityco.vercel.app/"
+              data-preview-description="Minimal fashion brand website built around dark visuals, product energy, editorial motion, and brand storytelling."
+            >
+              <span class="project-card__eyebrow">Fashion Brand</span>
+              <span class="project-card__title">Longevity Co.</span>
+            </button>
+
+            <button
+              class="project-card web-project-card"
+              type="button"
+              data-preview-title="Beyond The Lense"
+              data-preview-url="http://beyond-thelens.com/"
+              data-preview-description="Photography portfolio website with immersive imagery, full-screen visual presentation, and artist-focused storytelling."
+            >
+              <span class="project-card__eyebrow">Photography</span>
+              <span class="project-card__title">Beyond The Lense</span>
+            </button>
+
+            <button
+              class="project-card web-project-card"
+              type="button"
+              data-preview-title="Deep Finds"
+              data-preview-url="https://deepfinds.vercel.app/"
+              data-preview-description="Thrift and product discovery website concept with shop structure, special product moments, and an elevated resale experience."
+            >
+              <span class="project-card__eyebrow">Retail Concept</span>
+              <span class="project-card__title">Deep Finds</span>
+            </button>
+          </div>
+
+          <div class="mobile-selector web-mobile-selector">
+            <label for="webProjectSelect">Choose a website</label>
+            <select id="webProjectSelect" class="project-select">
+              <option value="Friends + Fam">Friends + Fam</option>
+              <option value="Caliphornia OS">Caliphornia OS</option>
+              <option value="Elore">Elore</option>
+              <option value="DR Shine & Detailing">DR Shine & Detailing</option>
+              <option value="Longevity Co.">Longevity Co.</option>
+              <option value="Beyond The Lense">Beyond The Lense</option>
+              <option value="Deep Finds">Deep Finds</option>
+            </select>
+          </div>
+
+          <div class="preview-panel">
+            <div class="preview-panel__header">
+              <div>
+                <p class="preview-panel__kicker">Selected Website</p>
+                <h3 class="preview-panel__title" id="webPreviewTitle">Friends + Fam</h3>
+              </div>
+
+              <a
+                class="preview-panel__open"
+                id="webPreviewOpenLink"
+                href="https://friendsandfam.net/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open Full Website
+              </a>
+            </div>
+
+            <p class="preview-panel__description" id="webPreviewDescription">
+              Custom e-commerce website with a polished storefront experience, product browsing, and brand-forward shopping flow.
+            </p>
+
+            <div class="preview-controls" aria-label="Website preview display controls">
+              <button class="preview-toggle web-preview-toggle is-active" type="button" data-view="desktop">Desktop</button>
+              <button class="preview-toggle web-preview-toggle" type="button" data-view="mobile">Mobile</button>
+            </div>
+
+            <div class="preview-stage is-desktop" id="webPreviewStage">
+              <div class="browser-frame preview-frame preview-frame--desktop">
+                <div class="browser-frame__top">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <p id="webDesktopUrlText">https://friendsandfam.net/</p>
+                </div>
+                <div class="desktop-preview-scale">
+                  <iframe id="webDesktopPreview" src="https://friendsandfam.net/" title="Website desktop preview" loading="lazy"></iframe>
+                </div>
+              </div>
+
+              <div class="phone-frame preview-frame preview-frame--mobile">
+                <div class="phone-frame__speaker"></div>
+                <iframe id="webMobilePreview" src="https://friendsandfam.net/" title="Website mobile preview" loading="lazy"></iframe>
+              </div>
+            </div>
+
+            <p class="preview-note">
+              Some websites may block embedded previews. Use the full website button for the complete live experience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section section--about" data-section>
+      <div class="section__inner section__inner--about">
+        <div class="about-mark">
+          <span>43</span>
+          <strong>DOU</strong>
+        </div>
+
+        <div class="about-content">
+          <p class="section-kicker">04 / About</p>
+          <h2 class="section-title">Design systems with cultural memory.</h2>
+
+          <p class="about-text">
+            I work across branding, web development, campaign design, and creative direction for artists, small businesses, brands, and organizations that need more than a template.
+          </p>
+
+          <p class="about-text">
+            My focus is building visual systems that feel intentional, functional, and ready to scale across print, digital, product, and live experiences.
+          </p>
+
+          <ul class="about-highlights">
+            <li>Brand Identity & Visual Systems</li>
+            <li>Web Design & Front-End Direction</li>
+            <li>Creative Direction for Digital Experiences</li>
+            <li>Campaign Concepts for Events, Products & Releases</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section section--contact" data-section>
+      <div class="section__inner section__inner--contact">
+        <p class="section-kicker">05 / Contact</p>
+        <h2 class="section-title">Let’s build your next system.</h2>
+        <p class="section-subtitle">
+          Available for branding, web development, digital experiences, and creative direction.
+        </p>
+
+        <form class="contact-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name">Name</label>
+              <input id="name" type="text" name="name" placeholder="Your name" />
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input id="email" type="email" name="email" placeholder="you@example.com" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="project-type">Project Type</label>
+              <select id="project-type" name="project-type">
+                <option value="">Select project type</option>
+                <option value="branding">Branding / Identity</option>
+                <option value="web-development">Web Development</option>
+                <option value="creative-direction">Creative Direction</option>
+                <option value="other">Other / Mixed</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="message">Project Details</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Tell me about what you would like to create."
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="button button--primary">
+            Send Inquiry
+          </button>
+        </form>
+
+        <div class="contact-meta">
+          <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+          <p>
+            Social:
+            <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="#" target="_blank" rel="noopener noreferrer">Behance</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>referrer">Behance</a>
           </p>
         </div>
       </div>

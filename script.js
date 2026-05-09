@@ -216,19 +216,24 @@ document.addEventListener("DOMContentLoaded", () => {
       if (needsNewPage) {
         frame.dataset.brand = currentBrand;
 
-        frame.onload = () => {
-          scaleBrandPreview();
+       frame.onload = () => {
+  scaleBrandPreview();
 
-          setTimeout(() => {
-            scrollIframeToSlide();
-          }, 100);
+  /*
+    Prevent iframe load from pulling parent page downward
+    on initial homepage load.
+  */
 
-          if (scrollParentToControls) {
-            setTimeout(() => {
-              scrollBrandControlsIntoView();
-            }, 120);
-          }
-        };
+  if (scrollParentToControls) {
+    setTimeout(() => {
+      scrollIframeToSlide();
+    }, 100);
+
+    setTimeout(() => {
+      scrollBrandControlsIntoView();
+    }, 120);
+  }
+};
 
         /*
           IMPORTANT:

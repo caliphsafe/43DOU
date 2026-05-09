@@ -100,6 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let currentBrand = "laura";
     let currentSlide = 0;
+    let hasInitializedBrandFrame = false;
 
     function scaleBrandPreview() {
       const browserFrame = document.querySelector(".brand-case-frame");
@@ -121,19 +122,38 @@ document.addEventListener("DOMContentLoaded", () => {
       desktopScale.style.setProperty("--desktop-scale", scale);
     }
 
-    function updateBrandFrame() {
+    function scrollBrandControlsIntoView() {
+      const controls =
+        document.querySelector(".brand-deck-controls") ||
+        document.querySelector(".brand-preview-panel");
+
+      if (!controls) return;
+
+      const offset = 22;
+      const top = controls.getBoundingClientRect().top + window.scrollY - offset;
+
+      window.scrollTo({
+        top,
+        behavior: "smooth",
+      });
+    }
+
+    function updateBrandFrame(options = {}) {
+      const { keepParentScroll = true, scrollToControls = false } = options;
+
       const project = brandProjects[currentBrand];
       const slide = project.slides[currentSlide];
 
       if (!project || !slide) return;
 
       const fullUrl = `${project.base}#${slide.id}`;
+      const previousScrollY = window.scrollY;
 
       if (titleEl) titleEl.textContent = project.title;
       if (descriptionEl) descriptionEl.textContent = project.description;
 
       if (openLink) {
-        openLink.href = project.base;
+        openLink.href = project.base.replace("?embed=true", "");
         openLink.setAttribute(
           "aria-label",
           `Open ${project.title} full case study`
@@ -141,17 +161,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (frame) {
-       const currentScrollY = window.scrollY;
-
-frame.src = fullUrl;
-frame.title = `${project.title} case study preview`;
-
-requestAnimationFrame(() => {
-  window.scrollTo({
-    top: currentScrollY,
-    behavior: "instant",
-  });
-});
+        frame.src = fullUrl;
+        frame.title = `${project.title} case study preview`;
       }
 
       if (urlText) urlText.textContent = fullUrl;
@@ -169,34 +180,41 @@ requestAnimationFrame(() => {
       });
 
       scaleBrandPreview();
+
+      if (keepParentScroll) {
+        requestAnimationFrame(() => {
+          window.scrollTo({
+            top: previousScrollY,
+            behavior: "auto",
+          });
+        });
+
+        setTimeout(() => {
+          window.scrollTo({
+            top: previousScrollY,
+            behavior: "auto",
+          });
+        }, 80);
+      }
+
+      if (scrollToControls) {
+        setTimeout(() => {
+          scrollBrandControlsIntoView();
+        }, 120);
+      }
     }
 
-    function scrollBrandPanelToTop() {
-  const brandPanel =
-    document.querySelector(".brand-preview-panel") ||
-    document.getElementById("branding");
+    function setBrand(brandKey) {
+      if (!brandProjects[brandKey]) return;
 
-  if (!brandPanel) return;
+      currentBrand = brandKey;
+      currentSlide = 0;
 
-  const offset = 24;
-  const top =
-    brandPanel.getBoundingClientRect().top + window.scrollY - offset;
-
-  window.scrollTo({
-    top,
-    behavior: "smooth",
-  });
-}
-
-function setBrand(brandKey) {
-  if (!brandProjects[brandKey]) return;
-
-  currentBrand = brandKey;
-  currentSlide = 0;
-
-  updateBrandFrame();
-  scrollBrandPanelToTop();
-}
+      updateBrandFrame({
+        keepParentScroll: false,
+        scrollToControls: true,
+      });
+    }
 
     brandCards.forEach((card) => {
       card.addEventListener("click", () => {
@@ -216,7 +234,10 @@ function setBrand(brandKey) {
       currentSlide =
         (currentSlide - 1 + slides.length) % slides.length;
 
-      updateBrandFrame();
+      updateBrandFrame({
+        keepParentScroll: false,
+        scrollToControls: true,
+      });
     });
 
     nextButton?.addEventListener("click", () => {
@@ -225,10 +246,20 @@ function setBrand(brandKey) {
       currentSlide =
         (currentSlide + 1) % slides.length;
 
-      updateBrandFrame();
+      updateBrandFrame({
+        keepParentScroll: false,
+        scrollToControls: true,
+      });
     });
 
-    updateBrandFrame();
+    if (!hasInitializedBrandFrame) {
+      hasInitializedBrandFrame = true;
+
+      updateBrandFrame({
+        keepParentScroll: true,
+        scrollToControls: false,
+      });
+    }
 
     window.addEventListener("resize", scaleBrandPreview);
   }

@@ -747,10 +747,27 @@ a {
 
 .brand-case-frame {
   width: 100%;
-  height: 720px;
-  scroll-margin-top: 90px;
+  height: 760px;
+  overflow: hidden;
+  border-radius: 26px;
+  background: #050505;
+  border: 1px solid var(--line);
 }
 
+.brand-case-frame .desktop-preview-scale {
+  width: 1440px;
+  height: 1000px;
+  transform: scale(var(--desktop-scale, 0.6));
+  transform-origin: top left;
+}
+
+.brand-case-frame iframe {
+  width: 1440px;
+  height: 1000px;
+  border: 0;
+  display: block;
+  background: #fff;
+}
 @media (max-width: 760px) {
   .brand-deck-controls {
   position: sticky;
@@ -1167,22 +1184,20 @@ a {
   }
 
   .brand-case-frame {
-    width: 100%;
-    height: 520px;
-    overflow: hidden;
+    height: 620px;
     border-radius: 20px;
   }
 
   .brand-case-frame .desktop-preview-scale {
     width: 390px;
-    height: 844px;
+    height: 900px;
     transform: scale(var(--brand-mobile-scale, 0.72));
     transform-origin: top left;
   }
 
   .brand-case-frame iframe {
     width: 390px;
-    height: 844px;
+    height: 900px;
   }
 }
 

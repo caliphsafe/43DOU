@@ -19,7 +19,12 @@
   <link rel="stylesheet" href="ls_styles.css" />
 </head>
 
-<body class="theme-laura-sanchez">
+<body class="<body class="theme-laura-sanchez">
+<script>
+  if (new URLSearchParams(window.location.search).get("embed") === "true") {
+    document.body.classList.add("is-embedded-case");
+  }
+</script>-laura-sanchez">
   <header class="site-header">
     <a class="site-logo" href="index.html#branding" aria-label="Back to 43DOU branding">
       <span>LS</span>

@@ -43,7 +43,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!targetEl) return;
 
       e.preventDefault();
-      targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      targetEl.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     });
   });
 
@@ -100,7 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let currentBrand = "laura";
     let currentSlide = 0;
-    let hasInitializedBrandFrame = false;
 
     function scaleBrandPreview() {
       const browserFrame = document.querySelector(".brand-case-frame");
@@ -114,10 +117,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const virtualWidth = 1440;
       const virtualHeight = 900;
 
-      const scaleX = availableWidth / virtualWidth;
-      const scaleY = availableHeight / virtualHeight;
-
-      const scale = Math.min(scaleX, scaleY);
+      const scale = Math.min(
+        availableWidth / virtualWidth,
+        availableHeight / virtualHeight
+      );
 
       desktopScale.style.setProperty("--desktop-scale", scale);
     }
@@ -129,8 +132,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!controls) return;
 
-      const offset = 22;
-      const top = controls.getBoundingClientRect().top + window.scrollY - offset;
+      const top =
+        controls.getBoundingClientRect().top +
+        window.scrollY -
+        22;
 
       window.scrollTo({
         top,
@@ -138,35 +143,62 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
+    function scrollIframeToSlide() {
+      const project = brandProjects[currentBrand];
+      const slide = project.slides[currentSlide];
+
+      if (!frame || !frame.contentWindow) return;
+
+      try {
+        const iframeDoc = frame.contentWindow.document;
+        const target = iframeDoc.getElementById(slide.id);
+
+        if (target) {
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      } catch (error) {
+        console.warn("Iframe slide scroll blocked:", error);
+      }
+    }
+
     function updateBrandFrame(options = {}) {
-      const { keepParentScroll = true, scrollToControls = false } = options;
+      const { scrollParentToControls = false } = options;
 
       const project = brandProjects[currentBrand];
       const slide = project.slides[currentSlide];
 
-      if (!project || !slide) return;
+      if (!project || !slide || !frame) return;
 
-      const fullUrl = `${project.base}#${slide.id}`;
-      const previousScrollY = window.scrollY;
+      const iframeBaseUrl = project.base;
+      const displayUrl = `${project.base}#${slide.id}`;
 
-      if (titleEl) titleEl.textContent = project.title;
-      if (descriptionEl) descriptionEl.textContent = project.description;
+      if (titleEl) {
+        titleEl.textContent = project.title;
+      }
+
+      if (descriptionEl) {
+        descriptionEl.textContent = project.description;
+      }
 
       if (openLink) {
         openLink.href = project.base.replace("?embed=true", "");
+
         openLink.setAttribute(
           "aria-label",
           `Open ${project.title} full case study`
         );
       }
 
-      if (frame) {
-        frame.src = fullUrl;
-        frame.title = `${project.title} case study preview`;
+      if (urlText) {
+        urlText.textContent = displayUrl;
       }
 
-      if (urlText) urlText.textContent = fullUrl;
-      if (slideLabel) slideLabel.textContent = slide.label;
+      if (slideLabel) {
+        slideLabel.textContent = slide.label;
+      }
 
       if (brandSelect) {
         brandSelect.value = currentBrand;
@@ -179,28 +211,43 @@ document.addEventListener("DOMContentLoaded", () => {
         );
       });
 
-      scaleBrandPreview();
+      const needsNewPage = frame.dataset.brand !== currentBrand;
 
-      if (keepParentScroll) {
-        requestAnimationFrame(() => {
-          window.scrollTo({
-            top: previousScrollY,
-            behavior: "auto",
-          });
-        });
+      if (needsNewPage) {
+        frame.dataset.brand = currentBrand;
 
-        setTimeout(() => {
-          window.scrollTo({
-            top: previousScrollY,
-            behavior: "auto",
-          });
-        }, 80);
-      }
+        frame.onload = () => {
+          scaleBrandPreview();
 
-      if (scrollToControls) {
-        setTimeout(() => {
-          scrollBrandControlsIntoView();
-        }, 120);
+          setTimeout(() => {
+            scrollIframeToSlide();
+          }, 100);
+
+          if (scrollParentToControls) {
+            setTimeout(() => {
+              scrollBrandControlsIntoView();
+            }, 120);
+          }
+        };
+
+        /*
+          IMPORTANT:
+          No #hash in iframe src.
+          Hashes were causing parent-page jumping.
+        */
+
+        frame.src = iframeBaseUrl;
+        frame.title = `${project.title} case study preview`;
+      } else {
+        scrollIframeToSlide();
+
+        scaleBrandPreview();
+
+        if (scrollParentToControls) {
+          setTimeout(() => {
+            scrollBrandControlsIntoView();
+          }, 80);
+        }
       }
     }
 
@@ -211,8 +258,7 @@ document.addEventListener("DOMContentLoaded", () => {
       currentSlide = 0;
 
       updateBrandFrame({
-        keepParentScroll: false,
-        scrollToControls: true,
+        scrollParentToControls: true,
       });
     }
 
@@ -232,11 +278,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const slides = brandProjects[currentBrand].slides;
 
       currentSlide =
-        (currentSlide - 1 + slides.length) % slides.length;
+        (currentSlide - 1 + slides.length) %
+        slides.length;
 
       updateBrandFrame({
-        keepParentScroll: false,
-        scrollToControls: true,
+        scrollParentToControls: true,
       });
     });
 
@@ -244,22 +290,30 @@ document.addEventListener("DOMContentLoaded", () => {
       const slides = brandProjects[currentBrand].slides;
 
       currentSlide =
-        (currentSlide + 1) % slides.length;
+        (currentSlide + 1) %
+        slides.length;
 
       updateBrandFrame({
-        keepParentScroll: false,
-        scrollToControls: true,
+        scrollParentToControls: true,
       });
     });
 
-    if (!hasInitializedBrandFrame) {
-      hasInitializedBrandFrame = true;
+    updateBrandFrame({
+      scrollParentToControls: false,
+    });
 
-      updateBrandFrame({
-        keepParentScroll: true,
-        scrollToControls: false,
-      });
-    }
+    /*
+      Force page to remain at top on initial load.
+    */
+
+    requestAnimationFrame(() => {
+      if (!window.location.hash) {
+        window.scrollTo({
+          top: 0,
+          behavior: "auto",
+        });
+      }
+    });
 
     window.addEventListener("resize", scaleBrandPreview);
   }
@@ -272,14 +326,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const previewTitle = document.getElementById(config.titleId);
     const previewDescription = document.getElementById(config.descriptionId);
     const previewOpenLink = document.getElementById(config.openLinkId);
-    const desktopPreview = document.getElementById(config.desktopIframeId);
-    const mobilePreview = document.getElementById(config.mobileIframeId);
+
+    const desktopPreview = document.getElementById(
+      config.desktopIframeId
+    );
+
+    const mobilePreview = document.getElementById(
+      config.mobileIframeId
+    );
+
     const previewStage = document.getElementById(config.stageId);
-    const desktopUrlText = document.getElementById(config.urlTextId);
+
+    const desktopUrlText = document.getElementById(
+      config.urlTextId
+    );
 
     function scaleDesktopPreview() {
-      const browserFrame = previewStage?.querySelector(".browser-frame");
-      const desktopScale = previewStage?.querySelector(".desktop-preview-scale");
+      const browserFrame =
+        previewStage?.querySelector(".browser-frame");
+
+      const desktopScale =
+        previewStage?.querySelector(".desktop-preview-scale");
 
       if (!browserFrame || !desktopScale) return;
 
@@ -289,35 +356,56 @@ document.addEventListener("DOMContentLoaded", () => {
       const virtualWidth = 1440;
       const virtualHeight = 900;
 
-      const scaleX = availableWidth / virtualWidth;
-      const scaleY = availableHeight / virtualHeight;
+      const scale = Math.min(
+        availableWidth / virtualWidth,
+        availableHeight / virtualHeight
+      );
 
-      const scale = Math.min(scaleX, scaleY);
-
-      desktopScale.style.setProperty("--desktop-scale", scale);
+      desktopScale.style.setProperty(
+        "--desktop-scale",
+        scale
+      );
     }
 
     function updatePreview(card) {
       if (!card) return;
 
-      const title = card.dataset.previewTitle || "Preview";
-      const url = card.dataset.previewUrl || "#";
+      const title =
+        card.dataset.previewTitle || "Preview";
+
+      const url =
+        card.dataset.previewUrl || "#";
+
       const description =
         card.dataset.previewDescription ||
         "Selected project preview and overview.";
 
-      projectCards.forEach((item) => item.classList.remove("is-active"));
+      projectCards.forEach((item) => {
+        item.classList.remove("is-active");
+      });
+
       card.classList.add("is-active");
 
-      if (previewTitle) previewTitle.textContent = title;
-      if (previewDescription) previewDescription.textContent = description;
+      if (previewTitle) {
+        previewTitle.textContent = title;
+      }
+
+      if (previewDescription) {
+        previewDescription.textContent = description;
+      }
 
       if (previewOpenLink) {
         previewOpenLink.href = url;
-        previewOpenLink.setAttribute("aria-label", `Open ${title}`);
+
+        previewOpenLink.setAttribute(
+          "aria-label",
+          `Open ${title}`
+        );
       }
 
-      if (desktopUrlText) desktopUrlText.textContent = url;
+      if (desktopUrlText) {
+        desktopUrlText.textContent = url;
+      }
 
       if (desktopPreview) {
         desktopPreview.src = url;
@@ -339,11 +427,18 @@ document.addEventListener("DOMContentLoaded", () => {
     function updatePreviewMode(mode) {
       if (!previewStage) return;
 
-      previewStage.classList.remove("is-desktop", "is-mobile");
+      previewStage.classList.remove(
+        "is-desktop",
+        "is-mobile"
+      );
+
       previewStage.classList.add(`is-${mode}`);
 
       previewToggles.forEach((toggle) => {
-        toggle.classList.toggle("is-active", toggle.dataset.view === mode);
+        toggle.classList.toggle(
+          "is-active",
+          toggle.dataset.view === mode
+        );
       });
 
       scaleDesktopPreview();
@@ -357,7 +452,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     previewToggles.forEach((toggle) => {
       toggle.addEventListener("click", () => {
-        const mode = toggle.dataset.view || "desktop";
+        const mode =
+          toggle.dataset.view || "desktop";
+
         updatePreviewMode(mode);
       });
     });
@@ -366,9 +463,14 @@ document.addEventListener("DOMContentLoaded", () => {
       projectSelect.addEventListener("change", () => {
         const selectedTitle = projectSelect.value;
 
-        const matchingCard = Array.from(projectCards).find((card) => {
-          return card.dataset.previewTitle === selectedTitle;
-        });
+        const matchingCard = Array.from(projectCards).find(
+          (card) => {
+            return (
+              card.dataset.previewTitle ===
+              selectedTitle
+            );
+          }
+        );
 
         if (matchingCard) {
           updatePreview(matchingCard);
@@ -378,13 +480,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const firstActiveProject =
-      document.querySelector(`${config.cardSelector}.is-active`) ||
-      projectCards[0];
+      document.querySelector(
+        `${config.cardSelector}.is-active`
+      ) || projectCards[0];
 
     updatePreview(firstActiveProject);
     updatePreviewMode("desktop");
 
-    window.addEventListener("resize", scaleDesktopPreview);
+    window.addEventListener(
+      "resize",
+      scaleDesktopPreview
+    );
   }
 
   setupBrandDeckStudio();

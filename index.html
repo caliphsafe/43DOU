@@ -100,135 +100,91 @@
     </section>
 
     <!-- Branding -->
-    <section id="branding" class="section section--branding" data-section>
-      <div class="section__inner">
-        <p class="section-kicker">02 / Branding</p>
-        <h2 class="section-title">Brand Deck Studio</h2>
-        <p class="section-subtitle">
-          Explore each identity system like a pitch deck. Move through the key brand slides, then open the full case study when you want the complete page.
+<section id="branding" class="section section--branding" data-section>
+  <div class="section__inner">
+    <p class="section-kicker">02 / Branding</p>
+    <h2 class="section-title">Brand Deck Studio</h2>
+    <p class="section-subtitle">
+      Explore each identity system like a pitch deck. Each slide is a real section from the full case study page.
+    </p>
+
+    <div class="preview-studio brand-deck-studio">
+      <div class="project-selector">
+        <button class="project-card brand-project-card is-active" type="button" data-brand="laura">
+          <span class="project-card__eyebrow">Identity System</span>
+          <span class="project-card__title">Laura Sanchez</span>
+        </button>
+
+        <button class="project-card brand-project-card" type="button" data-brand="dlab">
+          <span class="project-card__eyebrow">Brand Platform</span>
+          <span class="project-card__title">Date Like A Brand</span>
+        </button>
+      </div>
+
+      <div class="mobile-selector brand-mobile-selector">
+        <label for="brandProjectSelect">Choose a brand case study</label>
+        <select id="brandProjectSelect" class="project-select">
+          <option value="laura">Laura Sanchez</option>
+          <option value="dlab">Date Like A Brand</option>
+        </select>
+      </div>
+
+      <div class="preview-panel brand-preview-panel">
+        <div class="preview-panel__header">
+          <div>
+            <p class="preview-panel__kicker">Selected Brand Deck</p>
+            <h3 class="preview-panel__title" id="brandDeckTitle">Laura Sanchez</h3>
+          </div>
+
+          <a
+            class="preview-panel__open"
+            id="brandCaseOpenLink"
+            href="laura-sanchez.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open Full Case Study
+          </a>
+        </div>
+
+        <p class="preview-panel__description" id="brandDeckDescription">
+          Artist-first identity system centered on expressive typography and a tulip mark, built to communicate growth and authenticity across print, events, and social.
         </p>
 
-        <div class="preview-studio brand-deck-studio">
-          <div class="project-selector">
-            <button
-              class="project-card brand-project-card is-active"
-              type="button"
-              data-brand="laura"
-            >
-              <span class="project-card__eyebrow">Identity System</span>
-              <span class="project-card__title">Laura Sanchez</span>
-            </button>
+        <div class="brand-deck-controls">
+          <p class="brand-deck-slide-label" id="brandDeckSlideLabel">01 / Overview</p>
 
-            <button
-              class="project-card brand-project-card"
-              type="button"
-              data-brand="dlab"
-            >
-              <span class="project-card__eyebrow">Brand Platform</span>
-              <span class="project-card__title">Date Like A Brand</span>
-            </button>
-          </div>
-
-          <div class="mobile-selector brand-mobile-selector">
-            <label for="brandProjectSelect">Choose a brand case study</label>
-            <select id="brandProjectSelect" class="project-select">
-              <option value="laura">Laura Sanchez</option>
-              <option value="dlab">Date Like A Brand</option>
-            </select>
-          </div>
-
-          <div class="preview-panel brand-preview-panel">
-            <div class="preview-panel__header">
-              <div>
-                <p class="preview-panel__kicker">Selected Brand Deck</p>
-                <h3 class="preview-panel__title" id="brandDeckTitle">Laura Sanchez</h3>
-              </div>
-
-              <a
-                class="preview-panel__open"
-                id="brandCaseOpenLink"
-                href="laura-sanchez.html"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Open Full Case Study
-              </a>
-            </div>
-
-            <p class="preview-panel__description" id="brandDeckDescription">
-              Artist-first identity system centered on expressive typography and a tulip mark, built to communicate growth and authenticity across print, events, and social.
-            </p>
-
-            <div class="brand-view-controls" aria-label="Brand case study view controls">
-              <button class="preview-toggle brand-view-toggle is-active" type="button" data-brand-view="deck">
-                Deck Preview
-              </button>
-              <button class="preview-toggle brand-view-toggle" type="button" data-brand-view="full">
-                Full Page
-              </button>
-            </div>
-
-            <div class="brand-deck-shell is-deck" id="brandDeckShell">
-              <div class="brand-deck-stage" id="brandDeckStage">
-                <article class="brand-slide-card">
-                  <div class="brand-slide-card__media">
-                    <img
-                      id="brandSlideImage"
-                      src="images/laura-sanchez/ls_hero.png"
-                      alt="Laura Sanchez brand identity preview"
-                      loading="lazy"
-                    />
-                  </div>
-
-                  <div class="brand-slide-card__body">
-                    <p class="brand-slide-card__count" id="brandSlideCount">01 / 07</p>
-                    <h4 class="brand-slide-card__title" id="brandSlideTitle">Identity Overview</h4>
-                    <p class="brand-slide-card__text" id="brandSlideText">
-                      A personal identity system built around expressive typography and a tulip mark symbolizing beauty, growth, renewal, and artist-first storytelling.
-                    </p>
-
-                    <div class="brand-slide-card__tags" id="brandSlideTags">
-                      <span>Identity</span>
-                      <span>Logo System</span>
-                      <span>Artist Brand</span>
-                    </div>
-                  </div>
-                </article>
-
-                <div class="brand-deck-actions">
-                  <button class="deck-arrow" type="button" id="brandPrevSlide">Previous</button>
-                  <button class="deck-arrow deck-arrow--primary" type="button" id="brandNextSlide">Next Slide</button>
-                </div>
-              </div>
-
-              <div class="brand-full-stage" id="brandFullStage">
-                <div class="browser-frame brand-full-frame">
-                  <div class="browser-frame__top">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <p id="brandFullUrlText">laura-sanchez.html</p>
-                  </div>
-
-                  <div class="desktop-preview-scale">
-                    <iframe
-                      id="brandFullPreview"
-                      src="laura-sanchez.html"
-                      title="Full brand case study preview"
-                      loading="lazy"
-                    ></iframe>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <p class="preview-note">
-              Deck Preview gives a quick case-study walkthrough. Full Page lets you view the complete case study without leaving the portfolio.
-            </p>
+          <div class="brand-deck-buttons">
+            <button class="deck-arrow" type="button" id="brandPrevSlide">Previous</button>
+            <button class="deck-arrow deck-arrow--primary" type="button" id="brandNextSlide">Next Slide</button>
           </div>
         </div>
+
+        <div class="browser-frame brand-case-frame">
+          <div class="browser-frame__top">
+            <span></span>
+            <span></span>
+            <span></span>
+            <p id="brandFullUrlText">laura-sanchez.html#overview</p>
+          </div>
+
+          <div class="desktop-preview-scale">
+            <iframe
+              id="brandCaseFrame"
+              src="laura-sanchez.html#overview"
+              title="Brand case study preview"
+              loading="eager"
+            ></iframe>
+          </div>
+        </div>
+
+        <p class="preview-note">
+          Navigate through the case study section by section directly inside the live embedded presentation.
+        </p>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <!-- Web Development -->
     <section id="web-development" class="section section--web-development" data-section>

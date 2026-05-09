@@ -466,7 +466,7 @@ a {
 }
 
 .preview-panel {
-  overflow: hidden;
+  overflow: visible;
   padding: 18px;
   border-radius: var(--radius-lg);
   background: var(--surface);
@@ -1152,4 +1152,10 @@ a {
     scroll-behavior: auto !important;
     transition-duration: 0.001ms !important;
   }
+}
+
+.brand-deck-controls {
+  position: sticky !important;
+  top: 12px;
+  z-index: 50;
 }

@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Laura Sanchez",
       description:
         "Artist-first identity system centered on expressive typography and a tulip mark, built to communicate growth and authenticity across print, events, and social.",
-      base: "laura-sanchez.html",
+      base: "laura-sanchez.html?embed=true",
       slides: [
         { id: "overview", label: "01 / Overview" },
         { id: "snapshot", label: "02 / Snapshot" },
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Date Like A Brand",
       description:
         "A brand system built around dating, identity, confidence, and storytelling with a clean visual language designed to scale across content and community.",
-      base: "dlab.html",
+      base: "dlab.html?embed=true",
       slides: [
         { id: "overview", label: "01 / Overview" },
         { id: "book", label: "02 / Brand Strategy" },

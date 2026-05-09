@@ -141,8 +141,17 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (frame) {
-        frame.src = fullUrl;
-        frame.title = `${project.title} case study preview`;
+       const currentScrollY = window.scrollY;
+
+frame.src = fullUrl;
+frame.title = `${project.title} case study preview`;
+
+requestAnimationFrame(() => {
+  window.scrollTo({
+    top: currentScrollY,
+    behavior: "instant",
+  });
+});
       }
 
       if (urlText) urlText.textContent = fullUrl;

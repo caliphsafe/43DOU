@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const availableHeight = browserFrame.clientHeight - 40;
 
       const virtualWidth = 1440;
-      const virtualHeight = 900;
+      const virtualHeight = 1300;
 
       const scale = Math.min(
         availableWidth / virtualWidth,

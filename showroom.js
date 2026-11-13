@@ -5,6 +5,7 @@ const groups=data.groups, exhibits=data.exhibits;
 const byGroup=Object.fromEntries(groups.map(g=>[g.id,exhibits.filter(p=>p.group===g.id)]));
 const byId=Object.fromEntries(exhibits.map(p=>[p.id,p]));
 const selected=Object.fromEntries(groups.map(g=>[g.id,0]));
+let lastSwipeAt=0;
 const $=id=>document.getElementById(id);
 const reduced=matchMedia("(prefers-reduced-motion: reduce)");
 const colors={entrance:"#fb9169",commerce:"#e3aa78",services:"#89a8ae",hospitality:"#f17c59",culture:"#a791d8",decks:"#95b7ec",lab:"#94a8ef",contact:"#fb9169"};
@@ -91,6 +92,7 @@ function makePanel(p,position,gid){
   const shine=document.createElement("span");shine.className="art-glint";shine.setAttribute("aria-hidden","true");
   b.append(screen,foot,shine);
   b.addEventListener("click",()=>{
+    if(Date.now()-lastSwipeAt<450)return;
     const idx=byGroup[gid].findIndex(x=>x.id===p.id);
     if(selected[gid]===idx)openViewer(p.id,b);
     else selectProject(gid,idx,true);
@@ -128,7 +130,10 @@ function selectProject(gid,index,fromUser=false){
     const active=b.dataset.projectId===p.id;
     b.classList.toggle("is-active",active);b.setAttribute("aria-pressed",String(active));
   });
-  if(fromUser)rail.querySelector(".rail-button.is-active")?.scrollIntoView({behavior:motion(),block:"nearest",inline:"nearest"});
+  if(fromUser){
+    const active=rail.querySelector(".rail-button.is-active");
+    if(active)rail.scrollTo({left:Math.max(0,active.offsetLeft-rail.offsetLeft-(rail.clientWidth-active.offsetWidth)/2),behavior:motion()});
+  }
 }
 for(const g of groups){
   const room=$("room-"+g.id);
@@ -148,7 +153,10 @@ for(const g of groups){
     if(x===null||y===null)return;
     const dx=e.changedTouches[0].clientX-x,dy=e.changedTouches[0].clientY-y;
     x=null;y=null;
-    if(Math.abs(dx)>55&&Math.abs(dx)>1.5*Math.abs(dy))selectProject(g.id,selected[g.id]+(dx<0?1:-1),true);
+    if(Math.abs(dx)>55&&Math.abs(dx)>1.5*Math.abs(dy)){
+      lastSwipeAt=Date.now();
+      selectProject(g.id,selected[g.id]+(dx<0?1:-1),true);
+    }
   },{passive:true});
   selectProject(g.id,0);
 }
@@ -280,7 +288,8 @@ addEventListener("visibilitychange",()=>window.EXHIBITION_WORLD.pause(document.h
 scheduleSpace();
 if(location.hash){
   requestAnimationFrame(()=>{
-    const target=document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    let id="";try{id=decodeURIComponent(location.hash.slice(1))}catch{id=location.hash.slice(1)}
+    const target=document.getElementById(id);
     if(target)target.scrollIntoView({behavior:"auto",block:"start"});
   });
 }

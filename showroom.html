@@ -1,123 +1,105 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0d1116">
-<meta name="description" content="43DOU Showroom: an immersive exhibition of websites, digital experiences, and interactive presentations. Explore real projects in desktop and mobile browsers.">
-<title>43DOU — The Showroom / Interactive Portfolio</title>
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="stylesheet" href="showroom.css">
-<script src="showroom.js" type="module"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b0e12">
+  <meta name="description" content="43DOU — an immersive exhibition of websites, online stores, visual identity systems, pitch decks and Caliphornia OS. The work is the exhibit.">
+  <title>43DOU / THE SHOWROOM — Work, in full dimension.</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="showroom.css">
+  <script defer src="showroom-data.js"></script>
+  <script defer type="module" src="showroom.js"></script>
 </head>
 <body>
-<a class="skip-link" href="#intro">Skip to content</a>
-<header class="header" id="top">
-<a class="brand" href="#intro" aria-label="43DOU home"><span class="brand-43">43</span>DOU<span class="brand-dot">.</span></a>
-<nav class="header-nav" aria-label="Main menu">
-<a href="#featured">The exhibition</a><a href="#directory">All work</a><a href="#decks">Pitch decks</a>
-</nav>
-<a class="header-contact" href="#contact">Start a project <span aria-hidden="true">↗</span></a>
+<a class="skip" href="#room-commerce">Skip to the exhibition</a>
+<div id="world" class="world" aria-hidden="true">
+  <canvas id="worldCanvas"></canvas>
+  <div class="world-mist"></div>
+  <div class="world-grain"></div>
+</div>
+<header class="header">
+  <a href="#entrance" class="brand" aria-label="43DOU — showroom home"><span>43</span>DOU<i>.</i></a>
+  <nav class="top-nav" aria-label="Exhibition rooms">
+    <a href="#room-commerce">Commerce</a>
+    <a href="#room-services">Business</a>
+    <a href="#room-hospitality">Hospitality</a>
+    <a href="#room-culture">Creative</a>
+    <a href="#room-decks">Decks</a>
+    <a href="#room-lab">The Lab</a>
+  </nav>
+  <button id="openIndex" type="button" class="index-button">Project index <span aria-hidden="true">↗</span></button>
 </header>
-<div class="scene-viewport" id="sceneViewport" aria-hidden="true">
-<canvas id="showroomCanvas"></canvas>
-<div class="scene-fallback" id="sceneFallback">
-<div class="fallback-panel fallback-panel--nimba"><span>01</span><strong>NIMBA</strong><small>COMMERCE / CULTURE</small></div>
-<div class="fallback-panel fallback-panel--rail"><span>02</span><strong>OVER<br>THE RAIL</strong><small>FASHION / RETAIL</small></div>
-<div class="fallback-panel fallback-panel--friends"><span>03</span><strong>FRIENDS<br>+ FAM</strong><small>STOREFRONT / BRAND</small></div>
-</div>
-<div class="scene-grain"></div>
-</div>
 <main>
-<section id="intro" class="scene-section intro" data-scene="intro" aria-labelledby="mainTitle">
-<div class="intro-copy">
-<p class="micro"><span class="signal"></span> 43DOU / DIGITAL DESIGN & DEVELOPMENT</p>
-<h1 id="mainTitle">THE<br>WORK <em>IS</em><br>THE WORLD<span class="period">.</span></h1>
-<p class="intro-lead">An interactive exhibition of the websites, storefronts and digital experiences we bring to life.</p>
-<div class="intro-actions"><a href="#featured" class="pill pill-fill">Enter the showroom <span aria-hidden="true">↓</span></a><a href="#directory" class="pill pill-line">Browse all work <span aria-hidden="true">↗</span></a></div>
-</div>
-<div class="intro-counter"><span>SELECTED WORK / 2026</span><span>SCROLL TO EXPLORE <span aria-hidden="true">↓</span></span></div>
-<div class="scene-badge" aria-hidden="true">01 — 03<br>FEATURED</div>
-</section>
-<div id="featured">
-<section id="project-nimba" class="scene-section project-chapter" data-scene="nimba" aria-labelledby="nimbaTitle">
-<div class="chapter-content">
-<p class="chapter-kicker"><span class="chapter-number">01 / 03</span> E-COMMERCE & CULTURE</p>
-<h2 id="nimbaTitle">NIMBA<span class="period">.</span></h2>
-<p class="chapter-line">An identity you can experience.</p>
-<p class="chapter-copy">A product-led storefront for African-inspired design and carved objects. The experience makes the product, its presence and the story behind it the centerpiece.</p>
-<div class="chapter-tags"><span>Art direction</span><span>Commerce</span><span>Mobile experience</span></div>
-<div class="chapter-actions"><button type="button" class="pill pill-fill" data-open="nimba">Explore website <span aria-hidden="true">↗</span></button><a href="https://nimba224.shop/" class="pill pill-line" target="_blank" rel="noopener noreferrer">Visit live site <span aria-hidden="true">↗</span></a></div>
-</div>
-<div class="chapter-side-index" aria-hidden="true">STUDIO / PROJECT 001</div>
-</section>
-<section id="project-rail" class="scene-section project-chapter" data-scene="rail" aria-labelledby="railTitle">
-<div class="chapter-content">
-<p class="chapter-kicker"><span class="chapter-number">02 / 03</span> FASHION & RETAIL</p>
-<h2 id="railTitle">OVER THE<br>RAIL<span class="period">.</span></h2>
-<p class="chapter-line">Streetwear deserves a point of view.</p>
-<p class="chapter-copy">A brand-led online retail experience where editorial storytelling and collection discovery work together. Designed to make the label as recognizable as the clothing.</p>
-<div class="chapter-tags"><span>Storefront design</span><span>Brand storytelling</span><span>Responsive UX</span></div>
-<div class="chapter-actions"><button type="button" class="pill pill-fill" data-open="rail">Explore website <span aria-hidden="true">↗</span></button><a href="https://overtherailco.com/" class="pill pill-line" target="_blank" rel="noopener noreferrer">Visit live site <span aria-hidden="true">↗</span></a></div>
-</div>
-<div class="chapter-side-index" aria-hidden="true">STUDIO / PROJECT 002</div>
-</section>
-<section id="project-friends" class="scene-section project-chapter" data-scene="friends" aria-labelledby="friendsTitle">
-<div class="chapter-content">
-<p class="chapter-kicker"><span class="chapter-number">03 / 03</span> ONLINE STORE</p>
-<h2 id="friendsTitle">FRIENDS<br>+ FAM<span class="period">.</span></h2>
-<p class="chapter-line">A storefront with its own personality.</p>
-<p class="chapter-copy">A custom shopping experience built around approachable navigation, distinctive merchandising and a mobile-ready product journey.</p>
-<div class="chapter-tags"><span>Product discovery</span><span>E-commerce</span><span>UI development</span></div>
-<div class="chapter-actions"><button type="button" class="pill pill-fill" data-open="friends">Explore website <span aria-hidden="true">↗</span></button><a href="https://friendsandfam.net/" class="pill pill-line" target="_blank" rel="noopener noreferrer">Visit live site <span aria-hidden="true">↗</span></a></div>
-</div>
-<div class="chapter-side-index" aria-hidden="true">STUDIO / PROJECT 003</div>
-</section>
-</div>
-<section id="directory" class="directory" aria-labelledby="directoryTitle">
-<div class="light-shell">
-<div class="directory-heading"><div><p class="light-kicker">02 / THE FULL COLLECTION</p><h2 id="directoryTitle">MORE THAN<br><em>MEETS THE EYE.</em></h2></div><p>Work isn't just something to describe. Explore the real sites, open the live builds, and see what each project was designed to accomplish.</p></div>
-<div class="directory-toolbar"><p>SELECTED CLIENT WORK</p><a href="index.html#work">View the complete 43DOU project index ↗</a></div>
-<div class="site-grid">
-<a class="site-card site-card--construction" href="https://carlos-vinyl-siding.vercel.app/" target="_blank" rel="noopener noreferrer"><span class="site-card-type">BUSINESS / HOME IMPROVEMENT</span><strong>Carlos Vinyl<br>Siding</strong><span class="site-card-bottom">Project galleries & service inquiries <b>↗</b></span></a>
-<a class="site-card site-card--industry" href="https://newbatthez.com/" target="_blank" rel="noopener noreferrer"><span class="site-card-type">BUSINESS / INDUSTRIAL</span><strong>New Batthez</strong><span class="site-card-bottom">Business identity & service presentation <b>↗</b></span></a>
-<a class="site-card site-card--print" href="https://ma2k.vercel.app/" target="_blank" rel="noopener noreferrer"><span class="site-card-type">PRINT / PRODUCTION</span><strong>MA2K<br>Impression</strong><span class="site-card-bottom">Production capabilities & inquiries <b>↗</b></span></a>
-<a class="site-card site-card--fashion" href="https://elore-atelier.vercel.app/" target="_blank" rel="noopener noreferrer"><span class="site-card-type">FASHION / COMMERCE</span><strong>Elore<br>Atelier</strong><span class="site-card-bottom">Editorial product experience <b>↗</b></span></a>
-<a class="site-card site-card--detail" href="https://dr-detailing.vercel.app/" target="_blank" rel="noopener noreferrer"><span class="site-card-type">SERVICES / AUTOMOTIVE</span><strong>DR Shine<br>& Detailing</strong><span class="site-card-bottom">Packages & service discovery <b>↗</b></span></a>
-<a class="site-card site-card--chef" href="https://chefdomwise.vercel.app/" target="_blank" rel="noopener noreferrer"><span class="site-card-type">CULINARY / PERSONAL BRAND</span><strong>Chef Dom<br>Wise</strong><span class="site-card-bottom">Identity & digital storytelling <b>↗</b></span></a>
-</div>
-<div class="full-index-link"><span>More websites and digital experiences are in the existing portfolio.</span><a class="dark-pill" href="index.html#work">Explore all projects <span aria-hidden="true">↗</span></a></div>
-</div>
-</section>
-<section id="decks" class="decks" aria-labelledby="decksTitle">
-<div class="light-shell">
-<p class="light-kicker">03 / IDEAS, PRESENTED</p><div class="directory-heading deck-heading"><h2 id="decksTitle">NOT JUST<br><em>SLIDES.</em></h2><p>Interactive presentations, pitch decks, and full visual systems. Built to make an idea easy to understand and impossible to overlook.</p></div>
-<div class="deck-grid">
-<a href="https://nbss-nine.vercel.app/" target="_blank" rel="noopener noreferrer" class="deck-card"><span>01 / BUSINESS PROPOSAL</span><strong>NBSS</strong><small>Six-month commerce & marketing proposal</small><b aria-hidden="true">↗</b></a>
-<a href="https://ahadeck.vercel.app/" target="_blank" rel="noopener noreferrer" class="deck-card"><span>02 / WEB PRESENTATION</span><strong>AHA</strong><small>Interactive digital presentation</small><b aria-hidden="true">↗</b></a>
-<a href="laura-sanchez.html" target="_blank" rel="noopener noreferrer" class="deck-card"><span>03 / IDENTITY SYSTEM</span><strong>LAURA<br>SANCHEZ</strong><small>Brand marks, typography, applications</small><b aria-hidden="true">↗</b></a>
-<a href="dlab.html" target="_blank" rel="noopener noreferrer" class="deck-card"><span>04 / BRAND SYSTEM</span><strong>DATE LIKE<br>A BRAND</strong><small>Strategy, icons, pattern and identity</small><b aria-hidden="true">↗</b></a>
-</div>
-</div>
-</section>
-<section id="contact" class="contact-section">
-<div class="contact-wrap"><p class="micro">04 / THE NEXT EXHIBIT</p><h2>GOT SOMETHING<br><em>IN MIND?</em></h2><p>Let's make the next great digital experience together.</p><a href="https://github.com/caliphsafe" target="_blank" rel="noopener noreferrer" class="pill pill-fill">Connect with the studio <span aria-hidden="true">↗</span></a><div class="contact-bottom"><span>43DOU / DIGITAL SHOWROOM</span><a href="#intro">BACK TO THE ENTRANCE ↑</a></div></div>
-</section>
+  <section class="entrance" id="entrance" data-space="entrance" aria-labelledby="entranceTitle">
+    <div class="entrance-copy">
+      <p class="eyebrow"><span class="pulse"></span> 43DOU / THE DIGITAL SHOWROOM / 2026</p>
+      <h1 id="entranceTitle">THE WORK<br>IS THE <em>EXHIBIT.</em></h1>
+      <p>Twenty real projects. Six spaces. An exhibition built from the websites, brands and ideas we've brought to life.</p>
+      <div class="entrance-actions">
+        <a href="#room-commerce" class="action action-primary">Enter the exhibition <span aria-hidden="true">↓</span></a>
+        <button id="entranceIndex" type="button" class="action action-secondary">Explore the index <span aria-hidden="true">↗</span></button>
+      </div>
+      <div class="entrance-proof"><span>THE WORK ITSELF IS ON DISPLAY</span><span>LIVE SITES & REAL BRAND ASSETS</span></div>
+    </div>
+    <div class="entrance-art" id="entranceArt" aria-label="Featured website artwork from Nimba, OverTheRailCo, and Elöre Atelier">
+      <div class="entrance-art-placeholder" aria-hidden="true"><span>01</span><strong>THE<br>SHOWROOM</strong></div>
+    </div>
+    <a href="#room-commerce" class="entrance-bottom"><span>01 — 06 / EXPLORE THE ROOMS</span><span>SCROLL TO BEGIN ↓</span></a>
+  </section>
+
+  <div id="rooms" aria-label="Digital exhibition rooms">
+    <noscript><div class="no-script"><p>JavaScript is needed for the 3D exhibition. Browse the original <a href="index.html#work">43DOU portfolio</a> instead.</p></div></noscript>
+  </div>
+
+  <section class="closing" id="contact" data-space="contact" aria-labelledby="contactTitle">
+    <div class="closing-content">
+      <p class="eyebrow">07 / THE NEXT EXHIBIT</p>
+      <h2 id="contactTitle">YOUR PROJECT<br>GOES <em>HERE.</em></h2>
+      <p>We design and build websites, online stores, identities, and presentations with a point of view. Let's make something worth showing.</p>
+      <a class="action action-primary" href="https://github.com/caliphsafe" target="_blank" rel="noopener noreferrer">Connect with the studio <span aria-hidden="true">↗</span></a>
+      <div class="closing-footer"><span>43DOU / INDEPENDENT DIGITAL DESIGN & DEVELOPMENT</span><a href="#entrance">BACK TO THE ENTRANCE ↑</a></div>
+    </div>
+  </section>
 </main>
-<aside class="scene-pagination" id="scenePagination" aria-label="Featured project navigation"><a href="#project-nimba" aria-label="Nimba project" data-indicator="nimba"><span></span><small>01</small></a><a href="#project-rail" aria-label="OverTheRailCo project" data-indicator="rail"><span></span><small>02</small></a><a href="#project-friends" aria-label="Friends + Fam project" data-indicator="friends"><span></span><small>03</small></a></aside>
-<div class="viewer" id="projectViewer" hidden role="dialog" aria-modal="true" aria-labelledby="viewerTitle">
-<div class="viewer-backdrop" data-close></div>
-<div class="viewer-shell">
-<div class="viewer-header"><div><p class="viewer-eyebrow" id="viewerCategory">PROJECT / LIVE WEBSITE</p><h2 id="viewerTitle">Nimba</h2></div><button class="viewer-close" type="button" data-close aria-label="Close project browser">Close <span aria-hidden="true">×</span></button></div>
-<div class="viewer-intro"><p id="viewerDescription"></p><a id="viewerExternal" href="https://nimba224.shop/" target="_blank" rel="noopener noreferrer">OPEN FULL WEBSITE ↗</a></div>
-<div class="viewer-controls"><span>INTERACTIVE WEBSITE PREVIEW</span><div class="device-toggle" role="group" aria-label="Preview device"><button type="button" id="viewDesktop" class="is-selected" aria-pressed="true">Desktop</button><button type="button" id="viewMobile" aria-pressed="false">Mobile</button></div></div>
-<div class="viewer-stage" id="viewerStage">
-<div class="viewer-desktop"><div class="viewer-browserbar"><span class="browser-dots"><i></i><i></i><i></i></span><span id="viewerAddress">nimba224.shop</span><a id="viewerExternalIcon" href="https://nimba224.shop/" target="_blank" rel="noopener noreferrer" aria-label="Open full website in new tab">↗</a></div><div class="viewer-desktop-body"><iframe id="viewerDesktopIframe" loading="lazy" title="Desktop website preview"></iframe></div></div>
-<div class="viewer-phone"><span class="viewer-notch" aria-hidden="true"></span><iframe id="viewerMobileIframe" loading="lazy" title="Mobile website preview"></iframe></div>
-</div>
-<p class="viewer-note">Some websites restrict embedded previews. If this window stays blank or asks for authentication, open the full website using the link above.</p>
-<div class="viewer-detail"><span>BEHIND THE BUILD</span><p id="viewerDetails"></p></div>
-</div>
-</div>
+
+<dialog id="projectIndex" class="index-dialog" aria-labelledby="indexTitle">
+  <div class="index-dialog-header">
+    <div><p class="eyebrow">THE ENTIRE COLLECTION</p><h2 id="indexTitle">PROJECT INDEX<span>.</span></h2></div>
+    <button type="button" id="closeIndex" class="close-button">Close <span aria-hidden="true">×</span></button>
+  </div>
+  <label class="search-label" for="indexSearch">FIND A PROJECT</label>
+  <input id="indexSearch" type="search" placeholder="Search by brand, category or work…" autocomplete="off">
+  <p id="indexCount" class="index-count" aria-live="polite">20 projects</p>
+  <div id="indexResults" class="index-results"></div>
+</dialog>
+
+<dialog id="siteViewer" class="viewer-dialog" aria-labelledby="viewerTitle">
+  <div class="viewer-top">
+    <div class="viewer-title-block"><p id="viewerCategory" class="eyebrow">SELECTED WORK</p><h2 id="viewerTitle">Project</h2></div>
+    <button id="closeViewer" class="close-button" type="button">Close <span aria-hidden="true">×</span></button>
+  </div>
+  <div class="viewer-meta"><p id="viewerSummary"></p><a id="viewerExternal" href="https://example.com/" target="_blank" rel="noopener noreferrer">OPEN ORIGINAL WEBSITE ↗</a></div>
+  <div class="viewer-tools">
+    <span>EXPLORE THE LIVE WORK</span>
+    <div class="devices" role="group" aria-label="Preview viewport">
+      <button type="button" id="desktopToggle" aria-pressed="true" class="is-on">Desktop</button>
+      <button type="button" id="mobileToggle" aria-pressed="false">Mobile</button>
+    </div>
+  </div>
+  <div class="viewer-stage" id="viewerStage">
+    <div class="desktop-browser">
+      <div class="browser-bar"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span id="browserUrl"></span><a id="browserOpen" target="_blank" rel="noopener noreferrer" href="https://example.com/" aria-label="Open the website in a new tab">↗</a></div>
+      <div class="desktop-screen"><iframe id="frameDesktop" title="Interactive desktop website preview" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+    </div>
+    <div class="phone-browser"><span class="phone-notch" aria-hidden="true"></span><iframe id="frameMobile" title="Interactive mobile website preview" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+  </div>
+  <p class="viewer-disclaimer">Previewing depends on the project's embedding and authentication settings. If it doesn't load, open the original website. For decks, use the original presentation to access every slide.</p>
+  <section class="viewer-case" aria-labelledby="viewerCaseTitle">
+    <p class="eyebrow">THE WORK BEHIND THE WORK</p>
+    <h3 id="viewerCaseTitle">Inside the build</h3>
+    <div id="viewerCaseDetails" class="viewer-case-grid"></div>
+  </section>
+</dialog>
 </body>
 </html>

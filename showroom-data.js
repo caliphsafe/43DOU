@@ -1,4 +1,4 @@
-/* 43DOU exhibition directory. Visuals reference artwork from the actual project websites. */
+/* Visual artwork comes from the original sites and project assets. */
 window.SHOWROOM_DATA = {
   "groups": [
     {
@@ -392,9 +392,9 @@ window.SHOWROOM_DATA = {
       "title": "BEYOND THE LENS",
       "group": "culture",
       "url": "https://beyond-thelens.com/",
-      "visual": "",
-      "logo": "",
-      "mode": "contain",
+      "visual": "https://beyond-thelens.com/assets/gallery/1.jpg",
+      "logo": "https://beyond-thelens.com/assets/brand/logo.png",
+      "mode": "cover",
       "palette": [
         "#302c2b",
         "#e1d9d2"
@@ -413,10 +413,10 @@ window.SHOWROOM_DATA = {
     },
     {
       "id": "caliphornia-os",
-      "title": "CALIPHORNIА OS",
+      "title": "CALIPHORNIA OS",
       "group": "lab",
       "url": "https://caliphornia-os.vercel.app/",
-      "visual": "",
+      "visual": "https://caliphornia-os.vercel.app/icons/music.png",
       "logo": "",
       "mode": "contain",
       "palette": [

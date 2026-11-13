@@ -195,3 +195,22 @@ main{position:relative;z-index:2}
 .deck-card strong{font-size:30px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+
+
+/* Small-phone refinement: preserve deck titles, touch targets and clean wrapping. */
+@media(max-width:480px){
+  .deck-grid{grid-template-columns:minmax(0,1fr)}
+  .deck-card{min-height:205px;padding:22px}
+  .deck-card strong{font-size:clamp(40px,10vw,55px);max-width:100%;overflow-wrap:break-word}
+  .deck-card small{font-size:12px;max-width:85%}
+  .header-nav{min-width:0}
+  .header-nav a{white-space:nowrap}
+  .viewer-stage.is-mobile .viewer-phone{width:min(360px,100%)}
+}
+@media(max-width:340px){
+  .header{padding-inline:13px}
+  .header-nav{gap:9px}
+  .header-nav a{font-size:9px}
+  .intro h1{font-size:49px}
+  .chapter-actions .pill{width:100%}
+}

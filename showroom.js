@@ -301,6 +301,33 @@ function createShowroom(THREE) {
     particlesGeometry.setAttribute("position",new THREE.BufferAttribute(array,3));
     scene.add(new THREE.Points(particlesGeometry,new THREE.PointsMaterial({color:0xa6b8bd,size:.026,transparent:true,opacity:.55})));
   }
+  // A true dimensional 43DOU sign: one instanced steel block per glyph segment.
+  const glyphs = {
+    "4":["10001","10001","10001","11111","00001","00001","00001"],
+    "3":["11111","00001","00001","01111","00001","00001","11111"],
+    "D":["11110","10001","10001","10001","10001","10001","11110"],
+    "O":["01110","10001","10001","10001","10001","10001","01110"],
+    "U":["10001","10001","10001","10001","10001","10001","01110"]
+  };
+  const lettering = ["4","3","D","O","U"];
+  let voxelCount = 0;
+  lettering.forEach(c => glyphs[c].forEach(row => { for(const digit of row) if(digit==="1") voxelCount++; }));
+  const voxelMat = new THREE.MeshStandardMaterial({color:0xe2e8e4,metalness:.89,roughness:.22,emissive:0x382018,emissiveIntensity:.1});
+  const voxels = new THREE.InstancedMesh(new THREE.BoxGeometry(.192,.192,.24),voxelMat,voxelCount);
+  const glyphTransform = new THREE.Object3D();
+  let instance = 0;
+  lettering.forEach((letter,letterIndex)=>{
+    glyphs[letter].forEach((row,r)=>{
+      [...row].forEach((digit,c)=>{
+        if(digit!=="1")return;
+        glyphTransform.position.set(-3.05 + letterIndex*1.32 + c*.23,5.05-r*.23,-5.2);
+        glyphTransform.updateMatrix();
+        voxels.setMatrixAt(instance++,glyphTransform.matrix);
+      });
+    });
+  });
+  voxels.instanceMatrix.needsUpdate = true;
+  scene.add(voxels);
   const logoCanvas = document.createElement("canvas");
   logoCanvas.width=1024;logoCanvas.height=256;
   const logoCtx=logoCanvas.getContext("2d");

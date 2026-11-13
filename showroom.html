@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b0e12">
+  <meta name="description" content="43DOU — an immersive exhibition of websites, online stores, visual identity systems, pitch decks and Caliphornia OS. The work is the exhibit.">
+  <title>43DOU / THE SHOWROOM — Work, in full dimension.</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="showroom.css">
+  <script defer src="showroom-data.js"></script>
+  <script defer src="showroom.js"></script>
+  <script type="module" src="showroom-world.js"></script>
+</head>
+<body>
+<a class="skip" href="#room-commerce">Skip to the exhibition</a>
+<div id="world" class="world" aria-hidden="true">
+  <canvas id="worldCanvas"></canvas>
+  <div class="world-mist"></div>
+  <div class="world-grain"></div>
+</div>
+<header class="header">
+  <a href="#entrance" class="brand" aria-label="43DOU — showroom home"><span>43</span>DOU<i>.</i></a>
+  <nav class="top-nav" aria-label="Exhibition rooms">
+    <a href="#room-commerce">Commerce</a>
+    <a href="#room-services">Business</a>
+    <a href="#room-hospitality">Hospitality</a>
+    <a href="#room-culture">Creative</a>
+    <a href="#room-decks">Decks</a>
+    <a href="#room-lab">The Lab</a>
+  </nav>
+  <button id="openIndex" type="button" class="index-button">Project index <span aria-hidden="true">↗</span></button>
+</header>
+<main>
+  <section class="entrance" id="entrance" data-space="entrance" aria-labelledby="entranceTitle">
+    <div class="entrance-copy">
+      <p class="eyebrow"><span class="pulse"></span> 43DOU / THE DIGITAL SHOWROOM / 2026</p>
+      <h1 id="entranceTitle">THE WORK<br>IS THE <em>EXHIBIT.</em></h1>
+      <p>Twenty real projects. Six spaces. An exhibition built from the websites, brands and ideas we've brought to life.</p>
+      <div class="entrance-actions">
+        <a href="#room-commerce" class="action action-primary">Enter the exhibition <span aria-hidden="true">↓</span></a>
+        <button id="entranceIndex" type="button" class="action action-secondary">Explore the index <span aria-hidden="true">↗</span></button>
+      </div>
+      <div class="entrance-proof"><span>THE WORK ITSELF IS ON DISPLAY</span><span>LIVE SITES & REAL BRAND ASSETS</span></div>
+    </div>
+    <div class="entrance-art" id="entranceArt" aria-label="Featured website artwork from Nimba, OverTheRailCo, and Elöre Atelier">
+      <div class="entrance-art-placeholder" aria-hidden="true"><span>01</span><strong>THE<br>SHOWROOM</strong></div>
+    </div>
+    <a href="#room-commerce" class="entrance-bottom"><span>01 — 06 / EXPLORE THE ROOMS</span><span>SCROLL TO BEGIN ↓</span></a>
+  </section>
+
+  <div id="rooms" aria-label="Digital exhibition rooms">
+    <noscript><div class="no-script"><p>JavaScript is needed for the 3D exhibition. Browse the conventional <a href="portfolio-2026.html#work">43DOU portfolio</a> instead.</p></div></noscript>
+  </div>
+
+  <section class="closing" id="contact" data-space="contact" aria-labelledby="contactTitle">
+    <div class="closing-content">
+      <p class="eyebrow">07 / THE NEXT EXHIBIT</p>
+      <h2 id="contactTitle">YOUR PROJECT<br>GOES <em>HERE.</em></h2>
+      <p>We design and build websites, online stores, identities, and presentations with a point of view. Let's make something worth showing.</p>
+      <a class="action action-primary" href="https://github.com/caliphsafe" target="_blank" rel="noopener noreferrer">Connect with the studio <span aria-hidden="true">↗</span></a>
+      <div class="closing-footer"><span>43DOU / INDEPENDENT DIGITAL DESIGN & DEVELOPMENT</span><a href="#entrance">BACK TO THE ENTRANCE ↑</a></div>
+    </div>
+  </section>
+</main>
+
+<dialog id="projectIndex" class="index-dialog" aria-labelledby="indexTitle">
+  <div class="index-dialog-header">
+    <div><p class="eyebrow">THE ENTIRE COLLECTION</p><h2 id="indexTitle">PROJECT INDEX<span>.</span></h2></div>
+    <button type="button" id="closeIndex" class="close-button">Close <span aria-hidden="true">×</span></button>
+  </div>
+  <label class="search-label" for="indexSearch">FIND A PROJECT</label>
+  <input id="indexSearch" type="search" placeholder="Search by brand, category or work…" autocomplete="off">
+  <p id="indexCount" class="index-count" aria-live="polite">20 projects</p>
+  <div id="indexResults" class="index-results"></div>
+</dialog>
+
+<dialog id="siteViewer" class="viewer-dialog" aria-labelledby="viewerTitle">
+  <div class="viewer-top">
+    <div class="viewer-title-block"><p id="viewerCategory" class="eyebrow">SELECTED WORK</p><h2 id="viewerTitle">Project</h2></div>
+    <button id="closeViewer" class="close-button" type="button">Close <span aria-hidden="true">×</span></button>
+  </div>
+  <div class="viewer-meta"><p id="viewerSummary"></p><a id="viewerExternal" href="https://example.com/" target="_blank" rel="noopener noreferrer">OPEN ORIGINAL WEBSITE ↗</a></div>
+  <div class="viewer-tools">
+    <span>EXPLORE THE LIVE WORK</span>
+    <div class="devices" role="group" aria-label="Preview viewport">
+      <button type="button" id="desktopToggle" aria-pressed="true" class="is-on">Desktop</button>
+      <button type="button" id="mobileToggle" aria-pressed="false">Mobile</button>
+    </div>
+  </div>
+  <div class="viewer-stage" id="viewerStage">
+    <div class="desktop-browser">
+      <div class="browser-bar"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span id="browserUrl"></span><a id="browserOpen" target="_blank" rel="noopener noreferrer" href="https://example.com/" aria-label="Open the website in a new tab">↗</a></div>
+      <div class="desktop-screen"><iframe id="frameDesktop" title="Interactive desktop website preview" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+    </div>
+    <div class="phone-browser"><span class="phone-notch" aria-hidden="true"></span><iframe id="frameMobile" title="Interactive mobile website preview" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+  </div>
+  <p class="viewer-disclaimer">Previewing depends on the project's embedding and authentication settings. If it doesn't load, open the original website. For decks, use the original presentation to access every slide.</p>
+  <section class="viewer-case" aria-labelledby="viewerCaseTitle">
+    <p class="eyebrow">THE WORK BEHIND THE WORK</p>
+    <h3 id="viewerCaseTitle">Inside the build</h3>
+    <div id="viewerCaseDetails" class="viewer-case-grid"></div>
+  </section>
+</dialog>
+</body>
+</html>
